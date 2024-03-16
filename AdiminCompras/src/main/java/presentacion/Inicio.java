@@ -4,6 +4,7 @@
  */
 package presentacion;
 
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -14,9 +15,9 @@ import javax.swing.JPanel;
 public class Inicio extends javax.swing.JFrame {
 
     private int op = 0;
-    
+
     Informacion info = new Informacion();
-    
+
     /**
      * Creates new form Inicio
      */
@@ -24,7 +25,6 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.GenerarOrden.setSelected(true);
-       
 
     }
 
@@ -77,7 +77,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         ContenidoLayout.setVerticalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 506, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 153));
@@ -319,10 +319,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -376,16 +377,19 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_InformacionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         if (op == 0) {
             this.Menu.setSize(60, 574);
+            this.info.setPreferredSize(new Dimension(800, 510));
             
-            this.op+=1;
-            
+            this.op += 1;
+
         } else {
             this.Menu.setSize(218, 574);
-            
-            this.op-=1;
+            this.info.setPreferredSize(new Dimension(675, 510));
+        
+
+            this.op -= 1;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
