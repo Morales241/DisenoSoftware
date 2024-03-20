@@ -4,8 +4,6 @@
  */
 package GenerarOrden;
 
-import productosA.ProductosAAgotarse;
-
 /**
  *
  * @author tacot
