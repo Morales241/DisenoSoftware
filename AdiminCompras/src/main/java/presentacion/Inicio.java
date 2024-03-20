@@ -5,11 +5,11 @@
 package presentacion;
 
 import informacion.Informacion;
-import informacion.Panelinfo;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import productosA.ProductosAAgotarse;
 
 /**
  *
@@ -20,8 +20,6 @@ public class Inicio extends javax.swing.JFrame {
     private int op = 0;
 
     Informacion info = new Informacion();
-    Panelinfo pinfo = new Panelinfo();
-
     /**
      * Creates new form Inicio
      */
@@ -40,7 +38,6 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ContenidoSecundario = new javax.swing.JPanel();
         Contenido = new javax.swing.JPanel();
         Encabezado = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -69,17 +66,6 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 153));
-
-        javax.swing.GroupLayout ContenidoSecundarioLayout = new javax.swing.GroupLayout(ContenidoSecundario);
-        ContenidoSecundario.setLayout(ContenidoSecundarioLayout);
-        ContenidoSecundarioLayout.setHorizontalGroup(
-            ContenidoSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 149, Short.MAX_VALUE)
-        );
-        ContenidoSecundarioLayout.setVerticalGroup(
-            ContenidoSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 503, Short.MAX_VALUE)
-        );
 
         Contenido.setBackground(new java.awt.Color(204, 255, 255));
         Contenido.setPreferredSize(new java.awt.Dimension(675, 500));
@@ -327,11 +313,6 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addComponent(ContenidoSecundario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(740, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,11 +324,6 @@ public class Inicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(58, 58, 58)
-                    .addComponent(ContenidoSecundario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(14, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -402,10 +378,6 @@ public class Inicio extends javax.swing.JFrame {
         this.Contenido.add(info.traerContenido());
         this.Contenido.revalidate();
         this.Contenido.repaint();
-
-        this.ContenidoSecundario.add(pinfo.traerContenido());
-        this.ContenidoSecundario.revalidate();
-        this.ContenidoSecundario.repaint();
 
 
     }//GEN-LAST:event_InformacionActionPerformed
@@ -467,7 +439,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton AdminProveedores;
     private javax.swing.JButton Cerrarsesion;
     private javax.swing.JPanel Contenido;
-    private javax.swing.JPanel ContenidoSecundario;
     private javax.swing.JPanel Encabezado;
     private javax.swing.JButton Entredainventario;
     private javax.swing.JButton GenerarOrden;
