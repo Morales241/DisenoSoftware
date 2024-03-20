@@ -8,13 +8,15 @@ import AdministrarProductos.AdministrarProductos;
 import AdministrarProveedores.AdministrarProveedores;
 import GenerarOrden.GenerarOrden;
 import informacion.Informacion;
-import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import GenerarOrden.ProductosAAgotarse;
+import cotizacion.Cotizacion;
 import entradaInventario.EntradaInventario;
+import java.awt.Color;
 import login.IniciarSesion;
+import pago.Pago;
 
 /**
  *
@@ -24,17 +26,19 @@ public class Inicio extends javax.swing.JFrame {
 
     private int op = 0;
     
-    IniciarSesion iS;
+    Pago pago = new Pago();
 
     Informacion info; 
     
-    AdministrarProductos pA;
+    Cotizacion coti = new Cotizacion();
     
-    AdministrarProveedores aP;
+    AdministrarProductos pA = new AdministrarProductos();
     
-    EntradaInventario eI;
+    AdministrarProveedores aP = new AdministrarProveedores();
     
-    GenerarOrden gO;
+    EntradaInventario eI = new EntradaInventario();
+    
+    GenerarOrden gO = new GenerarOrden();
     
     /**
      * Creates new form Inicio
@@ -360,8 +364,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GenerarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarOrdenActionPerformed
-        gO = new GenerarOrden();
-        gO.setVisible(true);
+        this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
         this.Contenido.add(gO.traerContenido());
@@ -370,8 +373,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarOrdenActionPerformed
 
     private void AdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProductosActionPerformed
-        pA = new AdministrarProductos();
-        aP.setVisible(true);
+        this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
         this.Contenido.add(pA.traerContenido());
@@ -380,22 +382,23 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminProductosActionPerformed
 
     private void SacarcotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SacarcotizacionActionPerformed
-        // TODO add your handling code here:
+        this.Contenido.removeAll();
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(coti.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_SacarcotizacionActionPerformed
 
     private void AdminProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProveedoresActionPerformed
-        aP = new AdministrarProveedores();
-        pA.setVisible(true);
-        this.Menu.setSize(60, 574);        
-        
+        this.Contenido.removeAll();
         this.Contenido.add(aP.traerContenido());
         this.Contenido.revalidate();
         this.Contenido.repaint();
     }//GEN-LAST:event_AdminProveedoresActionPerformed
 
     private void EntredainventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntredainventarioActionPerformed
-        eI = new EntradaInventario();
-        eI.setVisible(true);
+        this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
         this.Contenido.add(eI.traerContenido());
@@ -404,16 +407,22 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_EntredainventarioActionPerformed
 
     private void RealizarpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarpagoActionPerformed
-        // TODO add your handling code here:
+        this.Contenido.removeAll();
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(pago.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_RealizarpagoActionPerformed
 
     private void CerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarsesionActionPerformed
-        iS = new IniciarSesion();
-        iS.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_CerrarsesionActionPerformed
 
     private void InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacionActionPerformed
+        this.Contenido.removeAll();
+        
         info = new Informacion();
         
         this.Menu.setSize(60, 574);        
