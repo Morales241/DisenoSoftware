@@ -26,6 +26,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private int op = 0;
     
+    IniciarSesion iS = new IniciarSesion();
+    
     Pago pago = new Pago();
 
     Informacion info; 
@@ -416,7 +418,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RealizarpagoActionPerformed
 
     private void CerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarsesionActionPerformed
-        
+        iS.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CerrarsesionActionPerformed
 

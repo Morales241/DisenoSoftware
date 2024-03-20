@@ -9,6 +9,7 @@ package AdministrarProductos;
  */
 public class AdministrarProductos extends javax.swing.JFrame {
 
+    FormularioProductos fP = new FormularioProductos();
     /**
      * Creates new form iniciarSesion
      */
@@ -32,11 +33,11 @@ public class AdministrarProductos extends javax.swing.JFrame {
         contenido = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        agregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -67,20 +68,25 @@ public class AdministrarProductos extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Eliminar Producto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        eliminar.setBackground(new java.awt.Color(0, 0, 153));
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        eliminar.setText("Eliminar Producto");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                eliminarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 153));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Agregar Producto");
+        agregar.setBackground(new java.awt.Color(0, 0, 153));
+        agregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        agregar.setForeground(new java.awt.Color(255, 255, 255));
+        agregar.setText("Agregar Producto");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarActionPerformed(evt);
+            }
+        });
 
         jTable1.setBackground(new java.awt.Color(214, 217, 223));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,13 +102,13 @@ public class AdministrarProductos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 153));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Actualizar Producto");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        actualizar.setBackground(new java.awt.Color(0, 0, 153));
+        actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        actualizar.setText("Actualizar Producto");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                actualizarActionPerformed(evt);
             }
         });
 
@@ -143,11 +149,11 @@ public class AdministrarProductos extends javax.swing.JFrame {
                                 .addComponent(jButton4))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(agregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(actualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(eliminar)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
@@ -162,9 +168,9 @@ public class AdministrarProductos extends javax.swing.JFrame {
                     .addComponent(jButton5))
                 .addGap(37, 37, 37)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(agregar)
+                    .addComponent(actualizar)
+                    .addComponent(eliminar))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -183,13 +189,13 @@ public class AdministrarProductos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        fP.setVisible(true);
+    }//GEN-LAST:event_eliminarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+        fP.setVisible(true);
+    }//GEN-LAST:event_actualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -198,6 +204,10 @@ public class AdministrarProductos extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        fP.setVisible(true);
+    }//GEN-LAST:event_agregarActionPerformed
 
     /**
 //     * @param args the command line arguments
@@ -238,10 +248,10 @@ public class AdministrarProductos extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizar;
+    private javax.swing.JButton agregar;
     private javax.swing.JPanel contenido;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
