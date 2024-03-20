@@ -23,17 +23,18 @@ import login.IniciarSesion;
 public class Inicio extends javax.swing.JFrame {
 
     private int op = 0;
-    IniciarSesion iS = new IniciarSesion();
+    
+    IniciarSesion iS;
 
-    Informacion info = new Informacion();
+    Informacion info; 
     
-    AdministrarProductos pA = new AdministrarProductos();
+    AdministrarProductos pA;
     
-    AdministrarProveedores aP = new AdministrarProveedores();
+    AdministrarProveedores aP;
     
-    EntradaInventario eI = new EntradaInventario();
+    EntradaInventario eI;
     
-    GenerarOrden gO = new GenerarOrden();
+    GenerarOrden gO;
     
     /**
      * Creates new form Inicio
@@ -82,7 +83,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 153));
 
-        Contenido.setBackground(new java.awt.Color(204, 255, 255));
+        Contenido.setBackground(new java.awt.Color(255, 255, 255));
         Contenido.setPreferredSize(new java.awt.Dimension(675, 500));
 
         javax.swing.GroupLayout ContenidoLayout = new javax.swing.GroupLayout(Contenido);
@@ -359,11 +360,23 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GenerarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarOrdenActionPerformed
+        gO = new GenerarOrden();
         gO.setVisible(true);
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(gO.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_GenerarOrdenActionPerformed
 
     private void AdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProductosActionPerformed
+        pA = new AdministrarProductos();
         aP.setVisible(true);
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(pA.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_AdminProductosActionPerformed
 
     private void SacarcotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SacarcotizacionActionPerformed
@@ -371,11 +384,23 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_SacarcotizacionActionPerformed
 
     private void AdminProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProveedoresActionPerformed
+        aP = new AdministrarProveedores();
         pA.setVisible(true);
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(aP.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_AdminProveedoresActionPerformed
 
     private void EntredainventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntredainventarioActionPerformed
+        eI = new EntradaInventario();
         eI.setVisible(true);
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(eI.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_EntredainventarioActionPerformed
 
     private void RealizarpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarpagoActionPerformed
@@ -383,10 +408,13 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RealizarpagoActionPerformed
 
     private void CerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarsesionActionPerformed
+        iS = new IniciarSesion();
         iS.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_CerrarsesionActionPerformed
 
     private void InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacionActionPerformed
+        info = new Informacion();
         
         this.Menu.setSize(60, 574);        
         
