@@ -46,6 +46,11 @@ public class GenerarOrden extends javax.swing.JFrame {
         agregarP.setBackground(new java.awt.Color(0, 0, 153));
         agregarP.setForeground(new java.awt.Color(255, 255, 255));
         agregarP.setText("Agregar producto a la orden");
+        agregarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPActionPerformed(evt);
+            }
+        });
 
         GenerarOrden.setBackground(new java.awt.Color(0, 0, 153));
         GenerarOrden.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,6 +141,10 @@ public class GenerarOrden extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         pA.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarPActionPerformed
 
     /**
      * @param args the command line arguments
