@@ -26,28 +26,19 @@ public class Producto implements Serializable {
 
     @Column(name = "codigo", nullable = false)
     private String codigo;
-    
-    @ManyToMany(mappedBy ="productos")
-    private List<Proveedor> proveedores;
+     
+    @OneToMany(mappedBy = "producto")
+    private List<pProveedor> productoProveedores = new ArrayList<>();
 
     public Producto() {
-        this.proveedores  = new ArrayList<>();
     }
 
-    public Producto(Long id, String nombre, String codigo, List<Proveedor> proveedores) {
-        this.id = id;
+    public Producto( String nombre, String codigo) {
+
         this.nombre = nombre;
         this.codigo = codigo;
-        this.proveedores = proveedores;
     }
 
-    public Producto(Long id, String nombre, String codigo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.codigo = codigo;
-        this.proveedores  = new ArrayList<>();
-    }
-    
     public Long getId() {
         return id;
     }
@@ -72,13 +63,13 @@ public class Producto implements Serializable {
         this.codigo = codigo;
     }
 
-    public List<Proveedor> getProveedores() {
-        return proveedores;
+    public List<pProveedor> getProductoProveedores() {
+        return productoProveedores;
     }
 
-    public void setProveedores(List<Proveedor> proveedores) {
-        this.proveedores = proveedores;
+    public void setProductoProveedores(List<pProveedor> productoProveedores) {
+        this.productoProveedores = productoProveedores;
     }
-
+    
     
 }

@@ -1,4 +1,4 @@
-package controladoresDAO.exceptions;
+package DAOs.exceptions;
 
 public class NonexistentEntityException extends Exception {
     public NonexistentEntityException(String message, Throwable cause) {

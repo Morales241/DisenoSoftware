@@ -2,16 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controladoresDAO;
+package DAOs;
 
+import DAOs.exceptions.NonexistentEntityException;
 import Entidades.OrdenCompra;
-import controladoresDAO.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -19,10 +20,10 @@ import javax.persistence.criteria.Root;
  *
  * @author tacot
  */
-public class OrdenCompraJpaController implements Serializable {
+public class OrdenCompraDAO implements Serializable {
 
-    public OrdenCompraJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public OrdenCompraDAO() {
+        this.emf = Persistence.createEntityManagerFactory("ConcexionPU");
     }
     private EntityManagerFactory emf = null;
 
@@ -56,7 +57,7 @@ public class OrdenCompraJpaController implements Serializable {
             if (msg == null || msg.length() == 0) {
                 Long id = ordenCompra.getId();
                 if (findOrdenCompra(id) == null) {
-                    throw new NonexistentEntityException("La orden compra con el id: " + id + " no existe.");
+                    throw new NonexistentEntityException("The ordenCompra with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -77,7 +78,7 @@ public class OrdenCompraJpaController implements Serializable {
                 ordenCompra = em.getReference(OrdenCompra.class, id);
                 ordenCompra.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("La orden compra con el id: " + id + " no existe.", enfe);
+                throw new NonexistentEntityException("The ordenCompra with id " + id + " no longer exists.", enfe);
             }
             em.remove(ordenCompra);
             em.getTransaction().commit();

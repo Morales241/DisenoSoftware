@@ -12,7 +12,7 @@ import javax.persistence.*;
  * @author tacot
  */
 @Entity
-public class ProductoComprado implements Serializable {
+public class ProComprado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,7 +38,7 @@ public class ProductoComprado implements Serializable {
     @ManyToOne
     private OrdenCompra orden;
 
-    public ProductoComprado() {
+    public ProComprado() {
     }
 
     public Double getPrecio() {
@@ -49,7 +49,7 @@ public class ProductoComprado implements Serializable {
         this.precio = precio;
     }
 
-    public ProductoComprado(String nombre, String codigo, Proveedor proveedor, Integer cantidad, Double precio) {
+    public ProComprado(String nombre, String codigo, Proveedor proveedor, Integer cantidad, Double precio) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.proveedor = proveedor;

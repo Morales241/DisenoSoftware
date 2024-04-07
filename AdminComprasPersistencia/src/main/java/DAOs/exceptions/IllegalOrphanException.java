@@ -1,4 +1,4 @@
-package controladoresDAO.exceptions;
+package DAOs.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

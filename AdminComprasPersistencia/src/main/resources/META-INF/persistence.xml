@@ -6,7 +6,7 @@
     <class>Entidades.Producto</class>
     <class>Entidades.Proveedor</class>
     <class>Entidades.OrdenCompra</class>
-    <class>Entidades.ProductoComprado</class>
+    <class>Entidades.ProComprado</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/adminCompras?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

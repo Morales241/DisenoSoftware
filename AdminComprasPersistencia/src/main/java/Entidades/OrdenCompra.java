@@ -31,13 +31,13 @@ public class OrdenCompra implements Serializable {
     private Double total;
     
     @OneToMany(mappedBy = "orden", cascade= {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
-    private List<ProductoComprado> productos;
+    private List<ProComprado> productos;
 
     public OrdenCompra() {
         this.productos = new ArrayList<>();
     }
 
-    public OrdenCompra(Double total, List<ProductoComprado> productos) {
+    public OrdenCompra(Double total, List<ProComprado> productos) {
         this.total = total;
         this.productos = productos;
     }
@@ -50,11 +50,11 @@ public class OrdenCompra implements Serializable {
         this.total = total;
     }
 
-    public List<ProductoComprado> getProductos() {
+    public List<ProComprado> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<ProductoComprado> productos) {
+    public void setProductos(List<ProComprado> productos) {
         this.productos = productos;
     }
     

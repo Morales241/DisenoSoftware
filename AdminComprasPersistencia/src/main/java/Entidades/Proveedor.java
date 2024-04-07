@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -35,40 +36,18 @@ public class Proveedor implements Serializable {
     @Column(name = "telefono", nullable = false)
     private String telefono;
     
-    @Column(name = "precioP", nullable = false)
-    private String precioP;
-    
-    @Column(name = "stock", nullable = false)
-    private int stock;
-    
-    @ManyToMany    
-    @JoinTable(
-        name = "producto_proveedor",
-        joinColumns = @JoinColumn(name = "producto_id"),
-        inverseJoinColumns = @JoinColumn(name = "proveedor_id"))
-    private List<Producto> productos;
+    @OneToMany(mappedBy = "proveedor")
+    private List<pProveedor> productoProveedores = new ArrayList<>();
 
     public Proveedor() {
-        this.productos  = new ArrayList<>();
     }
 
-    public Proveedor(String nombre, String telefono, String precioP, int stock, List<Producto> productos) {
+    public Proveedor( String nombre, String telefono) {
+      
         this.nombre = nombre;
         this.telefono = telefono;
-        this.precioP = precioP;
-        this.stock = stock;
-        this.productos = productos;
     }
 
-    public Proveedor(String nombre, String telefono, String precioP, int stock) {
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.precioP = precioP;
-        this.stock = stock;
-        this.productos  = new ArrayList<>();
-    }
-
-    
     public Long getId() {
         return id;
     }
@@ -93,29 +72,13 @@ public class Proveedor implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getPrecioP() {
-        return precioP;
+    public List<pProveedor> getProductoProveedores() {
+        return productoProveedores;
     }
 
-    public void setPrecioP(String precioP) {
-        this.precioP = precioP;
+    public void setProductoProveedores(List<pProveedor> productoProveedores) {
+        this.productoProveedores = productoProveedores;
     }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
-
+    
     
 }
