@@ -4,6 +4,7 @@
  */
 package Entidades;
 
+import Producto.pro_Pro;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Producto implements Serializable {
     private String codigo;
      
     @OneToMany(mappedBy = "producto")
-    private List<pProveedor> productoProveedores = new ArrayList<>();
+    private List<pro_Pro> productoProveedores = new ArrayList<>();
 
     public Producto() {
     }
@@ -63,11 +64,11 @@ public class Producto implements Serializable {
         this.codigo = codigo;
     }
 
-    public List<pProveedor> getProductoProveedores() {
+    public List<pro_Pro> getProductoProveedores() {
         return productoProveedores;
     }
 
-    public void setProductoProveedores(List<pProveedor> productoProveedores) {
+    public void setProductoProveedores(List<pro_Pro> productoProveedores) {
         this.productoProveedores = productoProveedores;
     }
     
