@@ -4,6 +4,8 @@
  */
 package Producto;
 
+import Negocio.objetosNegocio.IOrdenNegocio;
+import Negocio.objetosNegocio.OrdenNegocio;
 import Producto.Proveedor;
 import Producto.pro_Pro;
 import java.util.ArrayList;
@@ -25,6 +27,24 @@ public class prueba {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        IOrdenNegocio on = new OrdenNegocio();
+        
+        List<ProComprado> listaProductosComprados = new ArrayList<>();
+        
+        pro_Pro proPro1 = on.obtenerProPro(1L);
+        pro_Pro proPro2 = on.obtenerProPro(2L);
+        Producto producto1 = on.obtenerProducto(17L);
+        Producto producto2 = on.obtenerProducto(9L);
+        
+        Proveedor proveedor1 = on.obtenerProveedor(1L);
+        
+        //String nombre, String codigo, Proveedor proveedor, Integer cantidad, Double precio
+        listaProductosComprados.add(new ProComprado(producto1.getNombre(), producto1.getCodigo(), proveedor1, 10, Double.valueOf(proPro1.getPrecioP())));
+        listaProductosComprados.add(new ProComprado(producto2.getNombre(), producto2.getCodigo(), proveedor1, 10, Double.valueOf(proPro2.getPrecioP())));
+        
+        on.realizarOrden(listaProductosComprados);
+        
 //        Producto producto1 = new Producto("Jeringa", "132313");
 //        Producto producto2 = new Producto("Guantes médicos", "132314");
 //        Producto producto3 = new Producto("Bisturí", "132315");
@@ -51,7 +71,6 @@ public class prueba {
 //        Proveedor proveedor3 = new Proveedor("Carlos García", "644-678-9012");
 //        Proveedor proveedor4 = new Proveedor("María Rodríguez", "644-789-0123");
 //        Proveedor proveedor5 = new Proveedor("Luis Martínez", "644-890-1234");
-//
 //        // Crear una lista de todos los productos
 //        List<Producto> productos = Arrays.asList(producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20);
 //

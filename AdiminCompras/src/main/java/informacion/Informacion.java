@@ -33,33 +33,26 @@ public class Informacion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(675, 510));
 
         info.setBackground(new java.awt.Color(255, 255, 255));
         info.setPreferredSize(new java.awt.Dimension(675, 500));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Equipo 4: Administracion de compras ");
 
         jLabel2.setFont(new java.awt.Font("DejaVu Serif", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Equipo:");
 
         jLabel3.setFont(new java.awt.Font("DejaVu Serif", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Jesús Alberto Morales Rojas - 00000245335");
 
         jLabel4.setFont(new java.awt.Font("DejaVu Serif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fecha: 16/03/2024");
 
         jLabel5.setFont(new java.awt.Font("DejaVu Serif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Marlon  Canche Sastré ");
+        jLabel5.setText("Marlon  Canche Sastré - 00000233219");
 
         jLabel6.setFont(new java.awt.Font("DejaVu Serif", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Omar Mendoza Valverde       - 00000181826");
 
         javax.swing.GroupLayout infoLayout = new javax.swing.GroupLayout(info);
