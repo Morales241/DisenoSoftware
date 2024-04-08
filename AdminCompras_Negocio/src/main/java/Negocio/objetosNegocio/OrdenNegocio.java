@@ -4,14 +4,17 @@
  */
 package Negocio.objetosNegocio;
 
+import Entidades.FinanzasJpaController;
 import Entidades.OrdenCompra;
 import Entidades.ProComprado;
+import Entidades.ProCompradoJpaController;
 import Entidades.Producto;
 import Entidades.ProductoJpaController;
 import Entidades.Proveedor;
 import Entidades.ProveedorJpaController;
 import Entidades.pro_Pro;
 import Entidades.pro_ProJpaController;
+import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
@@ -121,9 +124,26 @@ public class OrdenNegocio implements IOrdenNegocio {
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
+        FinanzasJpaController fjc = new FinanzasJpaController();
+        if (cantidad < fjc.findFinanzas(0L).getFondoMonetario()) {
+            return false;
+        }
         return true;
     }
 
+    @Override
+    public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
+        ProCompradoJpaController pcjc = new ProCompradoJpaController();
+        List<ProComprado> listaProductosComprados = pcjc.findProCompradoEntities();
+        List<ProductoCompradoDto> listaProductosPorAgotarse = new ArrayList<>();
+        
+        for(ProComprado pc: listaProductosComprados) {
+            if (pc.getCantidad() < 3) {
+                listaProductosPorAgotarse.add(new ProductoCompradoDto(pc.getNombre(), pc.getCodigo(), pc.getProveedor(), pc.getCantidad(), pc.getPrecio()));
+            }
+        }
+        
+        return listaProductosPorAgotarse;
+    }
     
-
 }

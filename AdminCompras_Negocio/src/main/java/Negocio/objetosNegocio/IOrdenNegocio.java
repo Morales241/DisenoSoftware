@@ -5,6 +5,7 @@
 package Negocio.objetosNegocio;
 
 import Entidades.ProComprado;
+import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
@@ -29,4 +30,6 @@ public interface IOrdenNegocio {
     boolean validarCantidad(String cantidad);
     
     boolean verificarPresupuesto(Double cantidad);
+    
+    List<ProductoCompradoDto> obtenerProductosPorAgotarse();
 }
