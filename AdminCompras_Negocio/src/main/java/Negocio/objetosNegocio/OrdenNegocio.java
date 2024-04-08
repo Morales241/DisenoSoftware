@@ -24,6 +24,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,7 +33,8 @@ import javax.persistence.Persistence;
 public class OrdenNegocio implements IOrdenNegocio {
 
     @Override
-    public void realizarOrden(List<ProductoCompradoDto> prdsDto) {
+    public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
+        try{
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 
         EntityManager em = emf.createEntityManager();
@@ -56,7 +58,9 @@ public class OrdenNegocio implements IOrdenNegocio {
         }
         oc.setTotal(total);
         
-        
+            if (!verificarPresupuesto(total)) {
+                throw new Exception("Presupuesto insuficiente");
+            }
         
         for (ProComprado p : productos) {
             p.setOrden(oc);
@@ -64,9 +68,12 @@ public class OrdenNegocio implements IOrdenNegocio {
         em.persist(oc);
 
         em.getTransaction().commit();
-
         em.close();
         emf.close();
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
     }
 
     @Override

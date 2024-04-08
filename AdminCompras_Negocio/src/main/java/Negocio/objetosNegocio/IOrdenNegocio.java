@@ -21,7 +21,7 @@ public interface IOrdenNegocio {
     
     List<ProductoDto> obtenerProductos();
 
-    List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
+    List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto)throws Exception;
     
     ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
     
