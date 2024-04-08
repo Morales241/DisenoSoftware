@@ -59,7 +59,7 @@ public class OrdenNegocio implements IOrdenNegocio {
         List<Producto> productos = pjc.findProductoEntities();
         List<ProductoDto> productosDto = new ArrayList<>();
         for (Producto p : productos) {
-            productosDto.add(new ProductoDto(p.getNombre()));
+            productosDto.add(new ProductoDto(p.getId(),p.getNombre()));
         }
         return productosDto;
     }
@@ -89,14 +89,24 @@ public class OrdenNegocio implements IOrdenNegocio {
     public ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor) {
         pro_ProJpaController ppjc = new pro_ProJpaController();
         List<pro_Pro> pplist = ppjc.findpro_ProEntities();
-        
-        for (pro_Pro pp: pplist) {
+
+        for (pro_Pro pp : pplist) {
             if (idProducto == pp.getProducto().getId() && idProveedor == pp.getProveedor().getId()) {
-                return new ProductoProveedorDto(pp.getPrecioP(), pp.getStock(), new ProductoDto(pp.getProducto().getNombre()), new ProveedorDto(pp.getProveedor().getNombre(), pp.getProveedor().getTelefono()));
+                return new ProductoProveedorDto(pp.getPrecioP(), pp.getStock(), new ProductoDto(pp.getProducto().getId(), pp.getProducto().getNombre()), new ProveedorDto(pp.getProveedor().getNombre(), pp.getProveedor().getTelefono()));
             }
         }
-        
+
         return null;
     }
 
+    @Override
+    public List<ProductoDto> obtenerCoincidenciasProductos(String palabra) {
+        List<ProductoDto> listaProductos = new ArrayList<>();
+        for (ProductoDto pdto : this.obtenerProductos()) {
+            if (pdto.getNombre().contains(palabra)) {
+                listaProductos.add(pdto);
+            }
+        }
+        return listaProductos;
+    }
 }
