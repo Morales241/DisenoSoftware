@@ -54,6 +54,12 @@ public class OrdenNegocio implements IOrdenNegocio {
         emf.close();
     }
     
+    @Override
+    public List<Producto> obtenerProductos() {
+        ProductoJpaController pjc = new ProductoJpaController();
+        return pjc.findProductoEntities();
+    }
+    
     public Producto obtenerProducto(Long id) {
         ProductoJpaController pjc = new ProductoJpaController();
         return pjc.findProducto(id);

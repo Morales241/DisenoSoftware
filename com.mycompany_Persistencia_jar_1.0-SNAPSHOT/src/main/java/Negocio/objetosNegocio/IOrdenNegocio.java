@@ -18,6 +18,7 @@ public interface IOrdenNegocio {
     
     void obtenerOrden();
     void realizarOrden(List<ProComprado> listaProductos);
+    List<Producto> obtenerProductos();
     public Producto obtenerProducto(Long id);
     public Proveedor obtenerProveedor(Long id);
     public pro_Pro obtenerProPro(Long id);
