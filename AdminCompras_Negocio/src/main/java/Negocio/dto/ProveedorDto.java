@@ -51,5 +51,11 @@ public class ProveedorDto {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    @Override
+    public String toString() {
+        return  nombre;
+    }
+    
     
 }

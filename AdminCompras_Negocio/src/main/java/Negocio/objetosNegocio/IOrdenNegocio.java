@@ -20,7 +20,7 @@ public interface IOrdenNegocio {
     
     List<ProductoDto> obtenerProductos();
 
-    List<ProveedorDto> obtenerProveedores(Long codigoProducto);
+    List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
     
     ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
     

@@ -4,41 +4,74 @@
  */
 package Negocio.dto;
 
+import javax.persistence.Column;
+
 /**
  *
  * @author marlon
  */
 public class ProductoCompradoDto {
     
-    private ProductoDto productoDto;
-    private ProveedorDto proveedorDto;
+    private Long id;
+    
+    private String nombre;
+
+    private String codigo;
+    
+    private String proveedor;
+
     private Integer cantidad;
+    
     private Double precio;
 
-    public ProductoCompradoDto() {
-    }
+    private OrdenCompraDto orden;
+    
+    public ProductoCompradoDto( String nombre, String codigo, String proveedor, Integer cantidad, Double precio) {
 
-    public ProductoCompradoDto(ProductoDto productoDto, ProveedorDto proveedorDto, Integer cantidad, Double precio) {
-        this.productoDto = productoDto;
-        this.proveedorDto = proveedorDto;
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.proveedor = proveedor;
         this.cantidad = cantidad;
         this.precio = precio;
     }
 
-    public ProductoDto getProductoDto() {
-        return productoDto;
+    public ProductoCompradoDto(Long id) {
+        this.id = id;
     }
 
-    public void setProductoDto(ProductoDto productoDto) {
-        this.productoDto = productoDto;
+    public ProductoCompradoDto() {
     }
 
-    public ProveedorDto getProveedorDto() {
-        return proveedorDto;
+    public Long getId() {
+        return id;
     }
 
-    public void setProveedorDto(ProveedorDto proveedorDto) {
-        this.proveedorDto = proveedorDto;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
     public Integer getCantidad() {
@@ -56,5 +89,14 @@ public class ProductoCompradoDto {
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
+
+    public OrdenCompraDto getOrden() {
+        return orden;
+    }
+
+    public void setOrden(OrdenCompraDto orden) {
+        this.orden = orden;
+    }
+
     
 }

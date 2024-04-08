@@ -59,27 +59,31 @@ public class OrdenNegocio implements IOrdenNegocio {
         List<Producto> productos = pjc.findProductoEntities();
         List<ProductoDto> productosDto = new ArrayList<>();
         for (Producto p : productos) {
-            productosDto.add(new ProductoDto(p.getId(),p.getNombre()));
+            productosDto.add(new ProductoDto(p.getId(),p.getNombre(), p.getCodigo()));
         }
         return productosDto;
     }
 
     @Override
-    public List<ProveedorDto> obtenerProveedores(Long idProducto) {
+    public List<ProductoProveedorDto> obtenerProveedores(Long idProducto) {
         pro_ProJpaController ppjc = new pro_ProJpaController();
+        
         List<pro_Pro> pplist = ppjc.findpro_ProEntities();
-        List<Proveedor> provlist = new ArrayList<>();
+        
+        List<pro_Pro> provlist = new ArrayList<>();
 
         for (pro_Pro pp : pplist) {
             if (pp.getProducto().getId() == idProducto) {
-                provlist.add(pp.getProveedor());
+                provlist.add(pp);
             }
         }
 
-        List<ProveedorDto> provlistdto = new ArrayList<>();
+        List<ProductoProveedorDto> provlistdto = new ArrayList<>();
 
-        for (Proveedor p : provlist) {
-            provlistdto.add(new ProveedorDto(p.getNombre(), p.getTelefono()));
+        for (pro_Pro p : provlist) {
+            provlistdto.add(new ProductoProveedorDto(p.getPrecioP(), p.getStock(),
+                    new ProductoDto(p.getProducto().getId(), p.getProducto().getNombre(),  p.getProducto().getCodigo()), 
+                    new ProveedorDto(p.getProveedor().getId(), p.getProveedor().getNombre(),p.getProveedor().getTelefono())));
         }
 
         return provlistdto;
@@ -92,7 +96,7 @@ public class OrdenNegocio implements IOrdenNegocio {
 
         for (pro_Pro pp : pplist) {
             if (idProducto == pp.getProducto().getId() && idProveedor == pp.getProveedor().getId()) {
-                return new ProductoProveedorDto(pp.getPrecioP(), pp.getStock(), new ProductoDto(pp.getProducto().getId(), pp.getProducto().getNombre()), new ProveedorDto(pp.getProveedor().getNombre(), pp.getProveedor().getTelefono()));
+                return new ProductoProveedorDto(pp.getPrecioP(), pp.getStock(), new ProductoDto(pp.getProducto().getId(), pp.getProducto().getNombre(), pp.getProducto().getCodigo()), new ProveedorDto(pp.getProveedor().getNombre(), pp.getProveedor().getTelefono()));
             }
         }
 
@@ -109,4 +113,6 @@ public class OrdenNegocio implements IOrdenNegocio {
         }
         return listaProductos;
     }
+
+
 }

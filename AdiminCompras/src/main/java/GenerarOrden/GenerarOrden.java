@@ -4,12 +4,18 @@
  */
 package GenerarOrden;
 
+import Negocio.dto.ProductoCompradoDto;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author tacot
  */
 public class GenerarOrden extends javax.swing.JFrame {
 
+    List<ProductoCompradoDto> productosComprados = new ArrayList<>();
+    
     
     ProductosAAgotarse pA = new ProductosAAgotarse();
     
@@ -33,10 +39,8 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         contenido = new javax.swing.JPanel();
         agregarP = new javax.swing.JButton();
-        GenerarOrden = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaProductos = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        Contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,34 +56,6 @@ public class GenerarOrden extends javax.swing.JFrame {
             }
         });
 
-        GenerarOrden.setBackground(new java.awt.Color(24, 50, 77));
-        GenerarOrden.setForeground(new java.awt.Color(255, 255, 255));
-        GenerarOrden.setText("Generar orden de compra");
-
-        tablaProductos.setBackground(new java.awt.Color(214, 217, 223));
-        tablaProductos.setForeground(new java.awt.Color(255, 255, 255));
-        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Producto", "Proveedor", "P/U", "Cantidad", "Total"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaProductos.setGridColor(new java.awt.Color(0, 0, 204));
-        jScrollPane1.setViewportView(tablaProductos);
-
         jButton4.setBackground(new java.awt.Color(24, 50, 77));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notificacion.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -88,36 +64,43 @@ public class GenerarOrden extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout ContenidoLayout = new javax.swing.GroupLayout(Contenido);
+        Contenido.setLayout(ContenidoLayout);
+        ContenidoLayout.setHorizontalGroup(
+            ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 528, Short.MAX_VALUE)
+        );
+        ContenidoLayout.setVerticalGroup(
+            ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 351, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(GenerarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton4))
+            .addGroup(contenidoLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(222, 222, 222))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GenerarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +126,16 @@ public class GenerarOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
-        // TODO add your handling code here:
+        
+        this.Contenido.removeAll();
+        
+        AgregarProducto agregar = new AgregarProducto(this);
+        
+        this.Contenido.add(agregar.traerContenido());
+        
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
+        
     }//GEN-LAST:event_agregarPActionPerformed
 
     /**
@@ -182,11 +174,9 @@ public class GenerarOrden extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GenerarOrden;
+    private javax.swing.JPanel Contenido;
     private javax.swing.JButton agregarP;
     private javax.swing.JPanel contenido;
     private javax.swing.JButton jButton4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaProductos;
     // End of variables declaration//GEN-END:variables
 }

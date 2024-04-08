@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Entity
 public class ProComprado implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,9 +24,8 @@ public class ProComprado implements Serializable {
     @Column(name = "codigo", nullable = false)
     private String codigo;
     
-    @OneToOne(cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "proveedor_id", referencedColumnName = "id")
-    private Proveedor proveedor;
+    @Column(name = "proveedor", nullable = false)
+    private String proveedor;
 
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
@@ -49,7 +47,7 @@ public class ProComprado implements Serializable {
         this.precio = precio;
     }
 
-    public ProComprado(String nombre, String codigo, Proveedor proveedor, Integer cantidad, Double precio) {
+    public ProComprado(String nombre, String codigo, String proveedor, Integer cantidad, Double precio) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.proveedor = proveedor;
@@ -89,11 +87,11 @@ public class ProComprado implements Serializable {
         this.codigo = codigo;
     }
 
-    public Proveedor getProveedor() {
+    public String getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
+    public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
     }
 

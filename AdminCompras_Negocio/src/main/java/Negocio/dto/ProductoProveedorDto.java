@@ -10,7 +10,7 @@ package Negocio.dto;
  */
 public class ProductoProveedorDto {
     
-    private String precioP;
+    private Double precioP;
     private int stock;
     private ProductoDto producto;
     private ProveedorDto proveedor;
@@ -18,18 +18,18 @@ public class ProductoProveedorDto {
     public ProductoProveedorDto() {
     }
 
-    public ProductoProveedorDto(String precioP, int stock, ProductoDto producto, ProveedorDto proveedor) {
+    public ProductoProveedorDto(Double precioP, int stock, ProductoDto producto, ProveedorDto proveedor) {
         this.precioP = precioP;
         this.stock = stock;
         this.producto = producto;
         this.proveedor = proveedor;
     }
 
-    public String getPrecioP() {
+    public Double getPrecioP() {
         return precioP;
     }
 
-    public void setPrecioP(String precioP) {
+    public void setPrecioP(Double precioP) {
         this.precioP = precioP;
     }
 
@@ -56,5 +56,11 @@ public class ProductoProveedorDto {
     public void setProveedor(ProveedorDto proveedor) {
         this.proveedor = proveedor;
     }
+
+    @Override
+    public String toString() {
+        return proveedor.getNombre() +", P/u"+ precioP;
+    }
+    
     
 }

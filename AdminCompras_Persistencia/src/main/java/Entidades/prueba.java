@@ -65,38 +65,39 @@ public class prueba {
         // Para cada proveedor, asignar 10 productos al azar
         for (Proveedor proveedor : proveedores) {
             // Mezclar la lista de productos
-            Collections.shuffle(productos);  
-            
+            Collections.shuffle(productos);
+
             for (int i = 0; i < 10; i++) {
                 Producto producto = productos.get(i);
-                
+
                 // Generar un precio y una cantidad de stock aleatorios
                 // Precio entre 50.00 y 150.00
-                String precioP = String.format("%.2f", 50 + (150 - 50) * rand.nextDouble());  
-                
+                double numero = 50 + (150 - 50) * rand.nextDouble();
+                String numeroR = String.format("%.2f", numero);
+                double precioP = Double.parseDouble(numeroR);
+
                 // Stock entre 1 y 100
-                int stock = rand.nextInt(100) + 1;  
-                
+                int stock = rand.nextInt(100) + 1;
+
                 // Crear una nueva relación producto-proveedor con el precio y el stock generados
                 pro_Pro productoProveedor = new pro_Pro(precioP, stock, producto, proveedor);
                 productoProveedores.add(productoProveedor);
             }
         }
-        
-        
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-        
+
         EntityManager em = emf.createEntityManager();
-        
+
         em.getTransaction().begin();
         for (pro_Pro p : productoProveedores) {
             em.persist(p);
         }
         em.getTransaction().commit();
-        
+
         em.close();
         emf.close();
-               
+
     }
 
 }

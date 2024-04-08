@@ -20,7 +20,7 @@ public class pro_Pro implements Serializable {
     private Long id;
 
     @Column(name = "precioP", nullable = false)
-    private String precioP;
+    private Double precioP;
     
     @Column(name = "stock", nullable = false)
     private int stock;
@@ -37,7 +37,7 @@ public class pro_Pro implements Serializable {
     public pro_Pro() {
     }
 
-    public pro_Pro(String precioP, int stock, Producto producto, Proveedor proveedor) {
+    public pro_Pro(Double precioP, int stock, Producto producto, Proveedor proveedor) {
         this.precioP = precioP;
         this.stock = stock;
         this.producto = producto;
@@ -53,11 +53,11 @@ public class pro_Pro implements Serializable {
         this.id = id;
     }
 
-    public String getPrecioP() {
+    public Double getPrecioP() {
         return precioP;
     }
 
-    public void setPrecioP(String precioP) {
+    public void setPrecioP(Double precioP) {
         this.precioP = precioP;
     }
 
