@@ -4,6 +4,8 @@
  */
 package Negocio.dto;
 
+import java.util.List;
+
 /**
  *
  * @author marlon
@@ -11,16 +13,12 @@ package Negocio.dto;
 public class ProductoDto {
     
     private String nombre;
-    private ProveedorDto proveedor;
-    private double precioUnitario;
 
     public ProductoDto() {
     }
 
-    public ProductoDto(String nombre, ProveedorDto proveedor, double precioUnitario) {
+    public ProductoDto(String nombre) {
         this.nombre = nombre;
-        this.proveedor = proveedor;
-        this.precioUnitario = precioUnitario;
     }
 
     public String getNombre() {
@@ -29,22 +27,6 @@ public class ProductoDto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public ProveedorDto getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(ProveedorDto proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    public double getPrecioUnitario() {
-        return precioUnitario;
-    }
-
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
     }
     
 }

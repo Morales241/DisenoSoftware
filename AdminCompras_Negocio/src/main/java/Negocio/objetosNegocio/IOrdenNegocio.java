@@ -5,9 +5,9 @@
 package Negocio.objetosNegocio;
 
 import Entidades.ProComprado;
-import Entidades.Producto;
-import Entidades.Proveedor;
-import Entidades.pro_Pro;
+import Negocio.dto.ProductoDto;
+import Negocio.dto.ProductoProveedorDto;
+import Negocio.dto.ProveedorDto;
 import java.util.List;
 
 /**
@@ -16,11 +16,12 @@ import java.util.List;
  */
 public interface IOrdenNegocio {
     
-    void obtenerOrden();
     void realizarOrden(List<ProComprado> listaProductos);
-    List<Producto> obtenerProductos();
-    public Producto obtenerProducto(Long id);
-    public Proveedor obtenerProveedor(Long id);
-    public pro_Pro obtenerProPro(Long id);
+    
+    List<ProductoDto> obtenerProductos();
+
+    List<ProveedorDto> obtenerProveedores(Long codigoProducto);
+    
+    ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
     
 }
