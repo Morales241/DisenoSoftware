@@ -10,8 +10,6 @@ import Entidades.ProComprado;
 import Entidades.ProCompradoJpaController;
 import Entidades.Producto;
 import Entidades.ProductoJpaController;
-import Entidades.Proveedor;
-import Entidades.ProveedorJpaController;
 import Entidades.pro_Pro;
 import Entidades.pro_ProJpaController;
 import Negocio.dto.ProductoCompradoDto;
@@ -26,7 +24,6 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,14 +56,6 @@ public class OrdenNegocio implements IOrdenNegocio {
             total += p.getCantidad() * p.getPrecio();
         }
         oc.setTotal(total);
-        
-            if (!verificarPresupuesto(total)) {
-            try {
-                throw new Exception("Presupuesto insuficiente");
-            } catch (Exception ex) {
-                Logger.getLogger(OrdenNegocio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
         
         for (ProComprado p : productos) {
             p.setOrden(oc);

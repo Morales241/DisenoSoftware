@@ -167,11 +167,9 @@ public class ValidarInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        try {
+        
             orden.realizarOrden(productosComprados);
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     
