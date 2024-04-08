@@ -4,7 +4,7 @@
  */
 package GenerarOrden;
 
-import dto.Producto;
+import Negocio.dto.ProductoDto;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AgregarProducto extends javax.swing.JFrame {
 
-    List<Producto> productos = new ArrayList<>();
+    List<ProductoDto> ProductoDto = new ArrayList<>();
     /**
      * Creates new form AgregarProducto
      */

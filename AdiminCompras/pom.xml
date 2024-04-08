@@ -22,13 +22,13 @@
             <version>1.4</version>
         </dependency>
         <dependency>
-            <groupId>com.mycompany.agenciatransito_negocio</groupId>
-            <artifactId>AgenciaTransito_Negocio</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>AdminCompras_Persistencia</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>AgenciaTransito_Presentacion</artifactId>
+            <artifactId>AdminCompras_Negocio</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
