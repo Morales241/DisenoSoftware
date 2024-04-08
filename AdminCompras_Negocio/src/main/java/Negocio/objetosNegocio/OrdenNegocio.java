@@ -141,7 +141,6 @@ public class OrdenNegocio implements IOrdenNegocio {
         return true;
     }
 
-<<<<<<< Updated upstream
     @Override
     public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
         ProCompradoJpaController pcjc = new ProCompradoJpaController();
@@ -158,6 +157,3 @@ public class OrdenNegocio implements IOrdenNegocio {
     }
     
 }
-=======
-}
->>>>>>> Stashed changes

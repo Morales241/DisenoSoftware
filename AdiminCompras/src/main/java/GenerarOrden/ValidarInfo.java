@@ -4,8 +4,8 @@
  */
 package GenerarOrden;
 
-import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
+import Negocio.objetosNegocio.OrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +17,9 @@ import javax.swing.table.DefaultTableModel;
 public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
+    
+    
+    OrdenNegocio orden = new OrdenNegocio();
     
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
@@ -166,7 +169,8 @@ public class ValidarInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        
+    
+        orden.realizarOrden(productosComprados);
         
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
