@@ -4,6 +4,7 @@
  */
 package login;
 
+import Negocio.objetosNegocio.OrdenNegocio;
 import presentacion.Inicio;
 
 /**
@@ -11,13 +12,15 @@ import presentacion.Inicio;
  * @author marlon
  */
 public class IniciarSesion extends javax.swing.JFrame {
-
+    
+    OrdenNegocio orden = new OrdenNegocio();
     Inicio ini;
     /**
      * Creates new form iniciarSesion
      */
     public IniciarSesion() {
         initComponents();
+//        orden.insercion();
     }
 
     /**

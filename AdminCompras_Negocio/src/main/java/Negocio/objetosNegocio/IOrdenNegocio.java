@@ -32,4 +32,6 @@ public interface IOrdenNegocio {
     boolean verificarPresupuesto(Double cantidad);
     
     List<ProductoCompradoDto> obtenerProductosPorAgotarse();
+    
+    public void insercion();
 }

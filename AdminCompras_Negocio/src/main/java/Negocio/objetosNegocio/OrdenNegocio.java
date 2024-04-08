@@ -55,6 +55,9 @@ public class OrdenNegocio implements IOrdenNegocio {
             total += p.getCantidad() * p.getPrecio();
         }
         oc.setTotal(total);
+        
+        
+        
         for (ProComprado p : productos) {
             p.setOrden(oc);
         }
@@ -155,5 +158,13 @@ public class OrdenNegocio implements IOrdenNegocio {
         
         return listaProductosPorAgotarse;
     }
+
+    @Override
+    public void insercion() {
+        pro_ProJpaController ppjc = new pro_ProJpaController();
+        
+        ppjc.insercion();
+    }
+    
     
 }

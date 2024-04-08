@@ -6,6 +6,7 @@ package GenerarOrden;
 
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
+import Negocio.objetosNegocio.OrdenNegocio;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -21,7 +22,12 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     GenerarOrden FrameOrden;
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
+    
+    
+    List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
+    OrdenNegocio orden = new OrdenNegocio();
+    
     ProductoCompradoDto productoAagregar;
 
     public ProductosAAgotarse() {
@@ -34,12 +40,13 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     public ProductosAAgotarse(List<ProductoCompradoDto> PC) {
         initComponents();
 
+        productosAgotados = orden.obtenerProductosPorAgotarse();
         productosComprados = PC;
 
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaProductos.getModel();
         modeloTabla.setRowCount(0);
 
-        productosComprados.forEach(ProductoCompradoDto -> {
+        productosAgotados.forEach(ProductoCompradoDto -> {
             Object[] filas = new Object[5];
             filas[0] = ProductoCompradoDto.getNombre();
             filas[1] = ProductoCompradoDto.getProveedor();
@@ -54,10 +61,8 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
                 int fila = tablaProductos.rowAtPoint(e.getPoint());
 
                 // Comprueba si el índice de la fila está dentro del rango de la lista
-                if (fila >= 0 && fila < productosComprados.size()) {
-                    productoAagregar = productosComprados.get(fila);
-                    System.out.println("Has seleccionado el producto: " + productoAagregar.getNombre());
-                    
+                if (fila >= 0 && fila < productosAgotados.size()) {
+                    productoAagregar = productosAgotados.get(fila);
                 }
             }
         });
@@ -211,19 +216,19 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        
+
         this.FrameOrden.productosComprados.remove(productoAagregar);
-        
-        productoAagregar.setCantidad(productoAagregar.getCantidad()+1);
-        
+
+        productoAagregar.setCantidad(productoAagregar.getCantidad() + 1);
+
         this.FrameOrden.productosComprados.add(productoAagregar);
-        
+
         FrameOrden.Contenido.removeAll();
-        
-        ValidarInfo va = new ValidarInfo(FrameOrden.productosComprados);
-        
+
+        ValidarInfo va  = new ValidarInfo(FrameOrden.productosComprados);
+
         FrameOrden.Contenido.add(va.traerContenido());
-        
+
         FrameOrden.Contenido.revalidate();
         FrameOrden.Contenido.repaint();
     }//GEN-LAST:event_AgregarActionPerformed
