@@ -25,4 +25,8 @@ public interface IOrdenNegocio {
     ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
     
     public List<ProductoDto> obtenerCoincidenciasProductos(String palabra);
+    
+    boolean validarCantidad(String cantidad);
+    
+    boolean verificarPresupuesto(Double cantidad);
 }

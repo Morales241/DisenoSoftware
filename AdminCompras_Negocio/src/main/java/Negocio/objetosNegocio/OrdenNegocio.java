@@ -114,5 +114,16 @@ public class OrdenNegocio implements IOrdenNegocio {
         return listaProductos;
     }
 
+    @Override
+    public boolean validarCantidad(String cantidad) {
+        return cantidad.matches("\\d+");
+    }
+
+    @Override
+    public boolean verificarPresupuesto(Double cantidad) {
+        return true;
+    }
+
+    
 
 }
