@@ -43,7 +43,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(675, 500));
 
-        agregarP.setBackground(new java.awt.Color(0, 0, 153));
+        agregarP.setBackground(new java.awt.Color(24, 50, 77));
         agregarP.setForeground(new java.awt.Color(255, 255, 255));
         agregarP.setText("Agregar producto a la orden");
         agregarP.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class GenerarOrden extends javax.swing.JFrame {
             }
         });
 
-        GenerarOrden.setBackground(new java.awt.Color(0, 0, 153));
+        GenerarOrden.setBackground(new java.awt.Color(24, 50, 77));
         GenerarOrden.setForeground(new java.awt.Color(255, 255, 255));
         GenerarOrden.setText("Generar orden de compra");
 
@@ -80,7 +80,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         tablaProductos.setGridColor(new java.awt.Color(0, 0, 204));
         jScrollPane1.setViewportView(tablaProductos);
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 153));
+        jButton4.setBackground(new java.awt.Color(24, 50, 77));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notificacion.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
