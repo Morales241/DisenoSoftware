@@ -17,13 +17,22 @@ public class GenerarOrden extends javax.swing.JFrame {
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
     
     
-    ProductosAAgotarse pA = new ProductosAAgotarse();
+    
     
     /**
      * Creates new form GenerarOrden
      */
     public GenerarOrden() {
         initComponents();
+        
+        this.Contenido.removeAll();
+        
+        ValidarInfo va = new ValidarInfo(productosComprados);
+        
+        this.Contenido.add(va.traerContenido());
+        
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }
 
     public javax.swing.JPanel traerContenido(){
@@ -122,7 +131,14 @@ public class GenerarOrden extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        pA.setVisible(true);
+        
+        this.Contenido.removeAll();
+        
+        ProductosAAgotarse pA = new ProductosAAgotarse(productosComprados);
+        this.Contenido.add(pA.traerContenido());
+        
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
