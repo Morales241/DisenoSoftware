@@ -8,6 +8,7 @@ import Negocio.dto.ProductoCompradoDto;
 import Negocio.objetosNegocio.OrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,26 +18,23 @@ import javax.swing.table.DefaultTableModel;
 public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
-    
-    
+
     OrdenNegocio orden = new OrdenNegocio();
-    
+
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
     public ValidarInfo() {
         initComponents();
     }
-    
-    
-    
+
     /**
      * Creates new form ValidarInfo
      */
     public ValidarInfo(List<ProductoCompradoDto> PC) {
         initComponents();
-        
+
         productosComprados = PC;
-        
+
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaProductos.getModel();
         modeloTabla.setRowCount(0);
 
@@ -169,19 +167,23 @@ public class ValidarInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-    
-        orden.realizarOrden(productosComprados);
-        
+        try {
+            orden.realizarOrden(productosComprados);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }//GEN-LAST:event_botonSiguienteActionPerformed
+
+    
 
     public javax.swing.JPanel traerContenido() {
         return this.contenido;
     }
-    
-    public void posicion(GenerarOrden orden){
-    this.FrameOrden = orden;
+
+    public void posicion(GenerarOrden orden) {
+        this.FrameOrden = orden;
     }
-    
+
     /**
      * @param args the command line arguments
      */

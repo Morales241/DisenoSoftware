@@ -141,10 +141,17 @@ public class pro_ProJpaController implements Serializable {
         for (pro_Pro p : productoProveedores) {
             em.persist(p);
         }
+        
+        Finanzas f = new Finanzas(5000.50);
+        
+        em.persist(f);
+        
         em.getTransaction().commit();
 
         em.close();
         emf.close();
+        
+        
     };
 
     public void edit(pro_Pro pro_Pro) throws NonexistentEntityException, Exception {

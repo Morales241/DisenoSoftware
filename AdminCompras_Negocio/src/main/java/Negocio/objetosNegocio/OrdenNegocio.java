@@ -21,6 +21,8 @@ import Negocio.dto.ProveedorDto;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,7 +36,7 @@ public class OrdenNegocio implements IOrdenNegocio {
 
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
-        try{
+        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 
         EntityManager em = emf.createEntityManager();
@@ -59,7 +61,11 @@ public class OrdenNegocio implements IOrdenNegocio {
         oc.setTotal(total);
         
             if (!verificarPresupuesto(total)) {
+            try {
                 throw new Exception("Presupuesto insuficiente");
+            } catch (Exception ex) {
+                Logger.getLogger(OrdenNegocio.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
         
         for (ProComprado p : productos) {
@@ -70,9 +76,6 @@ public class OrdenNegocio implements IOrdenNegocio {
         em.getTransaction().commit();
         em.close();
         emf.close();
-        }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
         
     }
 
