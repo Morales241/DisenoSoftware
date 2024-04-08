@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Producto;
+package Entidades;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +12,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -19,28 +23,29 @@ import javax.persistence.OneToMany;
  * @author tacot
  */
 @Entity
-public class Producto implements Serializable {
-private static final long serialVersionUID = 1L;
+public class Proveedor implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "nombreCompleto", nullable = false)
     private String nombre;
-
-    @Column(name = "codigo", nullable = false)
-    private String codigo;
-     
-    @OneToMany(mappedBy = "producto")
+    
+    @Column(name = "telefono", nullable = false)
+    private String telefono;
+    
+    @OneToMany(mappedBy = "proveedor")
     private List<pro_Pro> productoProveedores = new ArrayList<>();
 
-    public Producto() {
+    public Proveedor() {
     }
 
-    public Producto( String nombre, String codigo) {
-
+    public Proveedor( String nombre, String telefono) {
+      
         this.nombre = nombre;
-        this.codigo = codigo;
+        this.telefono = telefono;
     }
 
     public Long getId() {
@@ -59,12 +64,12 @@ private static final long serialVersionUID = 1L;
         this.nombre = nombre;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public List<pro_Pro> getProductoProveedores() {
@@ -74,5 +79,6 @@ private static final long serialVersionUID = 1L;
     public void setProductoProveedores(List<pro_Pro> productoProveedores) {
         this.productoProveedores = productoProveedores;
     }
+    
     
 }

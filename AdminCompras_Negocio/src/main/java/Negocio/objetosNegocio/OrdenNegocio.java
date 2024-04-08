@@ -4,14 +4,14 @@
  */
 package Negocio.objetosNegocio;
 
-import Producto.OrdenCompra;
-import Producto.ProComprado;
-import Producto.Producto;
-import Producto.ProductoJpaController;
-import Producto.Proveedor;
-import Producto.ProveedorJpaController;
-import Producto.pro_Pro;
-import Producto.pro_ProJpaController;
+import Entidades.OrdenCompra;
+import Entidades.ProComprado;
+import Entidades.Producto;
+import Entidades.ProductoJpaController;
+import Entidades.Proveedor;
+import Entidades.ProveedorJpaController;
+import Entidades.pro_Pro;
+import Entidades.pro_ProJpaController;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

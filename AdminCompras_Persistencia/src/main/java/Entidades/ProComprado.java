@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Producto;
+package Entidades;
 
-import Producto.Proveedor;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -68,6 +67,14 @@ public class ProComprado implements Serializable {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public OrdenCompra getOrden() {
+        return orden;
+    }
+
+    public void setOrden(OrdenCompra orden) {
+        this.orden = orden;
     }
 
     public void setNombre(String nombre) {

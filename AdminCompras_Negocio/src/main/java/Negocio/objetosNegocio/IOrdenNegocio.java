@@ -4,10 +4,10 @@
  */
 package Negocio.objetosNegocio;
 
-import Producto.ProComprado;
-import Producto.Producto;
-import Producto.Proveedor;
-import Producto.pro_Pro;
+import Entidades.ProComprado;
+import Entidades.Producto;
+import Entidades.Proveedor;
+import Entidades.pro_Pro;
 import java.util.List;
 
 /**

@@ -8,14 +8,14 @@ package Negocio.dto;
  *
  * @author marlon
  */
-public class OrdenCompra {
+public class OrdenCompraDto {
     
     private Double total;
 
-    public OrdenCompra() {
+    public OrdenCompraDto() {
     }
 
-    public OrdenCompra(Double total) {
+    public OrdenCompraDto(Double total) {
         this.total = total;
     }
 
