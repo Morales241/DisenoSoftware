@@ -185,6 +185,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(528, 351));
+        contenido.setLayout(null);
 
         botonSiguiente.setBackground(new java.awt.Color(24, 50, 77));
         botonSiguiente.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -198,13 +199,19 @@ public class AgregarProducto extends javax.swing.JFrame {
                 botonSiguienteActionPerformed(evt);
             }
         });
+        contenido.add(botonSiguiente);
+        botonSiguiente.setBounds(189, 270, 133, 36);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre del Producto:");
+        contenido.add(jLabel5);
+        jLabel5.setBounds(18, 69, 183, 25);
 
         txtProductoBuscado.setBackground(new java.awt.Color(24, 50, 77));
         txtProductoBuscado.setForeground(new java.awt.Color(0, 0, 0));
+        contenido.add(txtProductoBuscado);
+        txtProductoBuscado.setBounds(219, 72, 290, 25);
 
         panelProducto.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -241,6 +248,9 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        contenido.add(panelProducto);
+        panelProducto.setBounds(6, 103, 518, 38);
+
         panelProveedor.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -270,6 +280,9 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addComponent(ResultadosProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        contenido.add(panelProveedor);
+        panelProveedor.setBounds(6, 153, 511, 37);
 
         panelCantidad.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -360,6 +373,9 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        contenido.add(panelCantidad);
+        panelCantidad.setBounds(6, 196, 497, 62);
+
         jPanel2.setBackground(new java.awt.Color(24, 50, 77));
         jPanel2.setPreferredSize(new java.awt.Dimension(348, 31));
 
@@ -381,56 +397,14 @@ public class AgregarProducto extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
-        contenido.setLayout(contenidoLayout);
-        contenidoLayout.setHorizontalGroup(
-            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtProductoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
-        );
-        contenidoLayout.setVerticalGroup(
-            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtProductoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-        );
+        contenido.add(jPanel2);
+        jPanel2.setBounds(0, 0, 530, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 528, Short.MAX_VALUE)
+            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,6 +422,15 @@ public class AgregarProducto extends javax.swing.JFrame {
         ProductoCompradoDto productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
         
         this.FrameOrden.productosComprados.add(productoC);
+        
+        FrameOrden.Contenido.removeAll();
+        
+        ValidarInfo va = new ValidarInfo(FrameOrden.productosComprados);
+        
+        FrameOrden.Contenido.add(va.traerContenido());
+        
+        FrameOrden.Contenido.revalidate();
+        FrameOrden.Contenido.repaint();
         
     }//GEN-LAST:event_botonSiguienteActionPerformed
 

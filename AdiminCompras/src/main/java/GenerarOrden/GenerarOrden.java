@@ -190,7 +190,7 @@ public class GenerarOrden extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Contenido;
+    public javax.swing.JPanel Contenido;
     private javax.swing.JButton agregarP;
     private javax.swing.JPanel contenido;
     private javax.swing.JButton jButton4;

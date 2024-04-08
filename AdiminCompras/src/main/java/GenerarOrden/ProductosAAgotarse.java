@@ -45,7 +45,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
             filas[1] = ProductoCompradoDto.getProveedor();
             filas[2] = ProductoCompradoDto.getPrecio();
             filas[3] = ProductoCompradoDto.getCantidad();
-            filas[3] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
+            filas[4] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
             modeloTabla.addRow(filas);
         });
 
@@ -106,7 +106,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         });
 
         tablaProductos.setBackground(new java.awt.Color(214, 217, 223));
-        tablaProductos.setForeground(new java.awt.Color(255, 255, 255));
+        tablaProductos.setForeground(new java.awt.Color(0, 0, 0));
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -118,9 +118,16 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
                 "Producto", "Proveedor", "P/U", "Cantidad", "Total"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -204,7 +211,21 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        
+        this.FrameOrden.productosComprados.remove(productoAagregar);
+        
+        productoAagregar.setCantidad(productoAagregar.getCantidad()+1);
+        
         this.FrameOrden.productosComprados.add(productoAagregar);
+        
+        FrameOrden.Contenido.removeAll();
+        
+        ValidarInfo va = new ValidarInfo(FrameOrden.productosComprados);
+        
+        FrameOrden.Contenido.add(va.traerContenido());
+        
+        FrameOrden.Contenido.revalidate();
+        FrameOrden.Contenido.repaint();
     }//GEN-LAST:event_AgregarActionPerformed
 
 //    public static void main(String args[]) {

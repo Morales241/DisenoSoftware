@@ -6,6 +6,7 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -34,7 +35,8 @@ public class OrdenCompra implements Serializable {
     private Double total;
     
     @Temporal(TemporalType.DATE)
-    private Date fechaExpedicion;
+    @Column(name = "fechaExpedicion", nullable = false)
+    private Calendar fechaExpedicion;
     
     @OneToMany(mappedBy = "orden", cascade= {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
     private List<ProComprado> productos;
@@ -42,8 +44,7 @@ public class OrdenCompra implements Serializable {
     public OrdenCompra() {
     }
 
-    public OrdenCompra(Long id, Double total, Date fechaExpedicion, List<ProComprado> productos) {
-        this.id = id;
+    public OrdenCompra( Double total, Calendar fechaExpedicion, List<ProComprado> productos) {
         this.total = total;
         this.fechaExpedicion = fechaExpedicion;
         this.productos = productos;
@@ -65,11 +66,11 @@ public class OrdenCompra implements Serializable {
         this.total = total;
     }
 
-    public Date getFechaExpedicion() {
+    public Calendar getFechaExpedicion() {
         return fechaExpedicion;
     }
 
-    public void setFechaExpedicion(Date fechaExpedicion) {
+    public void setFechaExpedicion(Calendar fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
 

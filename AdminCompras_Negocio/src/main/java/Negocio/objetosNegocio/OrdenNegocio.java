@@ -19,6 +19,7 @@ import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,21 +32,30 @@ import javax.persistence.Persistence;
 public class OrdenNegocio implements IOrdenNegocio {
 
     @Override
-    public void realizarOrden(List<ProComprado> listaProductos) {
+    public void realizarOrden(List<ProductoCompradoDto> prdsDto) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
 
+        List<ProComprado> productos = new ArrayList();
+
+        prdsDto.forEach(ProductoCompradoDto -> {
+
+            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
+                    ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
+        });
+
         OrdenCompra oc = new OrdenCompra();
-        oc.setProductos(listaProductos);
+        oc.setFechaExpedicion(Calendar.getInstance());
+        oc.setProductos(productos);
         double total = 0;
-        for (ProComprado p : listaProductos) {
+        for (ProComprado p : productos) {
             total += p.getCantidad() * p.getPrecio();
         }
         oc.setTotal(total);
-        for (ProComprado p : listaProductos) {
+        for (ProComprado p : productos) {
             p.setOrden(oc);
         }
         em.persist(oc);
@@ -62,7 +72,7 @@ public class OrdenNegocio implements IOrdenNegocio {
         List<Producto> productos = pjc.findProductoEntities();
         List<ProductoDto> productosDto = new ArrayList<>();
         for (Producto p : productos) {
-            productosDto.add(new ProductoDto(p.getId(),p.getNombre(), p.getCodigo()));
+            productosDto.add(new ProductoDto(p.getId(), p.getNombre(), p.getCodigo()));
         }
         return productosDto;
     }
@@ -70,9 +80,9 @@ public class OrdenNegocio implements IOrdenNegocio {
     @Override
     public List<ProductoProveedorDto> obtenerProveedores(Long idProducto) {
         pro_ProJpaController ppjc = new pro_ProJpaController();
-        
+
         List<pro_Pro> pplist = ppjc.findpro_ProEntities();
-        
+
         List<pro_Pro> provlist = new ArrayList<>();
 
         for (pro_Pro pp : pplist) {
@@ -85,8 +95,8 @@ public class OrdenNegocio implements IOrdenNegocio {
 
         for (pro_Pro p : provlist) {
             provlistdto.add(new ProductoProveedorDto(p.getPrecioP(), p.getStock(),
-                    new ProductoDto(p.getProducto().getId(), p.getProducto().getNombre(),  p.getProducto().getCodigo()), 
-                    new ProveedorDto(p.getProveedor().getId(), p.getProveedor().getNombre(),p.getProveedor().getTelefono())));
+                    new ProductoDto(p.getProducto().getId(), p.getProducto().getNombre(), p.getProducto().getCodigo()),
+                    new ProveedorDto(p.getProveedor().getId(), p.getProveedor().getNombre(), p.getProveedor().getTelefono())));
         }
 
         return provlistdto;
@@ -131,6 +141,7 @@ public class OrdenNegocio implements IOrdenNegocio {
         return true;
     }
 
+<<<<<<< Updated upstream
     @Override
     public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
         ProCompradoJpaController pcjc = new ProCompradoJpaController();
@@ -147,3 +158,6 @@ public class OrdenNegocio implements IOrdenNegocio {
     }
     
 }
+=======
+}
+>>>>>>> Stashed changes

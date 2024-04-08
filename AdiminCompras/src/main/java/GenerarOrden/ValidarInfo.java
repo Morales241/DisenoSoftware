@@ -4,6 +4,7 @@
  */
 package GenerarOrden;
 
+import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class ValidarInfo extends javax.swing.JFrame {
             filas[1] = ProductoCompradoDto.getProveedor();
             filas[2] = ProductoCompradoDto.getPrecio();
             filas[3] = ProductoCompradoDto.getCantidad();
-            filas[3] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
+            filas[4] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
             modeloTabla.addRow(filas);
         });
 
@@ -165,6 +166,7 @@ public class ValidarInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        
         
     }//GEN-LAST:event_botonSiguienteActionPerformed
 

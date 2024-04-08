@@ -4,7 +4,9 @@
  */
 package Negocio.dto;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -13,14 +15,26 @@ import java.util.Date;
 public class OrdenCompraDto {
     
     private Double total;
-    private Date fechaExpedicion;
+    
+    private Calendar fechaExpedicion;
 
+    private List<ProductoCompradoDto> productos;
     public OrdenCompraDto() {
     }
 
-    public OrdenCompraDto(Double total, Date fechaExpedicion) {
+    public OrdenCompraDto(Double total, Calendar fechaExpedicion, List<ProductoCompradoDto> productos) {
         this.total = total;
         this.fechaExpedicion = fechaExpedicion;
+        this.productos = productos;
+    }
+
+
+    public List<ProductoCompradoDto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ProductoCompradoDto> productos) {
+        this.productos = productos;
     }
 
     public Double getTotal() {
@@ -31,11 +45,11 @@ public class OrdenCompraDto {
         this.total = total;
     }
 
-    public Date getFechaExpedicion() {
+    public Calendar getFechaExpedicion() {
         return fechaExpedicion;
     }
 
-    public void setFechaExpedicion(Date fechaExpedicion) {
+    public void setFechaExpedicion(Calendar fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
     

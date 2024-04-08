@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface IOrdenNegocio {
     
-    void realizarOrden(List<ProComprado> listaProductos);
+    void realizarOrden(List<ProductoCompradoDto> prdsDto);
     
     List<ProductoDto> obtenerProductos();
 
