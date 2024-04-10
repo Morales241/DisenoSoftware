@@ -4,7 +4,6 @@
  */
 package subSistemaFinanzas;
 
-import Entidades.FinanzasJpaController;
 
 /**
  *
@@ -14,11 +13,12 @@ public class Finanzas implements IFinanzas{
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        FinanzasJpaController fjc = new FinanzasJpaController();
-        if (cantidad < fjc.findFinanzas(0L).getFondoMonetario()) {
-            return false;
-        }
         return true;
+//        FinanzasJpaController fjc = new FinanzasJpaController();
+//        if (cantidad < fjc.findFinanzas(0L).getFondoMonetario()) {
+//            return false;
+//        }
+//        return true;
     }
 
 }
