@@ -71,6 +71,8 @@ public class OrdenNegocio implements IOrdenNegocio {
     @Override
     public List<ProductoDto> obtenerProductos() {
         ProductoJpaController pjc = new ProductoJpaController();
+        
+        
         List<Producto> productos = pjc.findProductoEntities();
         List<ProductoDto> productosDto = new ArrayList<>();
         for (Producto p : productos) {
