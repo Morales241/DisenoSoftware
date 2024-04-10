@@ -21,6 +21,8 @@ public class ProveedorDao {
         listaProveedores.add(new Proveedor(1L, "Carlos García", "644-678-9012"));
         listaProveedores.add(new Proveedor(2L, "Luis Martínes", "644-890-1234"));
         listaProveedores.add(new Proveedor(3L, "Juan Pérez", "644-456-7890"));
+        listaProveedores.add(new Proveedor(4L, "Ana Sánchez", "644-567-8901"));
+        listaProveedores.add(new Proveedor(5L, "María Rodríguez", "644-789-0123"));
     }
     
     public List<Proveedor> obtenerProveedores() {

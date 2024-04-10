@@ -21,8 +21,59 @@ public class ProductoProveedorDao {
     public ProductoProveedorDao() {
         this.listaProductosProveedores = new ArrayList();
         this.listaProductosProveedores.add(new ProductoProveedor(1L, 103.59, 11, productoDao.obtenerProductoPorId(1L), proveedorDao.obtenerProveedorPorId(1L)));
-        this.listaProductosProveedores.add(new ProductoProveedor(2L, 79.69, 38, productoDao.obtenerProductoPorId(2L), proveedorDao.obtenerProveedorPorId(2L)));
-        this.listaProductosProveedores.add(new ProductoProveedor(3L, 127.55, 43, productoDao.obtenerProductoPorId(3L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(2L, 79.69, 38, productoDao.obtenerProductoPorId(2L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(3L, 127.55, 43, productoDao.obtenerProductoPorId(3L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(4L, 241.23, 43, productoDao.obtenerProductoPorId(4L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(5L, 632.37, 43, productoDao.obtenerProductoPorId(5L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(6L, 731.23, 43, productoDao.obtenerProductoPorId(6L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(7L, 237.33, 43, productoDao.obtenerProductoPorId(7L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(8L, 237.88, 43, productoDao.obtenerProductoPorId(8L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(9L, 963.11, 43, productoDao.obtenerProductoPorId(9L), proveedorDao.obtenerProveedorPorId(1L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(10L, 993.21, 43, productoDao.obtenerProductoPorId(10L), proveedorDao.obtenerProveedorPorId(1L)));
+        
+        this.listaProductosProveedores.add(new ProductoProveedor(11L, 993.21, 43, productoDao.obtenerProductoPorId(11L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(12L, 993.21, 43, productoDao.obtenerProductoPorId(12L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(13L, 993.21, 43, productoDao.obtenerProductoPorId(13L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(14L, 993.21, 43, productoDao.obtenerProductoPorId(14L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(15L, 993.21, 43, productoDao.obtenerProductoPorId(15L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(16L, 993.21, 43, productoDao.obtenerProductoPorId(16L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(17L, 993.21, 43, productoDao.obtenerProductoPorId(17L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(18L, 993.21, 43, productoDao.obtenerProductoPorId(18L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(19L, 993.21, 43, productoDao.obtenerProductoPorId(19L), proveedorDao.obtenerProveedorPorId(2L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(20L, 993.21, 43, productoDao.obtenerProductoPorId(20L), proveedorDao.obtenerProveedorPorId(2L)));
+        
+        this.listaProductosProveedores.add(new ProductoProveedor(21L, 235.33, 11, productoDao.obtenerProductoPorId(1L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(22L, 79.69, 38, productoDao.obtenerProductoPorId(2L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(23L, 64.23, 43, productoDao.obtenerProductoPorId(3L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(24L, 885.44, 43, productoDao.obtenerProductoPorId(4L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(25L, 12.4, 43, productoDao.obtenerProductoPorId(5L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(26L, 532.2, 43, productoDao.obtenerProductoPorId(6L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(27L, 22.45, 43, productoDao.obtenerProductoPorId(7L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(28L, 632.21, 43, productoDao.obtenerProductoPorId(8L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(29L, 75.24, 43, productoDao.obtenerProductoPorId(9L), proveedorDao.obtenerProveedorPorId(3L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(30L, 642.86, 43, productoDao.obtenerProductoPorId(10L), proveedorDao.obtenerProveedorPorId(3L)));
+        
+        this.listaProductosProveedores.add(new ProductoProveedor(31L, 11.24, 43, productoDao.obtenerProductoPorId(11L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(32L, 56.78, 43, productoDao.obtenerProductoPorId(12L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(33L, 33.62, 43, productoDao.obtenerProductoPorId(13L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(34L, 531.22, 43, productoDao.obtenerProductoPorId(14L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(35L, 34.23, 43, productoDao.obtenerProductoPorId(15L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(36L, 553.12, 43, productoDao.obtenerProductoPorId(16L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(37L, 353.21, 43, productoDao.obtenerProductoPorId(17L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(38L, 764.23, 43, productoDao.obtenerProductoPorId(18L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(39L, 64.22, 43, productoDao.obtenerProductoPorId(19L), proveedorDao.obtenerProveedorPorId(4L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(40L, 64.43, 43, productoDao.obtenerProductoPorId(20L), proveedorDao.obtenerProveedorPorId(4L)));
+        
+        this.listaProductosProveedores.add(new ProductoProveedor(41L, 543.11, 11, productoDao.obtenerProductoPorId(1L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(42L, 64.23, 38, productoDao.obtenerProductoPorId(2L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(43L, 875.12, 43, productoDao.obtenerProductoPorId(3L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(44L, 546.11, 43, productoDao.obtenerProductoPorId(4L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(45L, 468.98, 43, productoDao.obtenerProductoPorId(5L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(46L, 334.53, 43, productoDao.obtenerProductoPorId(6L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(47L, 87.12, 43, productoDao.obtenerProductoPorId(7L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(48L, 67.34, 43, productoDao.obtenerProductoPorId(8L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(49L, 123.87, 43, productoDao.obtenerProductoPorId(9L), proveedorDao.obtenerProveedorPorId(5L)));
+        this.listaProductosProveedores.add(new ProductoProveedor(50L, 114.12, 43, productoDao.obtenerProductoPorId(10L), proveedorDao.obtenerProveedorPorId(5L)));
     }
     
     public List<ProductoProveedor> obtenerProductosProveedores() {
