@@ -4,13 +4,19 @@
  */
 package subSistemaAgregarProducto;
 
+import Negocio.dto.ProductoCompradoDto;
+import java.util.List;
+
 /**
  *
  * @author tacot
  */
-public class agregarProductoBO {
+public class agregarProductoBO implements IagregarProductoBO {
 
-    
-
+    @Override
+    public List<ProductoCompradoDto> agregarCompraLista(List<ProductoCompradoDto> prdsDto, ProductoCompradoDto proCompDto) {
+        prdsDto.add(proCompDto);
+        return prdsDto;
+    }
     
 }
