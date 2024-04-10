@@ -12,11 +12,21 @@ import java.util.List;
  * @author tacot
  */
 public class agregarProductoBO implements IagregarProductoBO {
+    
+    List<ProductoCompradoDto> listaProductosComprados;
 
     @Override
     public List<ProductoCompradoDto> agregarCompraLista(List<ProductoCompradoDto> prdsDto, ProductoCompradoDto proCompDto) {
         prdsDto.add(proCompDto);
         return prdsDto;
+    }
+
+    public List<ProductoCompradoDto> getListaProductosComprados() {
+        return listaProductosComprados;
+    }
+
+    public void setListaProductosComprados(List<ProductoCompradoDto> listaProductosComprados) {
+        this.listaProductosComprados = listaProductosComprados;
     }
     
 }
