@@ -6,12 +6,15 @@ package GenerarOrden;
 
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
+import Negocio.objetosNegocio.IOrdenNegocio;
 import Negocio.objetosNegocio.OrdenNegocio;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import subSistemaInventario.Iinventario;
+import subSistemaInventario.Inventario;
 
 /**
  *
@@ -21,40 +24,27 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    List<ProductoCompradoDto> productosComprados = new ArrayList<>();
-    
-    
     List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
-    OrdenNegocio orden = new OrdenNegocio();
     
     ProductoCompradoDto productoAagregar;
+    
+    Iinventario inventario = new Inventario();
 
-    public ProductosAAgotarse() {
-        initComponents();
-    }
+    
+    IOrdenNegocio Onegocio = new OrdenNegocio();
 
     /**
      * Creates new form ProductosAAgotarse
      */
-    public ProductosAAgotarse(List<ProductoCompradoDto> PC) {
+    public ProductosAAgotarse() {
         initComponents();
 
-        productosAgotados = orden.obtenerProductosPorAgotarse();
-        productosComprados = PC;
+        productosAgotados = inventario.obtenerProductosPorAgotarse();
+        
+        Onegocio.llenarTabla(productosAgotados, tablaProductos);
 
-        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaProductos.getModel();
-        modeloTabla.setRowCount(0);
-
-        productosAgotados.forEach(ProductoCompradoDto -> {
-            Object[] filas = new Object[5];
-            filas[0] = ProductoCompradoDto.getNombre();
-            filas[1] = ProductoCompradoDto.getProveedor();
-            filas[2] = ProductoCompradoDto.getPrecio();
-            filas[3] = ProductoCompradoDto.getCantidad();
-            filas[4] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
-            modeloTabla.addRow(filas);
-        });
+        
 
     }
 
@@ -215,7 +205,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
         FrameOrden.Contenido.removeAll();
 
-        ValidarInfo va  = new ValidarInfo(FrameOrden.productosComprados);
+        ValidarInfo va  = new ValidarInfo();
 
         FrameOrden.Contenido.add(va.traerContenido());
 

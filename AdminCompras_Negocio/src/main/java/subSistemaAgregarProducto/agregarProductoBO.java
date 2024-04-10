@@ -5,6 +5,7 @@
 package subSistemaAgregarProducto;
 
 import Negocio.dto.ProductoCompradoDto;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,18 +14,20 @@ import java.util.List;
  */
 public class agregarProductoBO implements IagregarProductoBO {
     
-    List<ProductoCompradoDto> listaProductosComprados;
+    List<ProductoCompradoDto> listaProductosComprados = new ArrayList<>();
 
     @Override
-    public List<ProductoCompradoDto> agregarCompraLista(List<ProductoCompradoDto> prdsDto, ProductoCompradoDto proCompDto) {
-        prdsDto.add(proCompDto);
-        return prdsDto;
+    public List<ProductoCompradoDto> agregarCompraLista(ProductoCompradoDto proCompDto) {
+        listaProductosComprados.add(proCompDto);
+        return listaProductosComprados;
     }
 
+    @Override
     public List<ProductoCompradoDto> getListaProductosComprados() {
         return listaProductosComprados;
     }
 
+    @Override
     public void setListaProductosComprados(List<ProductoCompradoDto> listaProductosComprados) {
         this.listaProductosComprados = listaProductosComprados;
     }

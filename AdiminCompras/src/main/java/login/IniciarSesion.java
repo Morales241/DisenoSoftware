@@ -4,9 +4,10 @@
  */
 package login;
 
-import Negocio.objetosNegocio.OrdenNegocio;
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
+import subSistemaInicioSesion.IInicioSesion;
+import subSistemaInicioSesion.inicioSesion;
 
 /**
  *
@@ -14,7 +15,7 @@ import presentacion.Inicio;
  */
 public class IniciarSesion extends javax.swing.JFrame {
 
-    OrdenNegocio orden = new OrdenNegocio();
+    IInicioSesion sesion = new inicioSesion();
     Inicio ini;
 
     /**
@@ -22,7 +23,6 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
-        orden.insercion();
     }
 
     /**
@@ -162,13 +162,11 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     private void ContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuarActionPerformed
 
-        if (!this.txtUsu.getText().equals("root") && !this.txtContra.getText().equals("admin")) {
-            JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrectos");
-        } else {
+        if (sesion.inicioSesion(this.txtUsu.getText(), this.txtContra.getText())) {
             ini = new Inicio();
             ini.setVisible(true);
             this.dispose();
-        }
+        } 
 
 
     }//GEN-LAST:event_ContinuarActionPerformed

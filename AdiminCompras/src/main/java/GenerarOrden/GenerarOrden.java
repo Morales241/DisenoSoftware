@@ -7,6 +7,8 @@ package GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +29,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         
         this.Contenido.removeAll();
         
-        ValidarInfo va = new ValidarInfo(productosComprados);
+        ValidarInfo va = new ValidarInfo();
         
         this.Contenido.add(va.traerContenido());
         
@@ -134,7 +136,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         
         this.Contenido.removeAll();
         
-        ProductosAAgotarse pA = new ProductosAAgotarse(productosComprados);
+        ProductosAAgotarse pA = new ProductosAAgotarse();
         this.Contenido.add(pA.traerContenido());
         
         this.Contenido.revalidate();
@@ -145,7 +147,12 @@ public class GenerarOrden extends javax.swing.JFrame {
         
         this.Contenido.removeAll();
         
-        AgregarProducto agregar = new AgregarProducto(this);
+        AgregarProducto agregar = null;
+        try {
+            agregar = new AgregarProducto();
+        } catch (Exception ex) {
+            Logger.getLogger(GenerarOrden.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         this.Contenido.add(agregar.traerContenido());
         

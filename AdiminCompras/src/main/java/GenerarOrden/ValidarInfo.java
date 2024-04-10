@@ -5,11 +5,16 @@
 package GenerarOrden;
 
 import Negocio.dto.ProductoCompradoDto;
+import Negocio.objetosNegocio.IOrdenNegocio;
 import Negocio.objetosNegocio.OrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import subSistemaAgregarProducto.IagregarProductoBO;
+import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaGenerarOrden.IGenerarOrden;
+import subSistemaGenerarOrden.generarOrdenBO;
 
 /**
  *
@@ -19,34 +24,23 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    OrdenNegocio orden = new OrdenNegocio();
+    IagregarProductoBO agregar = new agregarProductoBO();
+
+    IOrdenNegocio Onegocio = new OrdenNegocio();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
-    public ValidarInfo() {
-        initComponents();
-    }
+    IGenerarOrden Orden = new generarOrdenBO();
 
     /**
      * Creates new form ValidarInfo
      */
-    public ValidarInfo(List<ProductoCompradoDto> PC) {
+    public ValidarInfo() {
         initComponents();
 
-        productosComprados = PC;
+        productosComprados = agregar.getListaProductosComprados();
 
-        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaProductos.getModel();
-        modeloTabla.setRowCount(0);
-
-        productosComprados.forEach(ProductoCompradoDto -> {
-            Object[] filas = new Object[5];
-            filas[0] = ProductoCompradoDto.getNombre();
-            filas[1] = ProductoCompradoDto.getProveedor();
-            filas[2] = ProductoCompradoDto.getPrecio();
-            filas[3] = ProductoCompradoDto.getCantidad();
-            filas[4] = ProductoCompradoDto.getCantidad() * ProductoCompradoDto.getPrecio();
-            modeloTabla.addRow(filas);
-        });
+        Onegocio.llenarTabla(productosComprados, tablaProductos);
 
     }
 
@@ -166,12 +160,10 @@ public class ValidarInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        
-            orden.realizarOrden(productosComprados);
-        
-    }//GEN-LAST:event_botonSiguienteActionPerformed
 
-    
+        Orden.realizarOrden(productosComprados);
+
+    }//GEN-LAST:event_botonSiguienteActionPerformed
 
     public javax.swing.JPanel traerContenido() {
         return this.contenido;
@@ -181,40 +173,6 @@ public class ValidarInfo extends javax.swing.JFrame {
         this.FrameOrden = orden;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ValidarInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ValidarInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ValidarInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ValidarInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ValidarInfo().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonSiguiente;

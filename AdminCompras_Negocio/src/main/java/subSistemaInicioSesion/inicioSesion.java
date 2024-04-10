@@ -10,12 +10,13 @@ package subSistemaInicioSesion;
  *
  * @author 
  */
-public class inicioSesion {
+public class inicioSesion implements IInicioSesion{
     
     
+    @Override
     public boolean inicioSesion(String usuario, String contraseña){
         
-        if (usuario.equals(usuario) && contraseña.equals(contraseña)) {
+        if (usuario.equals("root") && contraseña.equals("admin")) {
             return true;
         }
         return false;

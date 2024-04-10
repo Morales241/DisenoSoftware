@@ -7,7 +7,6 @@ package GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
-import Negocio.dto.ProveedorDto;
 import Negocio.objetosNegocio.IOrdenNegocio;
 import Negocio.objetosNegocio.OrdenNegocio;
 import java.awt.event.ItemEvent;
@@ -16,6 +15,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import subSistemaAgregarProducto.IagregarProductoBO;
+import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaConsultarProducto.IConsultarProducto;
+import subSistemaConsultarProducto.consultarProductos;
+import subSistemaConsultarProveedores.IConsultarProveedores;
+import subSistemaConsultarProveedores.consultarProveedoresBO;
 
 /**
  *
@@ -31,22 +38,28 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     List<ProductoDto> Productos = new ArrayList<>();
 
-    OrdenNegocio orden = new OrdenNegocio();
-
+    IConsultarProducto consultaP = new consultarProductos();
+    
+    IOrdenNegocio orden = new OrdenNegocio();
+    
+    IConsultarProveedores proveedoresConsulta = new consultarProveedoresBO();
+    
+    IagregarProductoBO agregar = new agregarProductoBO();
+    
     /**
      * Creates new form AgregarProducto
      */
-    public AgregarProducto() {
+    public AgregarProducto() throws Exception {
 
         initComponents();
 
-        this.Productos = orden.obtenerProductos();
+        this.Productos = consultaP.obtenerProductos();
 
         for (ProductoDto p : Productos) {
             this.ResultadosProductos.addItem(p);
         }
 
-        for (ProductoProveedorDto p : orden.obtenerProveedores(this.Productos.get(0).getId())) {
+        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(this.Productos.get(0).getId())) {
             this.ResultadosProveedores.addItem(p);
         }
 
@@ -86,28 +99,33 @@ public class AgregarProducto extends javax.swing.JFrame {
                     ResultadosProveedores.removeAllItems();
                     
                     ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
+                          
                     
-                    for (ProductoProveedorDto p : orden.obtenerProveedores(productoS.getId())) {
-                        ResultadosProveedores.addItem(p);
+                    try {
+                        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
+                            ResultadosProveedores.addItem(p);            
+                        }
+                    } catch (Exception ex) {
+                        Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         });
     }
     
-    public AgregarProducto(GenerarOrden Frameorden) {
+    public AgregarProducto(GenerarOrden Frameorden) throws Exception {
 
         posicion(Frameorden);
         
         initComponents();
         
-        this.Productos = orden.obtenerProductos();
+        this.Productos = consultaP.obtenerProductos();
 
         for (ProductoDto p : Productos) {
             this.ResultadosProductos.addItem(p);
         }
 
-        for (ProductoProveedorDto p : orden.obtenerProveedores(this.Productos.get(0).getId())) {
+        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(this.Productos.get(0).getId())) {
             this.ResultadosProveedores.addItem(p);
         }
 
@@ -148,8 +166,12 @@ public class AgregarProducto extends javax.swing.JFrame {
                     
                     ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
                     
-                    for (ProductoProveedorDto p : orden.obtenerProveedores(productoS.getId())) {
-                        ResultadosProveedores.addItem(p);
+                    try {
+                        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
+                            ResultadosProveedores.addItem(p);
+                        }
+                    } catch (Exception ex) {
+                        Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -432,11 +454,11 @@ public class AgregarProducto extends javax.swing.JFrame {
         
         ProductoCompradoDto productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
         
-        this.FrameOrden.productosComprados.add(productoC);
+        agregar.agregarCompraLista(productoC);
         
         FrameOrden.Contenido.removeAll();
         
-        ValidarInfo va = new ValidarInfo(FrameOrden.productosComprados);
+        ValidarInfo va = new ValidarInfo();
         
         FrameOrden.Contenido.add(va.traerContenido());
         
@@ -484,40 +506,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ResultadosProveedoresMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgregarProducto().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<ProductoDto> ResultadosProductos;
