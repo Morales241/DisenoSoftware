@@ -75,6 +75,8 @@ public class GenerarOrden extends javax.swing.JFrame {
             }
         });
 
+        Contenido.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout ContenidoLayout = new javax.swing.GroupLayout(Contenido);
         Contenido.setLayout(ContenidoLayout);
         ContenidoLayout.setHorizontalGroup(
@@ -147,12 +149,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         
         this.Contenido.removeAll();
         
-        AgregarProducto agregar = null;
-        try {
-            agregar = new AgregarProducto();
-        } catch (Exception ex) {
-            Logger.getLogger(GenerarOrden.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        AgregarProducto agregar = new AgregarProducto();
         
         this.Contenido.add(agregar.traerContenido());
         

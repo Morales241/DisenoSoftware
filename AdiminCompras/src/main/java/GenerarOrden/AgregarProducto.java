@@ -49,7 +49,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     /**
      * Creates new form AgregarProducto
      */
-    public AgregarProducto() throws Exception {
+    public AgregarProducto()  {
 
         initComponents();
 

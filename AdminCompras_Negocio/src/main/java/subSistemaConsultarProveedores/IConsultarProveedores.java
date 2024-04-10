@@ -12,7 +12,7 @@ import java.util.List;
  * @author tacot
  */
 public interface IConsultarProveedores {
-    List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto)throws Exception;
+    List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
     
     ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
 }
