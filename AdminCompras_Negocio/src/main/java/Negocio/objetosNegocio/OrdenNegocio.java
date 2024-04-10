@@ -16,6 +16,7 @@ import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
+import java.text.Format.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,11 +38,10 @@ public class OrdenNegocio implements IOrdenNegocio {
     private JLabel tituloTablas = new JLabel();
     private JLabel tablitaSP = new JLabel();
     private JLabel tablePersonas = new JLabel();
-    
-    
+
     @Override
-    public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
-        
+    public void realizarOrden(List<ProductoCompradoDto> prdsDto) {
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 
         EntityManager em = emf.createEntityManager();
@@ -64,7 +64,7 @@ public class OrdenNegocio implements IOrdenNegocio {
             total += p.getCantidad() * p.getPrecio();
         }
         oc.setTotal(total);
-        
+
         for (ProComprado p : productos) {
             p.setOrden(oc);
         }
@@ -73,15 +73,13 @@ public class OrdenNegocio implements IOrdenNegocio {
         em.getTransaction().commit();
         em.close();
         emf.close();
-        
+
     }
 
     @Override
     public List<ProductoDto> obtenerProductos() {
         ProductoJpaController pjc = new ProductoJpaController();
-        
-        
-        
+
         List<Producto> productos = pjc.findProductoEntities();
         List<ProductoDto> productosDto = new ArrayList<>();
         for (Producto p : productos) {
@@ -139,7 +137,7 @@ public class OrdenNegocio implements IOrdenNegocio {
         }
         return listaProductos;
     }
-    
+
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
         FinanzasJpaController fjc = new FinanzasJpaController();
@@ -154,44 +152,35 @@ public class OrdenNegocio implements IOrdenNegocio {
         ProCompradoJpaController pcjc = new ProCompradoJpaController();
         List<ProComprado> listaProductosComprados = pcjc.findProCompradoEntities();
         List<ProductoCompradoDto> listaProductosPorAgotarse = new ArrayList<>();
-        
-        for(ProComprado pc: listaProductosComprados) {
+
+        for (ProComprado pc : listaProductosComprados) {
             if (pc.getCantidad() < 3) {
                 listaProductosPorAgotarse.add(new ProductoCompradoDto(pc.getNombre(), pc.getCodigo(), pc.getProveedor(), pc.getCantidad(), pc.getPrecio()));
             }
         }
-        
+
         return listaProductosPorAgotarse;
     }
 
     @Override
     public void insercion() {
         pro_ProJpaController ppjc = new pro_ProJpaController();
-        
+
         ppjc.insercion();
     }
-    
-    public void cargarDatosTablaPlacas(List<ProductoCompradoDto> productos, JTable JTable1) {
+
+    public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
+        // Crear un modelo de tabla y establecerlo en el JTable
         DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new String[]{"Nombre","Codigo", "Proveedor", "Costo", "cantidad", "Total"});
         
-
-        if (productos.isEmpty()) {
-            tituloTablas.setText("No se encontro ninguna persona");
-
-        } else {
-            tituloTablas.setText("Selecciona 1 de " + productos.size() + " personas encontradas para continuar");
-
-            for (ProductoCompradoDto placa : productos) {
-                
-                model.addRow(new Object[]{});
+        if (lista.isEmpty()) {
+            System.out.println("No se encontraron productos");
+        }else{
+            for (ProductoCompradoDto p : lista) {
+                model.addRow(new Object[]{p.getNombre(), p.getCodigo(), p.getProveedor(),p.getPrecio(), p.getCantidad(), p.getPrecio()*p.getCantidad()});
             }
-            JTable1.setModel(model);
-
-            tablitaSP.setVisible(true);
-            tablePersonas.setVisible(true);
-
         }
-        tituloTablas.setVisible(true);
-
+        
     }
 }
