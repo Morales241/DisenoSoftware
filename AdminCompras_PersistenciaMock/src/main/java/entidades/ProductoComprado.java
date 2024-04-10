@@ -14,15 +14,24 @@ public class ProductoComprado {
     private Producto producto;
     private Proveedor proveedor;
     private Integer cantidad;
+    private Double precio;
 
     public ProductoComprado() {
     }
+    
+    public ProductoComprado(Producto producto, Proveedor proveedor, Integer cantidad, Double precio) {
+        this.producto = producto;
+        this.proveedor = proveedor;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
 
-    public ProductoComprado(Long id, Producto producto, Proveedor proveedor, Integer cantidad) {
+    public ProductoComprado(Long id, Producto producto, Proveedor proveedor, Integer cantidad, Double precio) {
         this.id = id;
         this.producto = producto;
         this.proveedor = proveedor;
         this.cantidad = cantidad;
+        this.precio = precio;
     }
 
     public Long getId() {
@@ -55,6 +64,14 @@ public class ProductoComprado {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
     
 }

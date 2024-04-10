@@ -13,7 +13,10 @@ public class Finanzas implements IFinanzas{
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        return true;
+        if (cantidad <= 5000) {
+            return true;
+        }
+        return false;
 //        FinanzasJpaController fjc = new FinanzasJpaController();
 //        if (cantidad < fjc.findFinanzas(0L).getFondoMonetario()) {
 //            return false;

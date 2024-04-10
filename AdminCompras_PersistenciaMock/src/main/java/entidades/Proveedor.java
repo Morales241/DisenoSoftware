@@ -16,6 +16,10 @@ public class Proveedor {
 
     public Proveedor() {
     }
+    
+    public Proveedor(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Proveedor(Long id, String nombre, String telefono) {
         this.id = id;

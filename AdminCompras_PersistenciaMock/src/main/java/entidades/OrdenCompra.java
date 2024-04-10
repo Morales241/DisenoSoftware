@@ -5,6 +5,7 @@
 package entidades;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,14 +16,22 @@ public class OrdenCompra {
     private Long id;
     private Double total;
     private Date fechaExpecicion;
+    private List<ProductoComprado> productosComprados;
 
     public OrdenCompra() {
     }
+    
+    public OrdenCompra(Double total, Date fechaExpecicion, List<ProductoComprado> productosComprados) {
+        this.total = total;
+        this.fechaExpecicion = fechaExpecicion;
+        this.productosComprados = productosComprados;
+    }
 
-    public OrdenCompra(Long id, Double total, Date fechaExpecicion) {
+    public OrdenCompra(Long id, Double total, Date fechaExpecicion, List<ProductoComprado> productosComprados) {
         this.id = id;
         this.total = total;
         this.fechaExpecicion = fechaExpecicion;
+        this.productosComprados = productosComprados;
     }
 
     public Long getId() {
@@ -47,6 +56,14 @@ public class OrdenCompra {
 
     public void setFechaExpecicion(Date fechaExpecicion) {
         this.fechaExpecicion = fechaExpecicion;
+    }
+
+    public List<ProductoComprado> getProductosComprados() {
+        return productosComprados;
+    }
+
+    public void setProductosComprados(List<ProductoComprado> productosComprados) {
+        this.productosComprados = productosComprados;
     }
     
 }

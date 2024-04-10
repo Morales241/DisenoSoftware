@@ -5,6 +5,8 @@
 package subSistemaInventario;
 
 import Negocio.dto.ProductoCompradoDto;
+import daos.ProductoCompradoDao;
+import entidades.ProductoComprado;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,15 @@ public class Inventario implements Iinventario{
 
     @Override
     public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
-        return null;
+        ProductoCompradoDao pcd = new ProductoCompradoDao();
+        List<ProductoComprado> listaProductosComprados = pcd.obtenerProductosComprados();
+        List<ProductoCompradoDto> listaProductosPorAgotarse = new ArrayList<>();
+        for(ProductoComprado pc: listaProductosComprados) {
+            if (pc.getCantidad() < 3) {
+                listaProductosPorAgotarse.add(new ProductoCompradoDto(pc.getProducto().getNombre(), pc.getProducto().getCodigo(), pc.getProveedor().getNombre(), pc.getCantidad(), pc.getPrecio()));
+            }
+        }
+        return listaProductosPorAgotarse;
 //        ProCompradoJpaController pcjc = new ProCompradoJpaController();
 //        
 //        List<ProComprado> listaProductosComprados = pcjc.findProCompradoEntities();
