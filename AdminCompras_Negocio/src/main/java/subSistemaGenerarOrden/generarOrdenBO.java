@@ -5,8 +5,14 @@
 package subSistemaGenerarOrden;
 
 import Negocio.dto.ProductoCompradoDto;
+import daos.OrdenCompraDao;
+import entidades.OrdenCompra;
+import entidades.Producto;
+import entidades.ProductoComprado;
+import entidades.Proveedor;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,6 +26,23 @@ public class generarOrdenBO implements IGenerarOrden{
     
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
+        
+        OrdenCompraDao ocd = new OrdenCompraDao();
+        
+        List<ProductoComprado> listaProductos = new ArrayList<>();
+        
+        for (ProductoCompradoDto pcdto: prdsDto) {
+            listaProductos.add(new ProductoComprado(new Producto(pcdto.getNombre(), pcdto.getCodigo()), new Proveedor(pcdto.getNombre()), pcdto.getCantidad(), pcdto.getPrecio()));
+        }
+        
+        double total = 0;
+        for (ProductoComprado p: listaProductos) {
+            total += p.getCantidad() * p.getPrecio();
+        }
+        
+        OrdenCompra oc = new OrdenCompra(total, new Date(), listaProductos);
+        
+        ocd.agregarOrdenCompra(oc);
         
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 //

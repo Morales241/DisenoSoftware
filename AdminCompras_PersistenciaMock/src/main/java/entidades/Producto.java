@@ -16,6 +16,11 @@ public class Producto {
 
     public Producto() {
     }
+    
+    public Producto(String codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
 
     public Producto(Long id, String codigo, String nombre) {
         this.id = id;
