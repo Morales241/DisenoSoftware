@@ -26,6 +26,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     GenerarOrden FrameOrden;
     
     private int cantidad = 1;
+    
     private String palabra = "";
 
     List<ProductoDto> Productos = new ArrayList<>();
@@ -217,6 +218,11 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         ResultadosProductos.setBackground(new java.awt.Color(24, 50, 77));
         ResultadosProductos.setForeground(new java.awt.Color(0, 0, 0));
+        ResultadosProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultadosProductosMouseClicked(evt);
+            }
+        });
         ResultadosProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResultadosProductosActionPerformed(evt);
@@ -259,6 +265,11 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         ResultadosProveedores.setBackground(new java.awt.Color(24, 50, 77));
         ResultadosProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        ResultadosProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultadosProveedoresMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelProveedorLayout = new javax.swing.GroupLayout(panelProveedor);
         panelProveedor.setLayout(panelProveedorLayout);
@@ -462,8 +473,16 @@ public class AgregarProducto extends javax.swing.JFrame {
     }
     
     private void ResultadosProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResultadosProductosActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ResultadosProductosActionPerformed
+
+    private void ResultadosProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosProductosMouseClicked
+        
+    }//GEN-LAST:event_ResultadosProductosMouseClicked
+
+    private void ResultadosProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosProveedoresMouseClicked
+        
+    }//GEN-LAST:event_ResultadosProveedoresMouseClicked
 
     /**
      * @param args the command line arguments

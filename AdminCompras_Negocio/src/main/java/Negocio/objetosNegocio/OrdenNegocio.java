@@ -16,14 +16,17 @@ import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -31,6 +34,11 @@ import javax.persistence.Persistence;
  */
 public class OrdenNegocio implements IOrdenNegocio {
 
+    private JLabel tituloTablas = new JLabel();
+    private JLabel tablitaSP = new JLabel();
+    private JLabel tablePersonas = new JLabel();
+    
+    
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
         
@@ -131,12 +139,7 @@ public class OrdenNegocio implements IOrdenNegocio {
         }
         return listaProductos;
     }
-
-    @Override
-    public boolean validarCantidad(String cantidad) {
-        return cantidad.matches("\\d+");
-    }
-
+    
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
         FinanzasJpaController fjc = new FinanzasJpaController();
@@ -168,5 +171,27 @@ public class OrdenNegocio implements IOrdenNegocio {
         ppjc.insercion();
     }
     
-    
+    public void cargarDatosTablaPlacas(List<ProductoCompradoDto> productos, JTable JTable1) {
+        DefaultTableModel model = new DefaultTableModel();
+        
+
+        if (productos.isEmpty()) {
+            tituloTablas.setText("No se encontro ninguna persona");
+
+        } else {
+            tituloTablas.setText("Selecciona 1 de " + productos.size() + " personas encontradas para continuar");
+
+            for (ProductoCompradoDto placa : productos) {
+                
+                model.addRow(new Object[]{});
+            }
+            JTable1.setModel(model);
+
+            tablitaSP.setVisible(true);
+            tablePersonas.setVisible(true);
+
+        }
+        tituloTablas.setVisible(true);
+
+    }
 }

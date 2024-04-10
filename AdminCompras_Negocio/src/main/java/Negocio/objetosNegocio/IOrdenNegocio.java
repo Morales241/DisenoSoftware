@@ -16,22 +16,27 @@ import java.util.List;
  * @author marlon
  */
 public interface IOrdenNegocio {
-    
+    //ya
     void realizarOrden(List<ProductoCompradoDto> prdsDto);
     
+    //ya
     List<ProductoDto> obtenerProductos();
 
+    //ya
     List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto)throws Exception;
     
+    //ya
     ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
     
+    //ya
     public List<ProductoDto> obtenerCoincidenciasProductos(String palabra);
     
-    boolean validarCantidad(String cantidad);
-    
+    //ya
     boolean verificarPresupuesto(Double cantidad);
     
+    //ya
     List<ProductoCompradoDto> obtenerProductosPorAgotarse();
     
+    //subsistema de insercion
     public void insercion();
 }

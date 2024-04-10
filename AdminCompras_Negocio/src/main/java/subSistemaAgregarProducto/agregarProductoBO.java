@@ -4,10 +4,23 @@
  */
 package subSistemaAgregarProducto;
 
+import Entidades.OrdenCompra;
+import Entidades.ProComprado;
+import Negocio.dto.ProductoCompradoDto;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author tacot
  */
 public class agregarProductoBO {
+
+    
+
     
 }
