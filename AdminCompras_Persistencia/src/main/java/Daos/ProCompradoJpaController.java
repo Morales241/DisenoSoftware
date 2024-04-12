@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Daos;
 
-import Entidades.exceptions.NonexistentEntityException;
+import Entidades.ProComprado;
+import Producto.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -19,14 +20,10 @@ import javax.persistence.criteria.Root;
  *
  * @author tacot
  */
-public class FinanzasJpaController implements Serializable {
+public class ProCompradoJpaController implements Serializable {
 
-    public FinanzasJpaController() {
+    public ProCompradoJpaController() {
         this.emf = Persistence.createEntityManagerFactory("ConexionPU");
-    }
-    
-    public FinanzasJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
@@ -34,12 +31,12 @@ public class FinanzasJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Finanzas finanzas) {
+    public void create(ProComprado proComprado) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(finanzas);
+            em.persist(proComprado);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -48,19 +45,19 @@ public class FinanzasJpaController implements Serializable {
         }
     }
 
-    public void edit(Finanzas finanzas) throws NonexistentEntityException, Exception {
+    public void edit(ProComprado proComprado) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            finanzas = em.merge(finanzas);
+            proComprado = em.merge(proComprado);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = finanzas.getId();
-                if (findFinanzas(id) == null) {
-                    throw new NonexistentEntityException("The finanzas with id " + id + " no longer exists.");
+                Long id = proComprado.getId();
+                if (findProComprado(id) == null) {
+                    throw new NonexistentEntityException("The proComprado with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -76,14 +73,14 @@ public class FinanzasJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Finanzas finanzas;
+            ProComprado proComprado;
             try {
-                finanzas = em.getReference(Finanzas.class, id);
-                finanzas.getId();
+                proComprado = em.getReference(ProComprado.class, id);
+                proComprado.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The finanzas with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The proComprado with id " + id + " no longer exists.", enfe);
             }
-            em.remove(finanzas);
+            em.remove(proComprado);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -92,19 +89,19 @@ public class FinanzasJpaController implements Serializable {
         }
     }
 
-    public List<Finanzas> findFinanzasEntities() {
-        return findFinanzasEntities(true, -1, -1);
+    public List<ProComprado> findProCompradoEntities() {
+        return findProCompradoEntities(true, -1, -1);
     }
 
-    public List<Finanzas> findFinanzasEntities(int maxResults, int firstResult) {
-        return findFinanzasEntities(false, maxResults, firstResult);
+    public List<ProComprado> findProCompradoEntities(int maxResults, int firstResult) {
+        return findProCompradoEntities(false, maxResults, firstResult);
     }
 
-    private List<Finanzas> findFinanzasEntities(boolean all, int maxResults, int firstResult) {
+    private List<ProComprado> findProCompradoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Finanzas.class));
+            cq.select(cq.from(ProComprado.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -116,20 +113,20 @@ public class FinanzasJpaController implements Serializable {
         }
     }
 
-    public Finanzas findFinanzas(Long id) {
+    public ProComprado findProComprado(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Finanzas.class, id);
+            return em.find(ProComprado.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getFinanzasCount() {
+    public int getProCompradoCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Finanzas> rt = cq.from(Finanzas.class);
+            Root<ProComprado> rt = cq.from(ProComprado.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
