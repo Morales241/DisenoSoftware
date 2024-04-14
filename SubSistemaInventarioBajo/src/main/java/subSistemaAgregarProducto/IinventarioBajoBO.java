@@ -11,11 +11,8 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IagregarProductoBO {
-    List<ProductoCompradoDto> agregarCompraLista(ProductoCompradoDto proCompDto);
-    
-//    public List<ProductoCompradoDto> getListaProductosComprados();
-//    
-//    public void setListaProductosComprados(List<ProductoCompradoDto> listaProductosComprados);
+public interface IinventarioBajoBO {
+
+    List<ProductoCompradoDto> obtenerProductosPorAgotarse();
     
 }

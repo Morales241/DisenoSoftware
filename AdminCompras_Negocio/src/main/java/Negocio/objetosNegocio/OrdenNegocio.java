@@ -20,7 +20,6 @@ import javax.persistence.Persistence;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import subSistemaConsultarProducto.consultarProductos;
 
 /**
  *
