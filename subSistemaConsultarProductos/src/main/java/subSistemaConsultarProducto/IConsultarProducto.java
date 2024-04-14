@@ -16,5 +16,4 @@ public interface IConsultarProducto {
     
     List<ProductoDto> obtenerProductos();
     
-    public List<ProductoDto> obtenerCoincidenciasProductos(String palabra);
 }

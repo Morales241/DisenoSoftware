@@ -16,10 +16,7 @@ public class inicioSesion implements IInicioSesion{
     @Override
     public boolean inicioSesion(String usuario, String contraseña){
         
-        if (usuario.equals("root") && contraseña.equals("admin")) {
-            return true;
-        }
-        return false;
+        return usuario.equals("root") && contraseña.equals("admin");
     }
     
 }

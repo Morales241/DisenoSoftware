@@ -4,6 +4,8 @@
  */
 package subSistemaFinanzas;
 
+import entidad.Presupuesto;
+
 
 /**
  *
@@ -11,17 +13,15 @@ package subSistemaFinanzas;
  */
 public class Finanzas implements IFinanzas{
 
+    Presupuesto pp = new Presupuesto();
+
+    public Finanzas() {
+    }
+    
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        if (cantidad <= 5000) {
-            return true;
-        }
-        return false;
-//        FinanzasJpaController fjc = new FinanzasJpaController();
-//        if (cantidad < fjc.findFinanzas(0L).getFondoMonetario()) {
-//            return false;
-//        }
-//        return true;
+        //en vez del if es mas simple sis lo hacemos así
+        return cantidad <= pp.getFondoMonetario();
     }
 
 }

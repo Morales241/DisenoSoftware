@@ -15,11 +15,11 @@ import javax.persistence.Id;
  *
  * @author marlon
  */
-public class Finanzas {
+public class Presupuesto {
 
     private Double fondoMonetario;
 
-    public Finanzas() {
+    public Presupuesto() {
 
         this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
     }
@@ -32,5 +32,6 @@ public class Finanzas {
         this.fondoMonetario = fondoMonetario;
     }
 
+    
 
 }
