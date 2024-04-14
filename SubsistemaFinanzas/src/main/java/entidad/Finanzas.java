@@ -17,15 +17,17 @@ import javax.persistence.Id;
  */
 @Entity
 public class Finanzas implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(name = "fondoMonetario", nullable = false) 
+
+    @Column(name = "fondoMonetario", nullable = false)
     private Double fondoMonetario;
 
     public Finanzas() {
+
+        this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
     }
 
     public Finanzas(Double fondoMonetario) {
@@ -47,5 +49,5 @@ public class Finanzas implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
 }
