@@ -15,23 +15,13 @@ import javax.persistence.Id;
  *
  * @author marlon
  */
-@Entity
-public class Finanzas implements Serializable {
+public class Finanzas {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "fondoMonetario", nullable = false)
     private Double fondoMonetario;
 
     public Finanzas() {
 
         this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
-    }
-
-    public Finanzas(Double fondoMonetario) {
-        this.fondoMonetario = fondoMonetario;
     }
 
     public Double getFondoMonetario() {
@@ -42,12 +32,5 @@ public class Finanzas implements Serializable {
         this.fondoMonetario = fondoMonetario;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }
