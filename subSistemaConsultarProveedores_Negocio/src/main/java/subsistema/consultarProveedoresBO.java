@@ -4,9 +4,9 @@
  */
 package subsistema;
 
-import negocio.dto.ProductoDto;
-import negocio.dto.ProductoProveedorDto;
-import negocio.dto.ProveedorDto;
+import Negocio.dto.ProductoDto;
+import Negocio.dto.ProductoProveedorDto;
+import Negocio.dto.ProveedorDto;
 import daos.ProductoProveedorDao;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,9 @@ import entidades.ProductoProveedor;
  * @author tacot
  */
 public class consultarProveedoresBO implements IConsultarProveedores {
+
+    public consultarProveedoresBO() {
+    }
 
     @Override
     public List<ProductoProveedorDto> obtenerProveedores(Long idProducto) {

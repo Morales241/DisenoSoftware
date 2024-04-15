@@ -12,6 +12,9 @@ import java.util.List;
  */
 public class consultarProductos implements IConsultarProducto {
 
+    public consultarProductos() {
+    }
+
     @Override
         public List<ProductoDto> obtenerProductos() {
 

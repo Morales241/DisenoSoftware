@@ -12,6 +12,9 @@ public class consultarCoinsidenciasProductos implements IConsultarCoinsidenciasP
 
     consultarProductos conP = new consultarProductos();
 
+    public consultarCoinsidenciasProductos() {
+    }
+
         @Override
         public List<ProductoDto> obtenerCoincidenciasProductos(String palabra) {
 

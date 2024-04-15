@@ -4,7 +4,7 @@
  */
 package subsistema;
 
-import negocio.dto.ProductoProveedorDto;
+import Negocio.dto.ProductoProveedorDto;
 import java.util.List;
 
 /**

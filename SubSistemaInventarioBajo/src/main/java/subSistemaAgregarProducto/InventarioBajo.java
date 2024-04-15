@@ -16,6 +16,9 @@ import java.util.List;
  */
 public class InventarioBajo implements IinventarioBajoBO {
 
+    public InventarioBajo() {
+    }
+
     @Override
     public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
         ProCompradoJpaController pcjc = new ProCompradoJpaController();
