@@ -5,7 +5,7 @@
  */
 package subsistema;
 
-import dto.ProductoCompradoDto;
+import Negocio.dto.ProductoCompradoDto;
 import java.util.List;
 import javax.swing.JTable;
 

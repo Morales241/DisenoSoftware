@@ -5,7 +5,7 @@
  */
 package subsistema;
 
-import dto.ProductoCompradoDto;
+import Negocio.dto.ProductoCompradoDto;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +16,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class LlenarTabla implements ILlenarTabla {
 
+    public LlenarTabla() {
+    }
+
+    
     @Override
     public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
         // Crear un modelo de tabla y establecerlo en el JTable

@@ -25,7 +25,7 @@ public class agregarProductoBO implements IagregarProductoBO {
 //    @Override
 //    public List<ProductoCompradoDto> getListaProductosComprados() {
 //        return listaProductosComprados;
-//    }
+//}
 //
 //    @Override
 //    public void setListaProductosComprados(List<ProductoCompradoDto> listaProductosComprados) {

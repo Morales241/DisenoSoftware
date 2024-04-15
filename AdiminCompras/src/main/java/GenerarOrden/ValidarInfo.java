@@ -15,6 +15,8 @@ import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.agregarProductoBO;
 import subSistemaGenerarOrden.IGenerarOrden;
 import subSistemaGenerarOrden.generarOrdenBO;
+import subsistema.ILlenarTabla;
+import subsistema.LlenarTabla;
 
 /**
  *
@@ -24,9 +26,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    IagregarProductoBO agregar = new agregarProductoBO();
-
-    IOrdenNegocio Onegocio = new OrdenNegocio();
+    ILlenarTabla llenarT = new LlenarTabla();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
@@ -40,7 +40,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
         productosComprados = agregar.getListaProductosComprados();
 
-        Onegocio.llenarTabla(productosComprados, tablaProductos);
+        llenarT.llenarTabla(productosComprados, tablaProductos);
 
     }
 
