@@ -5,19 +5,19 @@
 package subsistema;
 
 import Daos.OrdenCompraJpaController;
-import Negocio.dto.ProductoCompradoDto;
 import Entidades.OrdenCompra;
+import Negocio.dto.ProductoCompradoDto;
 import Entidades.ProComprado;
-import entidades.Producto;
-import entidades.ProductoComprado;
-import entidades.Proveedor;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import subSistemaFinanzas.Finanzas;
+import subSistemaFinanzas.IFinanzas;
 
 /**
  *
@@ -25,62 +25,74 @@ import javax.persistence.Persistence;
  */
 public class generarOrdenBO implements IGenerarOrden{
     
+    IFinanzas f = new Finanzas();
+    public generarOrdenBO() {
+    }
+    
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
         
-        OrdenCompraJpaController ocd = new OrdenCompraJpaController();
-        
-        List<ProductoComprado> listaProductos = new ArrayList<>();
-        // NUEVA LÍNEA
-        List<ProComprado> listaProductosPersistir = new ArrayList<>();
-        
-        for (ProductoCompradoDto pcdto: prdsDto) {
-            listaProductos.add(new ProductoComprado(new Producto(pcdto.getNombre(), pcdto.getCodigo()), new Proveedor(pcdto.getNombre()), pcdto.getCantidad(), pcdto.getPrecio()));
-        }
-        
-        double total = 0;
-        for (ProductoComprado p: listaProductos) {
-            total += p.getCantidad() * p.getPrecio();
-            // NUEVA LÍNEA
-            listaProductosPersistir.add(new ProComprado(p.getProducto().getNombre(), p.getProducto().getCodigo(), p.getProveedor().getNombre(), p.getCantidad(), p.getPrecio()));
-        }
-        
-        // MODIFICACIÓN LÍNEA
-        OrdenCompra oc = new OrdenCompra(total, Calendar.getInstance(), listaProductosPersistir);
-        
-        ocd.create(oc);
-        
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-//
-//        EntityManager em = emf.createEntityManager();
-//
-//        em.getTransaction().begin();
-//
-//        List<ProComprado> productos = new ArrayList();
-//
-//        prdsDto.forEach(ProductoCompradoDto -> {
-//
-//            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
-//                    ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
-//        });
-//
-//        OrdenCompra oc = new OrdenCompra();
-//        oc.setFechaExpedicion(Calendar.getInstance());
-//        oc.setProductos(productos);
+//        OrdenCompraJpaController ocd = new OrdenCompraJpaController();
+//        
+//        List<ProductoComprado> listaProductos = new ArrayList<>();
+//        // NUEVA LÍNEA
+//        List<ProComprado> listaProductosPersistir = new ArrayList<>();
+//        
+//        for (ProductoCompradoDto pcdto: prdsDto) {
+//            listaProductos.add(new ProductoComprado(new Producto(pcdto.getNombre(), pcdto.getCodigo()), new Proveedor(pcdto.getNombre()), pcdto.getCantidad(), pcdto.getPrecio()));
+//        }
+//        
 //        double total = 0;
-//        for (ProComprado p : productos) {
+//        for (ProductoComprado p: listaProductos) {
 //            total += p.getCantidad() * p.getPrecio();
+//            // NUEVA LÍNEA
+//            listaProductosPersistir.add(new ProComprado(p.getProducto().getNombre(), p.getProducto().getCodigo(), p.getProveedor().getNombre(), p.getCantidad(), p.getPrecio()));
 //        }
-//        oc.setTotal(total);
 //        
-//        for (ProComprado p : productos) {
-//            p.setOrden(oc);
-//        }
-//        em.persist(oc);
-//
-//        em.getTransaction().commit();
-//        em.close();
-//        emf.close();
+//        // MODIFICACIÓN LÍNEA
+//        OrdenCompra oc = new OrdenCompra(total, Calendar.getInstance(), listaProductosPersistir);
 //        
+//        ocd.create(oc);
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        List<ProComprado> productos = new ArrayList();
+
+        prdsDto.forEach(ProductoCompradoDto -> {
+
+            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
+                    ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
+        });
+
+        OrdenCompra oc = new OrdenCompra();
+        oc.setFechaExpedicion(Calendar.getInstance());
+        oc.setProductos(productos);
+        double total = 0;
+        for (ProComprado p : productos) {
+            total += p.getCantidad() * p.getPrecio();
+        }
+        if (f.verificarPresupuesto(total)) {
+            try {
+                throw new Exception("No se cuenta con el presupuesto suficiente");
+            } catch (Exception ex) {
+                Logger.getLogger(generarOrdenBO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        oc.setTotal(total);
+        
+        for (ProComprado p : productos) {
+            p.setOrden(oc);
+        }
+        em.persist(oc);
+
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+        
     }
 }
