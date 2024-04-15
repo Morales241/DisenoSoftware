@@ -15,7 +15,6 @@ public class inicioSesion implements IInicioSesion{
     public inicioSesion() {
     }
     
-    
     @Override
     public boolean inicioSesion(String usuario, String contraseña){
         
