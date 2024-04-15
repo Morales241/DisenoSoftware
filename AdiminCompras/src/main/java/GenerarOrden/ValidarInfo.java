@@ -31,7 +31,8 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
-    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
+    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
+    
     IGenerarOrden orden = new generarOrdenBO();
 
     /**
@@ -42,8 +43,10 @@ public class ValidarInfo extends javax.swing.JFrame {
 
         productosComprados = PC.getListaProductosComprados();
 
+        tablaProductos.removeAll();
+        
+        
         llenarT.llenarTabla(productosComprados, tablaProductos);
-
     }
 
     /**
@@ -70,6 +73,8 @@ public class ValidarInfo extends javax.swing.JFrame {
         botonSiguiente.setForeground(new java.awt.Color(255, 255, 255));
         botonSiguiente.setText("Generar Orden");
         botonSiguiente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonSiguiente.setBorderPainted(false);
+        botonSiguiente.setFocusPainted(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSiguienteActionPerformed(evt);
@@ -77,7 +82,7 @@ public class ValidarInfo extends javax.swing.JFrame {
         });
 
         tablaProductos.setBackground(new java.awt.Color(214, 217, 223));
-        tablaProductos.setForeground(new java.awt.Color(255, 255, 255));
+        tablaProductos.setForeground(new java.awt.Color(0, 0, 0));
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -90,7 +95,7 @@ public class ValidarInfo extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -163,8 +168,15 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
+        try{
         orden.realizarOrden(productosComprados);
-
+        
+        JOptionPane.showMessageDialog(null, "La orden se ha generado correctamente");
+        }catch (Exception ex){
+        JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+        
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     public javax.swing.JPanel traerContenido() {

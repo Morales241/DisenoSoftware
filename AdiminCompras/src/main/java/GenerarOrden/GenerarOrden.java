@@ -149,7 +149,12 @@ public class GenerarOrden extends javax.swing.JFrame {
         
         this.Contenido.removeAll();
         
-        AgregarProducto agregar = new AgregarProducto();
+        AgregarProducto agregar = null;
+        try {
+            agregar = new AgregarProducto(this);
+        } catch (Exception ex) {
+            Logger.getLogger(GenerarOrden.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         this.Contenido.add(agregar.traerContenido());
         

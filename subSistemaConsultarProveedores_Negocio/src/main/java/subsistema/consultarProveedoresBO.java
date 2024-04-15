@@ -30,15 +30,17 @@ public class consultarProveedoresBO implements IConsultarProveedores {
 
         List<ProductoProveedor> listaProductoProveedores = ProductoProveedorDao.obtenerProductosProveedores();
 
+        List<ProductoProveedor> listaAux = new ArrayList<>();
+        
         List<ProductoProveedorDto> listaProductoProveedoresDto = new ArrayList<>();
 
         for (ProductoProveedor pp : listaProductoProveedores) {
             if (pp.getProducto().getId() == idProducto) {
-                listaProductoProveedores.add(pp);
+                listaAux.add(pp);
             }
         }
 
-        for (ProductoProveedor p : listaProductoProveedores) {
+        for (ProductoProveedor p : listaAux) {
             listaProductoProveedoresDto.add(new ProductoProveedorDto(p.getPrecio(), p.getStock(),
                     new ProductoDto(p.getProducto().getId(), p.getProducto().getNombre(), p.getProducto().getCodigo()),
                     new ProveedorDto(p.getProveedor().getId(), p.getProveedor().getNombre(), p.getProveedor().getTelefono())));

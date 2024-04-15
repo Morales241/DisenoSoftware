@@ -15,7 +15,7 @@ public class agregarProductoBO implements IagregarProductoBO {
     public agregarProductoBO() {
     }
     
-    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
+    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
     
 
     @Override

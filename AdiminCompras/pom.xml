@@ -42,11 +42,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.admincompras</groupId>
-            <artifactId>AdminCompras_PersistenciaMock</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>subSistemaConsultarProductos</artifactId>
             <version>${project.version}</version>

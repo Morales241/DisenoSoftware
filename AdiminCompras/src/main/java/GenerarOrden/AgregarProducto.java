@@ -55,7 +55,6 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         this.Productos = consultaP.obtenerProductos();
 
-
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);
         this.panelProveedor.setVisible(false);
@@ -105,21 +104,13 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
     }
     
-    public AgregarProducto(GenerarOrden Frameorden) throws Exception {
+    public AgregarProducto(GenerarOrden Frameorden) {
 
         posicion(Frameorden);
         
         initComponents();
         
         this.Productos = consultaP.obtenerProductos();
-
-        for (ProductoDto p : Productos) {
-            this.ResultadosProductos.addItem(p);
-        }
-
-        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(this.Productos.get(0).getId())) {
-            this.ResultadosProveedores.addItem(p);
-        }
 
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);

@@ -40,7 +40,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
-    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
+    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
     
     /**
      * Creates new form ProductosAAgotarse
@@ -53,8 +53,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         productosAgotados = inventario.obtenerProductosPorAgotarse();
         
         llenarT.llenarTabla(productosAgotados, tablaProductos);
-
-        
 
     }
 

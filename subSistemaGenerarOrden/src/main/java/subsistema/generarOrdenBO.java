@@ -23,15 +23,16 @@ import subSistemaFinanzas.IFinanzas;
  *
  * @author tacot
  */
-public class generarOrdenBO implements IGenerarOrden{
-    
+public class generarOrdenBO implements IGenerarOrden {
+
     IFinanzas f = new Finanzas();
+
     public generarOrdenBO() {
     }
-    
+
     @Override
-    public void realizarOrden(List<ProductoCompradoDto> prdsDto)  {
-        
+    public void realizarOrden(List<ProductoCompradoDto> prdsDto) throws Exception{
+
 //        OrdenCompraJpaController ocd = new OrdenCompraJpaController();
 //        
 //        List<ProductoComprado> listaProductos = new ArrayList<>();
@@ -53,7 +54,6 @@ public class generarOrdenBO implements IGenerarOrden{
 //        OrdenCompra oc = new OrdenCompra(total, Calendar.getInstance(), listaProductosPersistir);
 //        
 //        ocd.create(oc);
-        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
 
         EntityManager em = emf.createEntityManager();
@@ -75,16 +75,14 @@ public class generarOrdenBO implements IGenerarOrden{
         for (ProComprado p : productos) {
             total += p.getCantidad() * p.getPrecio();
         }
-        if (f.verificarPresupuesto(total)) {
-            try {
-                throw new Exception("No se cuenta con el presupuesto suficiente");
-            } catch (Exception ex) {
-                Logger.getLogger(generarOrdenBO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        if (!f.verificarPresupuesto(total)) {
+
+            throw new Exception("No se cuenta con el presupuesto suficiente");
+
         }
-        
+
         oc.setTotal(total);
-        
+
         for (ProComprado p : productos) {
             p.setOrden(oc);
         }
@@ -93,6 +91,6 @@ public class generarOrdenBO implements IGenerarOrden{
         em.getTransaction().commit();
         em.close();
         emf.close();
-        
+
     }
 }

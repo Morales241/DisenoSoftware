@@ -19,19 +19,19 @@ public class LlenarTabla implements ILlenarTabla {
     public LlenarTabla() {
     }
 
-    
     @Override
     public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
         // Crear un modelo de tabla y establecerlo en el JTable
         DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[]{"Nombre","Codigo", "Proveedor", "Costo", "cantidad", "Total"});
-        
+        model.setColumnIdentifiers(new String[]{"Nombre", "Codigo", "Proveedor", "Costo", "cantidad", "Total"});
+
         if (lista.isEmpty()) {
             System.out.println("No se encontraron productos");
-        }else{
+        } else {
             for (ProductoCompradoDto p : lista) {
-                model.addRow(new Object[]{p.getNombre(), p.getCodigo(), p.getProveedor(),p.getPrecio(), p.getCantidad(), p.getPrecio()*p.getCantidad()});
+                model.addRow(new Object[]{p.getNombre(), p.getCodigo(), p.getProveedor(), p.getPrecio(), p.getCantidad(), p.getPrecio() * p.getCantidad()});
             }
         }
+        tabla.setModel(model);
     }
 }

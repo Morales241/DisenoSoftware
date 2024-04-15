@@ -12,5 +12,5 @@ import java.util.List;
  * @author tacot
  */
 public interface IGenerarOrden {
-    void realizarOrden(List<ProductoCompradoDto> prdsDto);
+    void realizarOrden(List<ProductoCompradoDto> prdsDto) throws Exception;
 }
