@@ -11,6 +11,9 @@ package subSistemaInicioSesion;
  * @author 
  */
 public class inicioSesion implements IInicioSesion{
+
+    public inicioSesion() {
+    }
     
     
     @Override

@@ -8,7 +8,6 @@ import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.objetosNegocio.IOrdenNegocio;
-import Negocio.objetosNegocio.OrdenNegocio;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
@@ -55,13 +54,6 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         this.Productos = consultaP.obtenerProductos();
 
-        for (ProductoDto p : Productos) {
-            this.ResultadosProductos.addItem(p);
-        }
-
-        for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(this.Productos.get(0).getId())) {
-            this.ResultadosProveedores.addItem(p);
-        }
 
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);

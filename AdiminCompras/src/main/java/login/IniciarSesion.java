@@ -166,7 +166,9 @@ public class IniciarSesion extends javax.swing.JFrame {
             ini = new Inicio();
             ini.setVisible(true);
             this.dispose();
-        } 
+        } else{
+        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+        }
 
 
     }//GEN-LAST:event_ContinuarActionPerformed
