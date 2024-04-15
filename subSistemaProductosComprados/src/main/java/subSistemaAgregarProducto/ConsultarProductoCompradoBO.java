@@ -16,6 +16,10 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
 
     List<ProductoCompradoDto> listaProductosComprados = new ArrayList<>();
 
+    public ConsultarProductoCompradoBO() {
+        
+    }
+
     @Override
     public void agregarCompraLista(ProductoCompradoDto proCompDto) {
         listaProductosComprados.add(proCompDto);

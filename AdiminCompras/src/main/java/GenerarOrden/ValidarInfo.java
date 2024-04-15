@@ -6,11 +6,12 @@ package GenerarOrden;
 
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.objetosNegocio.IOrdenNegocio;
-import Negocio.objetosNegocio.OrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
+import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.agregarProductoBO;
 import subSistemaGenerarOrden.IGenerarOrden;
@@ -30,6 +31,8 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
+    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
+    
     IGenerarOrden Orden = new generarOrdenBO();
 
     /**
@@ -38,7 +41,7 @@ public class ValidarInfo extends javax.swing.JFrame {
     public ValidarInfo() {
         initComponents();
 
-        productosComprados = agregar.getListaProductosComprados();
+        productosComprados = PC.getListaProductosComprados();
 
         llenarT.llenarTabla(productosComprados, tablaProductos);
 
