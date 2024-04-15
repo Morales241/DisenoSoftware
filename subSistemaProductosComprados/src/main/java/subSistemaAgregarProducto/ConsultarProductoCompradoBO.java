@@ -12,18 +12,18 @@ import java.util.List;
  *
  * @author tacot
  */
-public class agregarProductoBO implements IagregarProductoBO {
+public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO {
 
-    public agregarProductoBO() {
-    }
-    
-    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
-    
+    List<ProductoCompradoDto> listaProductosComprados = new ArrayList<>();
 
     @Override
     public void agregarCompraLista(ProductoCompradoDto proCompDto) {
-        PC.agregarCompraLista(proCompDto);
+        listaProductosComprados.add(proCompDto);
     }
 
-    
+    @Override
+    public List<ProductoCompradoDto> getListaProductosComprados() {
+        return listaProductosComprados;
+    }
+
 }
