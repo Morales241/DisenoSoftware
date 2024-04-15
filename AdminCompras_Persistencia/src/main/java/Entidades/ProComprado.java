@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 /**
  *
+ * 
  * @author tacot
  */
 @Entity

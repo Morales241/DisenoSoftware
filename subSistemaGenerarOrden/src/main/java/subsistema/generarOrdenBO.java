@@ -4,8 +4,8 @@
  */
 package subsistema;
 
-import Negocio.dto.ProductoCompradoDto;
 import Daos.OrdenCompraJpaController;
+import Negocio.dto.ProductoCompradoDto;
 import Entidades.OrdenCompra;
 import Entidades.ProComprado;
 import entidades.Producto;

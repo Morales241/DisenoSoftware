@@ -14,10 +14,10 @@ import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.agregarProductoBO;
-import subSistemaGenerarOrden.IGenerarOrden;
-import subSistemaGenerarOrden.generarOrdenBO;
+import subsistema.IGenerarOrden;
 import subsistema.ILlenarTabla;
 import subsistema.LlenarTabla;
+import subsistema.generarOrdenBO;
 
 /**
  *
@@ -32,8 +32,7 @@ public class ValidarInfo extends javax.swing.JFrame {
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
     IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
-    
-    IGenerarOrden Orden = new generarOrdenBO();
+    IGenerarOrden orden = new generarOrdenBO();
 
     /**
      * Creates new form ValidarInfo
@@ -164,7 +163,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-        Orden.realizarOrden(productosComprados);
+        orden.realizarOrden(productosComprados);
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 

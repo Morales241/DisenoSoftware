@@ -21,8 +21,20 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
     }
 
     @Override
-    public void agregarCompraLista(ProductoCompradoDto proCompDto) {
-        listaProductosComprados.add(proCompDto);
+    public void agregarCompraLista(ProductoCompradoDto proCompDto, int op) {
+        
+        
+        if (op == 1) {
+            listaProductosComprados.add(proCompDto);
+        }else{
+            listaProductosComprados.forEach(ProductoCompradoDto ->{
+                if (ProductoCompradoDto.getNombre().equals(proCompDto.getNombre())) {
+                    ProductoCompradoDto.setCantidad(3+ProductoCompradoDto.getCantidad());
+                    
+                }
+            });
+            
+        }
     }
 
     @Override

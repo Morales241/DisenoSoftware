@@ -5,8 +5,6 @@
 package subSistemaAgregarProducto;
 
 import Negocio.dto.ProductoCompradoDto;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -21,8 +19,9 @@ public class agregarProductoBO implements IagregarProductoBO {
     
 
     @Override
-    public void agregarCompraLista(ProductoCompradoDto proCompDto) {
-        PC.agregarCompraLista(proCompDto);
+    public void agregarCompraLista(ProductoCompradoDto proCompDto, int op) {
+        PC.agregarCompraLista(proCompDto, op);
+        
     }
 
     

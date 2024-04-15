@@ -12,8 +12,12 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
+import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
+import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.IinventarioBajoBO;
 import subSistemaAgregarProducto.InventarioBajo;
+import subSistemaAgregarProducto.agregarProductoBO;
 import subsistema.ILlenarTabla;
 import subsistema.LlenarTabla;
 
@@ -30,12 +34,22 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     IinventarioBajoBO inventario = new InventarioBajo();
     
     ILlenarTabla llenarT = new LlenarTabla();
+    
+    
+    IagregarProductoBO agregar = new agregarProductoBO();
+    
+    List<ProductoCompradoDto> productosComprados = new ArrayList<>();
+
+    IConsultarProductoCompradoBO PC = new ConsultarProductoCompradoBO();
+    
     /**
      * Creates new form ProductosAAgotarse
      */
     public ProductosAAgotarse() {
         initComponents();
-
+        
+        productosComprados = PC.getListaProductosComprados();
+        
         productosAgotados = inventario.obtenerProductosPorAgotarse();
         
         llenarT.llenarTabla(productosAgotados, tablaProductos);
@@ -192,13 +206,12 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-//
-//        this.FrameOrden.productosComprados.remove(productoAagregar);
-//
-//        productoAagregar.setCantidad(productoAagregar.getCantidad() + 1);
-//
-//        this.FrameOrden.productosComprados.add(productoAagregar);
 
+        ProductoCompradoDto pr = new ProductoCompradoDto();
+        pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
+        
+        agregar.agregarCompraLista(pr, 2);
+        
         FrameOrden.Contenido.removeAll();
 
         ValidarInfo va  = new ValidarInfo();
@@ -209,16 +222,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         FrameOrden.Contenido.repaint();
     }//GEN-LAST:event_AgregarActionPerformed
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ProductosAAgotarse().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;

@@ -18,10 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaConsultarProducto.IConsultarCoinsidenciasProductos;
 import subSistemaConsultarProducto.IConsultarProducto;
+import subSistemaConsultarProducto.consultarCoinsidenciasProductos;
 import subSistemaConsultarProducto.consultarProductos;
-import subSistemaConsultarProveedores.IConsultarProveedores;
-import subSistemaConsultarProveedores.consultarProveedoresBO;
+import subsistema.IConsultarProveedores;
+import subsistema.consultarProveedoresBO;
 
 /**
  *
@@ -29,6 +31,7 @@ import subSistemaConsultarProveedores.consultarProveedoresBO;
  */
 public class AgregarProducto extends javax.swing.JFrame {
 
+    IConsultarCoinsidenciasProductos coin = new consultarCoinsidenciasProductos();
     GenerarOrden FrameOrden;
     
     private int cantidad = 1;
@@ -38,8 +41,6 @@ public class AgregarProducto extends javax.swing.JFrame {
     List<ProductoDto> Productos = new ArrayList<>();
 
     IConsultarProducto consultaP = new consultarProductos();
-    
-    IOrdenNegocio orden = new OrdenNegocio();
     
     IConsultarProveedores proveedoresConsulta = new consultarProveedoresBO();
     
@@ -73,7 +74,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
                 ResultadosProductos.removeAllItems();
 
-                Productos = orden.obtenerCoincidenciasProductos(palabra);
+                Productos = coin.obtenerCoincidenciasProductos(palabra);
 
                 for (ProductoDto p : Productos) {
                     ResultadosProductos.addItem(p);
@@ -92,7 +93,6 @@ public class AgregarProducto extends javax.swing.JFrame {
                     
                     ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
                           
-                    
                     try {
                         for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
                             ResultadosProveedores.addItem(p);            
@@ -139,7 +139,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
                 ResultadosProductos.removeAllItems();
 
-                Productos = orden.obtenerCoincidenciasProductos(palabra);
+                Productos = coin.obtenerCoincidenciasProductos(palabra);
 
                 for (ProductoDto p : Productos) {
                     ResultadosProductos.addItem(p);
@@ -446,7 +446,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         
         ProductoCompradoDto productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
         
-        agregar.agregarCompraLista(productoC);
+        agregar.agregarCompraLista(productoC, 1);
         
         FrameOrden.Contenido.removeAll();
         
