@@ -7,14 +7,15 @@ package GenerarOrden;
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.objetosNegocio.IOrdenNegocio;
-import Negocio.objetosNegocio.OrdenNegocio;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import subSistemaInventario.Iinventario;
-import subSistemaInventario.Inventario;
+import subSistemaAgregarProducto.IinventarioBajoBO;
+import subSistemaAgregarProducto.InventarioBajo;
+import subsistema.ILlenarTabla;
+import subsistema.LlenarTabla;
 
 /**
  *
@@ -26,14 +27,9 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
+    IinventarioBajoBO inventario = new InventarioBajo();
     
-    ProductoCompradoDto productoAagregar;
-    
-    Iinventario inventario = new Inventario();
-
-    
-    IOrdenNegocio Onegocio = new OrdenNegocio();
-
+    ILlenarTabla llenarT = new LlenarTabla();
     /**
      * Creates new form ProductosAAgotarse
      */
@@ -42,7 +38,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
         productosAgotados = inventario.obtenerProductosPorAgotarse();
         
-        Onegocio.llenarTabla(productosAgotados, tablaProductos);
+        llenarT.llenarTabla(productosAgotados, tablaProductos);
 
         
 
@@ -196,12 +192,12 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-
-        this.FrameOrden.productosComprados.remove(productoAagregar);
-
-        productoAagregar.setCantidad(productoAagregar.getCantidad() + 1);
-
-        this.FrameOrden.productosComprados.add(productoAagregar);
+//
+//        this.FrameOrden.productosComprados.remove(productoAagregar);
+//
+//        productoAagregar.setCantidad(productoAagregar.getCantidad() + 1);
+//
+//        this.FrameOrden.productosComprados.add(productoAagregar);
 
         FrameOrden.Contenido.removeAll();
 
