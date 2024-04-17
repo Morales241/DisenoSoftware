@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
@@ -32,26 +33,25 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
     IinventarioBajoBO inventario = new InventarioBajo();
-    
+
     ILlenarTabla llenarT = new LlenarTabla();
-    
-    
+
     IagregarProductoBO agregar = new agregarProductoBO();
-    
+
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
     IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
-    
+
     /**
      * Creates new form ProductosAAgotarse
      */
     public ProductosAAgotarse() {
         initComponents();
-        
+
         productosComprados = PC.getListaProductosComprados();
-        
+
         productosAgotados = inventario.obtenerProductosPorAgotarse();
-        
+
         llenarT.llenarTabla(productosAgotados, tablaProductos);
 
     }
@@ -219,20 +219,29 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        if (tablaProductos.getSelectedRow() != -1) {
+            ProductoCompradoDto pr = new ProductoCompradoDto();
+            pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
 
-        ProductoCompradoDto pr = new ProductoCompradoDto();
-        pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
-        
-        agregar.agregarCompraLista(pr);
-        
-        FrameOrden.Contenido.removeAll();
+            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 1));
+            
+            pr.setCantidad((Integer) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4));
+           
+            agregar.agregarCompraLista(pr);
 
-        ValidarInfo va  = new ValidarInfo();
+            FrameOrden.Contenido.removeAll();
 
-        FrameOrden.Contenido.add(va.traerContenido());
+            ValidarInfo va  = new ValidarInfo();
 
-        FrameOrden.Contenido.revalidate();
-        FrameOrden.Contenido.repaint();
+            FrameOrden.Contenido.add(va.traerContenido());
+
+            FrameOrden.Contenido.revalidate();
+            FrameOrden.Contenido.repaint();
+        }else{
+        JOptionPane.showMessageDialog(null, "No hay ninguna fila seleccionada");
+        }
+
+
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
