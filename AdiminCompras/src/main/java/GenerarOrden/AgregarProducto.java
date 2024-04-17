@@ -432,7 +432,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        if (this.ResultadosProductos.getSelectedItem() == null || this.ResultadosProductos == null) {
+        if (this.ResultadosProductos.getSelectedItem() != null || this.ResultadosProductos != null) {
             ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
             ProductoProveedorDto proveedorS = (ProductoProveedorDto) this.ResultadosProveedores.getSelectedItem();
             

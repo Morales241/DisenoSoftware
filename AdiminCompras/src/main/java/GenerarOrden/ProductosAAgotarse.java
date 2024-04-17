@@ -225,11 +225,12 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
             pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 1));
             
-            pr.setCantidad((Integer) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4));
-           
+//            String cantidad = (String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4);
+
+            pr.setCantidad(3);
             agregar.agregarCompraLista(pr);
 
-            FrameOrden.Contenido.removeAll();
+//            FrameOrden.Contenido.removeAll();
 
             ValidarInfo va  = new ValidarInfo();
 
@@ -237,22 +238,15 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
             FrameOrden.Contenido.revalidate();
             FrameOrden.Contenido.repaint();
-        }else{
-        JOptionPane.showMessageDialog(null, "No hay ninguna fila seleccionada");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay ninguna fila seleccionada");
         }
 
 
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FrameOrden.Contenido.removeAll();
-
-        ValidarInfo va  = new ValidarInfo();
-
-        FrameOrden.Contenido.add(va.traerContenido());
-
-        FrameOrden.Contenido.revalidate();
-        FrameOrden.Contenido.repaint();
+        FrameOrden.validar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

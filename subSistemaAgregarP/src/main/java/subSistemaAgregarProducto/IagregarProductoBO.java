@@ -5,7 +5,6 @@
 package subSistemaAgregarProducto;
 
 import Negocio.dto.ProductoCompradoDto;
-import java.util.List;
 
 /**
  *
