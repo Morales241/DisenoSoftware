@@ -223,14 +223,13 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
             ProductoCompradoDto pr = new ProductoCompradoDto();
             pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
 
-            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 1));
+            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 2));
             
 //            String cantidad = (String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4);
 
-            pr.setCantidad(3);
             agregar.agregarCompraLista(pr);
 
-//            FrameOrden.Contenido.removeAll();
+            FrameOrden.Contenido.removeAll();
 
             ValidarInfo va  = new ValidarInfo();
 

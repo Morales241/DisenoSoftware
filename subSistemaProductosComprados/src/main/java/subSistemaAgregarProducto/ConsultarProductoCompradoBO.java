@@ -26,6 +26,7 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
     public boolean agregarCompraLista(ProductoCompradoDto proCompDto) {
         if (proCompDto.getCodigo()==null) {
             proCompDto = negocio.obtenerProductoProveedor(proCompDto.getNombre(), proCompDto.getProveedor());
+            proCompDto.setCantidad(1);
         }
         for (ProductoCompradoDto p : listaProductosAComprados) {
             if (p.getNombre().equals(proCompDto.getNombre()) && p.getProveedor().equals(proCompDto.getProveedor())) {

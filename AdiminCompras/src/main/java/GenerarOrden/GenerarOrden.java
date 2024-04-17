@@ -137,7 +137,7 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         ProductosAAgotarse pA = new ProductosAAgotarse();
         this.Contenido.add(pA.traerContenido());
-
+        pA.posicion(this);
         this.Contenido.revalidate();
         this.Contenido.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
