@@ -19,8 +19,8 @@ public class agregarProductoBO implements IagregarProductoBO {
     
 
     @Override
-    public void agregarCompraLista(ProductoCompradoDto proCompDto, int op) {
-        PC.agregarCompraLista(proCompDto, op);
+    public void agregarCompraLista(ProductoCompradoDto proCompDto) {
+        PC.agregarCompraLista(proCompDto);
         
     }
 

@@ -208,7 +208,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         ProductoCompradoDto pr = new ProductoCompradoDto();
         pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
         
-        agregar.agregarCompraLista(pr, 2);
+        agregar.agregarCompraLista(pr);
         
         FrameOrden.Contenido.removeAll();
 

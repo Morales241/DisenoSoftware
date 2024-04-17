@@ -43,11 +43,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaConsultarProductos</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>subSistemaCoinsidencias</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -73,13 +68,18 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaConsultarProveedores_Negocio</artifactId>
+            <artifactId>subSistemaGenerarOrden</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaGenerarOrden</artifactId>
-            <version>1.0</version>
+            <artifactId>SubsistemaProveedores</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SubsistemaFinanzas</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <properties>

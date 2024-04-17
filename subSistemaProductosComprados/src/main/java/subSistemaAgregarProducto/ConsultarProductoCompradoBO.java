@@ -7,10 +7,10 @@ import java.util.List;
 public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO {
 
     private static ConsultarProductoCompradoBO instance;
-    private List<ProductoCompradoDto> listaProductosComprados;
+    private final List<ProductoCompradoDto> listaProductosAComprados;
 
     public ConsultarProductoCompradoBO() {
-        listaProductosComprados = new ArrayList<>();
+        listaProductosAComprados = new ArrayList<>();
     }
 
     public static ConsultarProductoCompradoBO getInstance() {
@@ -21,20 +21,20 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
     }
 
     @Override
-    public void agregarCompraLista(ProductoCompradoDto proCompDto, int op) {
-        if (op == 1) {
-            listaProductosComprados.add(proCompDto);
-        } else {
-            listaProductosComprados.forEach(ProductoCompradoDto -> {
-                if (ProductoCompradoDto.getNombre().equals(proCompDto.getNombre())) {
-                    ProductoCompradoDto.setCantidad(3 + ProductoCompradoDto.getCantidad());
-                }
-            });
+    public boolean agregarCompraLista(ProductoCompradoDto proCompDto) {
+        for (ProductoCompradoDto p : listaProductosAComprados) {
+            if (p.getNombre().equals(proCompDto.getNombre()) && p.getProveedor().equals(proCompDto.getProveedor())) {
+                p.setCantidad(p.getCantidad()+proCompDto.getCantidad());
+                return true;
+            }
         }
+        
+        listaProductosAComprados.add(proCompDto);
+        return false;
     }
 
     @Override
     public List<ProductoCompradoDto> getListaProductosComprados() {
-        return listaProductosComprados;
+        return listaProductosAComprados;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * @author tacot
  */
 public interface IagregarProductoBO {
-    public void agregarCompraLista(ProductoCompradoDto proCompDto, int op);
+    public void agregarCompraLista(ProductoCompradoDto proCompDto);
     
 //    public List<ProductoCompradoDto> getListaProductosComprados();
 //    

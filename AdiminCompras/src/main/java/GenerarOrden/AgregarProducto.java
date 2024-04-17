@@ -7,7 +7,6 @@ package GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
-import Negocio.objetosNegocio.IOrdenNegocio;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
@@ -437,7 +436,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         
         ProductoCompradoDto productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
         
-        agregar.agregarCompraLista(productoC, 1);
+        agregar.agregarCompraLista(productoC);
         
         FrameOrden.Contenido.removeAll();
         

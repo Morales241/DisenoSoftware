@@ -3,6 +3,7 @@ package subSistemaConsultarProducto;
 import Negocio.dto.ProductoDto;
 import java.util.ArrayList;
 import java.util.List;
+import negocioBO.NegocioBO;
 
 /**
  *
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class consultarCoinsidenciasProductos implements IConsultarCoinsidenciasProductos {
 
-    consultarProductos conP = new consultarProductos();
+    NegocioBO conP = new NegocioBO();
 
     public consultarCoinsidenciasProductos() {
     }
