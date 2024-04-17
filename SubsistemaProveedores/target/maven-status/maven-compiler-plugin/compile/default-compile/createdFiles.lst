@@ -1,0 +1,6 @@
+entidades\ProductoProveedor.class
+entidades\Producto.class
+entidades\Proveedor.class
+daos\ProductoDao.class
+daos\ProductoProveedorDao.class
+daos\ProveedorDao.class
