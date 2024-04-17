@@ -14,5 +14,4 @@ import java.util.List;
 public interface IConsultarProveedores {
     List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
     
-    ProductoProveedorDto obtenerProductoProveedor(Long idProducto, Long idProveedor);
 }
