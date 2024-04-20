@@ -11,14 +11,14 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarProductos implements IConsultarProducto {
+public class consultarProductos {
 
     NegocioBO negocio = new NegocioBO();
 
     public consultarProductos() {
     }
 
-    @Override
+    
     public List<ProductoDto> obtenerProductos() {
         return negocio.obtenerProductos();
     }

@@ -18,17 +18,27 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>NegocioBO</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>AdminCompras_Negocio</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaProductosComprados</artifactId>
+            <artifactId>SubsistemaFinanzas</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>NegocioBO</artifactId>
+            <artifactId>SubsistemaProveedores</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>subSistemaProductosComprados</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

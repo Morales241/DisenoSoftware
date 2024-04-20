@@ -17,13 +17,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import subSistemaAgregarProducto.IagregarProductoBO;
-import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaAgregarProducto.fachadaAgregarProductos;
 import subSistemaConsultarProducto.IConsultarCoinsidenciasProductos;
 import subSistemaConsultarProducto.IConsultarProducto;
 import subSistemaConsultarProducto.consultarCoinsidenciasProductos;
-import subSistemaConsultarProducto.consultarProductos;
+import subSistemaConsultarProducto.fachadaConsultarProducto;
+import subSistemaConsultarProducto.fachadaCoinsidencias;
 import subsistema.IConsultarProveedores;
-import subsistema.consultarProveedoresBO;
+import subsistema.fachadaConsultarProveedores;
 
 /**
  *
@@ -31,7 +32,7 @@ import subsistema.consultarProveedoresBO;
  */
 public class AgregarProducto extends javax.swing.JFrame {
     
-    IConsultarCoinsidenciasProductos coin = new consultarCoinsidenciasProductos();
+    IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
     GenerarOrden FrameOrden;
     
     private int cantidad = 1;
@@ -40,11 +41,11 @@ public class AgregarProducto extends javax.swing.JFrame {
     
     List<ProductoDto> Productos = new ArrayList<>();
     
-    IConsultarProducto consultaP = new consultarProductos();
+    IConsultarProducto consultaP = new fachadaConsultarProducto();
     
-    IConsultarProveedores proveedoresConsulta = new consultarProveedoresBO();
+    IConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
     
-    IagregarProductoBO agregar = new agregarProductoBO();
+    IagregarProductoBO agregar = new fachadaAgregarProductos();
 
     /**
      * Creates new form AgregarProducto

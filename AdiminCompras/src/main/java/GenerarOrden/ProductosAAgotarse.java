@@ -12,15 +12,14 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
-import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
+import subSistemaProductosComprados.FachadaProductosComprados;
+import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.IinventarioBajoBO;
-import subSistemaAgregarProducto.InventarioBajo;
-import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaAgregarProducto.fachadaInventarioBajo;
+import subSistemaAgregarProducto.fachadaAgregarProductos;
 import subsistema.ILlenarTabla;
-import subsistema.LlenarTabla;
+import subsistema.FachadaLLenarTabla;
 
 /**
  *
@@ -32,15 +31,15 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
-    IinventarioBajoBO inventario = new InventarioBajo();
+    IinventarioBajoBO inventario = new fachadaInventarioBajo();
 
-    ILlenarTabla llenarT = new LlenarTabla();
+    ILlenarTabla llenarT = new FachadaLLenarTabla();
 
-    IagregarProductoBO agregar = new agregarProductoBO();
+    IagregarProductoBO agregar = new fachadaAgregarProductos();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
-    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
+    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
 
     /**
      * Creates new form ProductosAAgotarse

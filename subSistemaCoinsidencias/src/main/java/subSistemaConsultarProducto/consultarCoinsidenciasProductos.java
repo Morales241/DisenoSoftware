@@ -9,14 +9,13 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarCoinsidenciasProductos implements IConsultarCoinsidenciasProductos {
+public class consultarCoinsidenciasProductos {
 
     NegocioBO conP = new NegocioBO();
 
     public consultarCoinsidenciasProductos() {
     }
 
-        @Override
         public List<ProductoDto> obtenerCoincidenciasProductos(String palabra) {
 
             List<ProductoDto> listaProductos = new ArrayList<>();

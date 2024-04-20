@@ -4,26 +4,19 @@
  */
 package subSistemaAgregarProducto;
 
-import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import Negocio.dto.ProductoCompradoDto;
-import subSistemaProductosComprados.FachadaProductosComprados;
 
 /**
  *
  * @author tacot
  */
-public class agregarProductoBO  {
-
-    public agregarProductoBO() {
+public class fachadaAgregarProductos implements IagregarProductoBO{
+    agregarProductoBO agregar = new agregarProductoBO();
+    public fachadaAgregarProductos() {
     }
-    
-    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
-    
 
+    @Override
     public void agregarCompraLista(ProductoCompradoDto proCompDto) {
-        PC.agregarCompraLista(proCompDto);
-        
-    }
-
-    
+        agregar.agregarCompraLista(proCompDto);
+    }    
 }
