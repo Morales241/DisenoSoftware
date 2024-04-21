@@ -7,29 +7,24 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>AdminCompras_Negocio</artifactId>
-            <version>${project.version}</version>
+            <groupId>Biblioteca.Negocio</groupId>
+            <artifactId>BibliotecaParaNegocioBO</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>SubsistemaProveedores</artifactId>
-            <version>${project.version}</version>
+            <groupId>Blioteca2</groupId>
+            <artifactId>BibliotecaPersistencia</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>AdminCompras_Persistencia</artifactId>
-            <version>${project.version}</version>
+            <groupId>biblioteca3</groupId>
+            <artifactId>bibliotecaNegocio</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>SubsistemaFinanzas</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>AdminCompras_Negocio</artifactId>
-            <version>${project.version}</version>
+            <groupId>biblioteca4</groupId>
+            <artifactId>BibliotecaProveedores</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <properties>

@@ -6,9 +6,6 @@ package GenerarOrden;
 
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
-import Negocio.objetosNegocio.IOrdenNegocio;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

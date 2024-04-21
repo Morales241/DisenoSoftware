@@ -5,11 +5,9 @@
 package GenerarOrden;
 
 import Negocio.dto.ProductoCompradoDto;
-import Negocio.objetosNegocio.IOrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import subsistema.IGenerarOrden;

@@ -1,12 +1,15 @@
+package AdministrarProductos;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package login;
+
 
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
 import subSistemaInicioSesion.IInicioSesion;
+import subSistemaInicioSesion.fachadaInicioSesion;
 import subSistemaInicioSesion.inicioSesion;
 
 /**
@@ -15,7 +18,7 @@ import subSistemaInicioSesion.inicioSesion;
  */
 public class IniciarSesion extends javax.swing.JFrame {
 
-    IInicioSesion sesion = new inicioSesion();
+    IInicioSesion sesion = new fachadaInicioSesion();
     Inicio ini;
 
     /**

@@ -4,18 +4,13 @@
  */
 package presentacion;
 
+import AdministrarProductos.IniciarSesion;
 import AdministrarProductos.AdministrarProductos;
 import AdministrarProveedores.AdministrarProveedores;
 import GenerarOrden.GenerarOrden;
 import informacion.Informacion;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import GenerarOrden.ProductosAAgotarse;
 import cotizacion.Cotizacion;
 import entradaInventario.EntradaInventario;
-import java.awt.Color;
-import login.IniciarSesion;
 import pago.Pago;
 
 /**
