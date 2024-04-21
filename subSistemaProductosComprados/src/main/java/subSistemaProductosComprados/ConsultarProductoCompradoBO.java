@@ -1,11 +1,11 @@
-package subSistemaAgregarProducto;
+package subSistemaProductosComprados;
 
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
 import negocioBO.NegocioBO;
 
-public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO {
+public class ConsultarProductoCompradoBO  {
 
     NegocioBO negocio = new NegocioBO();
     private static ConsultarProductoCompradoBO instance;
@@ -22,10 +22,10 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
         return instance;
     }
 
-    @Override
     public boolean agregarCompraLista(ProductoCompradoDto proCompDto) {
         if (proCompDto.getCodigo()==null) {
             proCompDto = negocio.obtenerProductoProveedor(proCompDto.getNombre(), proCompDto.getProveedor());
+            proCompDto.setCantidad(1);
         }
         for (ProductoCompradoDto p : listaProductosAComprados) {
             if (p.getNombre().equals(proCompDto.getNombre()) && p.getProveedor().equals(proCompDto.getProveedor())) {
@@ -38,7 +38,6 @@ public class ConsultarProductoCompradoBO implements IConsultarProductoCompradoBO
         return false;
     }
 
-    @Override
     public List<ProductoCompradoDto> getListaProductosComprados() {
         return listaProductosAComprados;
     }

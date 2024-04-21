@@ -19,13 +19,13 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarProveedoresBO implements IConsultarProveedores {
+public class consultarProveedoresBO {
     NegocioBO negocio = new NegocioBO();
     
     public consultarProveedoresBO() {
     }
 
-    @Override
+    
     public List<ProductoProveedorDto> obtenerProveedores(Long idProducto) {
         return negocio.obtenerProveedores(idProducto);
     }

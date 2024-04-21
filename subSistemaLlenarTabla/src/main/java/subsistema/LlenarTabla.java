@@ -14,12 +14,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Marlon
  */
-public class LlenarTabla implements ILlenarTabla {
+public class LlenarTabla  {
 
     public LlenarTabla() {
     }
 
-    @Override
+    
     public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
         // Crear un modelo de tabla y establecerlo en el JTable
         DefaultTableModel model = new DefaultTableModel();

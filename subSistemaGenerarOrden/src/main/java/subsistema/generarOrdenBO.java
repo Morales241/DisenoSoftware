@@ -13,14 +13,13 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class generarOrdenBO implements IGenerarOrden {
+public class generarOrdenBO  {
 
     NegocioBO negocio = new NegocioBO();
 
     public generarOrdenBO() {
     }
 
-    @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto) throws Exception {
         List<ProductoCompradoDto> listaSinDuplicados = new ArrayList<>();
         for (ProductoCompradoDto producto : prdsDto) {

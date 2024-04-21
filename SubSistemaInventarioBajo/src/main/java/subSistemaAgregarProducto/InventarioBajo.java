@@ -9,27 +9,34 @@ import Entidades.ProComprado;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
  * @author tacot
  */
-public class InventarioBajo implements IinventarioBajoBO {
+public class InventarioBajo  {
 
     public InventarioBajo() {
     }
 
-    @Override
+    
     public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
         ProCompradoJpaController pcjc = new ProCompradoJpaController();
 
-        List<ProComprado> listaProductosComprados = pcjc.findProCompradoEntities();
-
+        List<ProComprado> listaProductosComprados = pcjc.findProCompradoEntities(); 
+        
         List<ProductoCompradoDto> listaProductosPorAgotarse = new ArrayList<>();
 
-        for (ProComprado pc : listaProductosComprados) {
-            if (pc.getCantidad() < 3) {
-                listaProductosPorAgotarse.add(new ProductoCompradoDto(pc.getNombre(), pc.getCodigo(), pc.getProveedor(), pc.getCantidad(), pc.getPrecio()));
+        int anterior=0; 
+        for (int i = 0; i < 5; i++) {
+            int numeroAleatorio = new Random().nextInt((listaProductosComprados.size() - 1) + 1) + 1;
+            if (numeroAleatorio != anterior) {
+                //pc = producto comprado
+                ProComprado pc = listaProductosComprados.get(numeroAleatorio);
+                int cantidadA = new Random().nextInt((3 - 1) + 1) + 1; 
+                
+                listaProductosPorAgotarse.add(new ProductoCompradoDto(pc.getNombre(), pc.getCodigo(), pc.getProveedor(),cantidadA , pc.getPrecio()));
             }
         }
 

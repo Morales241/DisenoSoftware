@@ -5,19 +5,15 @@
 package GenerarOrden;
 
 import Negocio.dto.ProductoCompradoDto;
-import Negocio.objetosNegocio.IOrdenNegocio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
-import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
-import subSistemaAgregarProducto.IagregarProductoBO;
-import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaProductosComprados.FachadaProductosComprados;
+import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import subsistema.IGenerarOrden;
 import subsistema.ILlenarTabla;
-import subsistema.LlenarTabla;
-import subsistema.generarOrdenBO;
+import subsistema.FachadaLLenarTabla;
+import subsistema.fachadaGenerarOrden;
 
 /**
  *
@@ -27,13 +23,13 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    ILlenarTabla llenarT = new LlenarTabla();
+    ILlenarTabla llenarT = new FachadaLLenarTabla();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
-
-    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
+    //PC = productosComprados
+    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
     
-    IGenerarOrden orden = new generarOrdenBO();
+    IGenerarOrden orden = new fachadaGenerarOrden();
 
     /**
      * Creates new form ValidarInfo

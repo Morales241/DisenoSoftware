@@ -6,21 +6,17 @@ package GenerarOrden;
 
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
-import Negocio.objetosNegocio.IOrdenNegocio;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import subSistemaAgregarProducto.ConsultarProductoCompradoBO;
-import subSistemaAgregarProducto.IConsultarProductoCompradoBO;
+import subSistemaProductosComprados.FachadaProductosComprados;
+import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.IinventarioBajoBO;
-import subSistemaAgregarProducto.InventarioBajo;
-import subSistemaAgregarProducto.agregarProductoBO;
+import subSistemaAgregarProducto.fachadaInventarioBajo;
+import subSistemaAgregarProducto.fachadaAgregarProductos;
 import subsistema.ILlenarTabla;
-import subsistema.LlenarTabla;
+import subsistema.FachadaLLenarTabla;
 
 /**
  *
@@ -32,15 +28,15 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
 
-    IinventarioBajoBO inventario = new InventarioBajo();
+    IinventarioBajoBO inventario = new fachadaInventarioBajo();
 
-    ILlenarTabla llenarT = new LlenarTabla();
+    ILlenarTabla llenarT = new FachadaLLenarTabla();
 
-    IagregarProductoBO agregar = new agregarProductoBO();
+    IagregarProductoBO agregar = new fachadaAgregarProductos();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
 
-    IConsultarProductoCompradoBO PC = ConsultarProductoCompradoBO.getInstance();
+    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
 
     /**
      * Creates new form ProductosAAgotarse
@@ -223,14 +219,13 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
             ProductoCompradoDto pr = new ProductoCompradoDto();
             pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
 
-            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 1));
+            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 2));
             
 //            String cantidad = (String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4);
 
-            pr.setCantidad(3);
             agregar.agregarCompraLista(pr);
 
-//            FrameOrden.Contenido.removeAll();
+            FrameOrden.Contenido.removeAll();
 
             ValidarInfo va  = new ValidarInfo();
 
