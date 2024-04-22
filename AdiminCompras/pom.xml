@@ -82,19 +82,19 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaCoinsidencias</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>subSistemaAgregarP</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>6</groupId>
             <artifactId>subSistemaProductosComprados</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>7</groupId>
+            <artifactId>subSistemaAgregarP</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>10</groupId>
+            <artifactId>subSistemaCoinsidencias</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <properties>
