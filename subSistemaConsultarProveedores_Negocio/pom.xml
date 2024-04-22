@@ -7,8 +7,28 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>Biblioteca9</groupId>
-            <artifactId>BibliotecaNegocios</artifactId>
+            <groupId>5</groupId>
+            <artifactId>NegocioBO</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>1</groupId>
+            <artifactId>AdminCompras_Negocio</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>2</groupId>
+            <artifactId>AdminCompras_Persistencia</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>4</groupId>
+            <artifactId>SubsistemaFinanzas</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>3</groupId>
+            <artifactId>SubsistemaProveedores</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

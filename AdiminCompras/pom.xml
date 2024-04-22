@@ -27,49 +27,74 @@
             <version>8.0.33</version>
         </dependency>
         <dependency>
-            <groupId>Biblioteca15</groupId>
-            <artifactId>BibliotecaSubCoinsidencias</artifactId>
+            <groupId>1</groupId>
+            <artifactId>AdminCompras_Negocio</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b16</groupId>
-            <artifactId>BAgregar</artifactId>
+            <groupId>2</groupId>
+            <artifactId>AdminCompras_Persistencia</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>B17</groupId>
-            <artifactId>BConsulta1</artifactId>
+            <groupId>4</groupId>
+            <artifactId>SubsistemaFinanzas</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b18</groupId>
-            <artifactId>BConsulta2</artifactId>
+            <groupId>5</groupId>
+            <artifactId>NegocioBO</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b19</groupId>
-            <artifactId>BConsulta3</artifactId>
+            <groupId>3</groupId>
+            <artifactId>SubsistemaProveedores</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b20</groupId>
-            <artifactId>BGenerarOrden</artifactId>
+            <groupId>7</groupId>
+            <artifactId>subSistemaInicioSesion</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b21</groupId>
-            <artifactId>BProductosC</artifactId>
+            <groupId>9</groupId>
+            <artifactId>SubSistemaInventarioBajo</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b22</groupId>
-            <artifactId>Binventario</artifactId>
+            <groupId>11</groupId>
+            <artifactId>subSistemaLlenarTabla</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>b23</groupId>
-            <artifactId>Biblioteca</artifactId>
+            <groupId>12</groupId>
+            <artifactId>subSistemaGenerarOrden</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>14</groupId>
+            <artifactId>subSistemaConsultarProveedores_Negocio</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>15</groupId>
+            <artifactId>subSistemaConsultarProductos</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>subSistemaCoinsidencias</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>subSistemaAgregarP</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>subSistemaProductosComprados</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <properties>

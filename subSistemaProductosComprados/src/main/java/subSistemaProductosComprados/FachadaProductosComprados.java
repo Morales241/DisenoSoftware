@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class FachadaProductosComprados implements IConsultarProductoCompradoBO{
 
-    ConsultarProductoCompradoBO ConsultaPC = new ConsultarProductoCompradoBO();
+    ConsultarProductoCompradoBO ConsultaPC = ConsultarProductoCompradoBO.getInstance();
 
     public FachadaProductosComprados() {
     }

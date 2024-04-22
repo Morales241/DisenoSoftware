@@ -13,12 +13,13 @@ import java.util.List;
  */
 public class fachadaCoinsidencias implements IConsultarCoinsidenciasProductos{
     
+    consultarCoinsidenciasProductos coin = new consultarCoinsidenciasProductos();
     public fachadaCoinsidencias() {
     }
 
     @Override
     public List<ProductoDto> obtenerCoincidenciasProductos(String palabra) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return coin.obtenerCoincidenciasProductos(palabra);
     }
     
 }

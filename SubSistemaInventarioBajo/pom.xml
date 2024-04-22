@@ -7,8 +7,13 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>biblioteca7</groupId>
-            <artifactId>BibliotecaParaInventario</artifactId>
+            <groupId>1</groupId>
+            <artifactId>AdminCompras_Negocio</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>2</groupId>
+            <artifactId>AdminCompras_Persistencia</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

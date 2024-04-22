@@ -7,9 +7,34 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>Biblioteca6</groupId>
-            <artifactId>BibliotecaNegocioBO</artifactId>
+            <groupId>1</groupId>
+            <artifactId>AdminCompras_Negocio</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>2</groupId>
+            <artifactId>AdminCompras_Persistencia</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>3</groupId>
+            <artifactId>SubsistemaProveedores</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>4</groupId>
+            <artifactId>SubsistemaFinanzas</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>5</groupId>
+            <artifactId>NegocioBO</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
         </dependency>
     </dependencies>
     <properties>
