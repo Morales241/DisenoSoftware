@@ -210,20 +210,17 @@ public class AgregarProducto extends javax.swing.JFrame {
         botonSiguiente.setBounds(189, 270, 133, 36);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre del Producto:");
         contenido.add(jLabel5);
-        jLabel5.setBounds(18, 69, 183, 25);
+        jLabel5.setBounds(18, 69, 190, 25);
 
         txtProductoBuscado.setBackground(new java.awt.Color(24, 50, 77));
-        txtProductoBuscado.setForeground(new java.awt.Color(0, 0, 0));
         contenido.add(txtProductoBuscado);
         txtProductoBuscado.setBounds(219, 72, 290, 25);
 
         panelProducto.setBackground(new java.awt.Color(255, 255, 255));
 
         ResultadosProductos.setBackground(new java.awt.Color(24, 50, 77));
-        ResultadosProductos.setForeground(new java.awt.Color(0, 0, 0));
         ResultadosProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ResultadosProductosMouseClicked(evt);
@@ -236,7 +233,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Seleccione Producto:");
 
         javax.swing.GroupLayout panelProductoLayout = new javax.swing.GroupLayout(panelProducto);
@@ -266,11 +262,9 @@ public class AgregarProducto extends javax.swing.JFrame {
         panelProveedor.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Seleccione Proveedor:");
 
         ResultadosProveedores.setBackground(new java.awt.Color(24, 50, 77));
-        ResultadosProveedores.setForeground(new java.awt.Color(0, 0, 0));
         ResultadosProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ResultadosProveedoresMouseClicked(evt);
@@ -304,7 +298,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         panelCantidad.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Seleccione Cantidad:");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -336,7 +329,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
 
         txtCantidad.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        txtCantidad.setForeground(new java.awt.Color(0, 0, 0));
         txtCantidad.setText("1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

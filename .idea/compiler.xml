@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SubSistemaInventarioBajo" />
+        <module name="SubsistemaFinanzas" />
+        <module name="subSistemaCoinsidencias" />
+        <module name="subSistemaInicioSesion" />
+        <module name="AdiminCompras" />
+        <module name="subSistemaAgregarP" />
+        <module name="subSistemaGenerarOrden" />
+        <module name="AdminCompras_PersistenciaMock" />
+        <module name="subSistemaConsultarProductos" />
+        <module name="subSistemaLlenarTabla" />
+        <module name="NegocioBO" />
+        <module name="AdminCompras_Persistencia" />
+        <module name="SubsistemaProveedores" />
+        <module name="subSistemaConsultarProveedores_Negocio" />
+        <module name="AdminCompras_Negocio" />
+        <module name="subSistemaProductosComprados" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

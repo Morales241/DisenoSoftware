@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/NegocioBO/pom.xml" />
+        <option value="$PROJECT_DIR$/AdiminCompras/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaAgregarP/pom.xml" />
+        <option value="$PROJECT_DIR$/SubsistemaFinanzas/pom.xml" />
+        <option value="$PROJECT_DIR$/AdminCompras_Negocio/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaLlenarTabla/pom.xml" />
+        <option value="$PROJECT_DIR$/SubsistemaProveedores/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaGenerarOrden/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaInicioSesion/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaCoinsidencias/pom.xml" />
+        <option value="$PROJECT_DIR$/SubSistemaInventarioBajo/pom.xml" />
+        <option value="$PROJECT_DIR$/AdminCompras_Persistencia/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaConsultarProductos/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaProductosComprados/pom.xml" />
+        <option value="$PROJECT_DIR$/AdminCompras_PersistenciaMock/pom.xml" />
+        <option value="$PROJECT_DIR$/subSistemaConsultarProveedores_Negocio/pom.xml" />
+      </list>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

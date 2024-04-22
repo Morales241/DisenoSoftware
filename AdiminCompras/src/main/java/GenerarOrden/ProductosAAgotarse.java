@@ -96,7 +96,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         });
 
         tablaProductos.setBackground(new java.awt.Color(214, 217, 223));
-        tablaProductos.setForeground(new java.awt.Color(0, 0, 0));
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -148,8 +147,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tacot\\Documents\\GitHub\\AdminCompras\\DisenoSoftware\\AdiminCompras\\src\\main\\resources\\regresar.png")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
