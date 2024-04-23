@@ -7,17 +7,14 @@ package GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author tacot
  */
 public class GenerarOrden extends javax.swing.JFrame {
-
+    ValidarInfo va  = new ValidarInfo();
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
-
     /**
      * Creates new form GenerarOrden
      */
@@ -26,10 +23,10 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         this.Contenido.removeAll();
 
-        ValidarInfo va  = new ValidarInfo();
-
+        
+        
         this.Contenido.add(va.traerContenido());
-
+        va.posicion(this);
         this.Contenido.revalidate();
         this.Contenido.repaint();
     }
@@ -46,7 +43,6 @@ public class GenerarOrden extends javax.swing.JFrame {
     private void initComponents() {
 
         contenido = new javax.swing.JPanel();
-        agregarP = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         Contenido = new javax.swing.JPanel();
 
@@ -54,15 +50,6 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(675, 500));
-
-        agregarP.setBackground(new java.awt.Color(24, 50, 77));
-        agregarP.setForeground(new java.awt.Color(255, 255, 255));
-        agregarP.setText("Agregar producto a la orden");
-        agregarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarPActionPerformed(evt);
-            }
-        });
 
         jButton4.setBackground(new java.awt.Color(24, 50, 77));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notificacion.png"))); // NOI18N
@@ -82,7 +69,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         );
         ContenidoLayout.setVerticalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
@@ -96,10 +83,6 @@ public class GenerarOrden extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(72, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,9 +91,7 @@ public class GenerarOrden extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,24 +123,6 @@ public class GenerarOrden extends javax.swing.JFrame {
         this.Contenido.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
-
-        this.Contenido.removeAll();
-
-        AgregarProducto agregar = null;
-        try {
-            agregar = new AgregarProducto(this);
-        } catch (Exception ex) {
-            Logger.getLogger(GenerarOrden.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        this.Contenido.add(agregar.traerContenido());
-
-        this.Contenido.revalidate();
-        this.Contenido.repaint();
-
-    }//GEN-LAST:event_agregarPActionPerformed
-
     public void validar() {
         this.Contenido.removeAll();
 
@@ -170,6 +133,7 @@ public class GenerarOrden extends javax.swing.JFrame {
         this.Contenido.revalidate();
         this.Contenido.repaint();
     }
+    
     /**
      * @param args the command line arguments //
      */
@@ -207,7 +171,6 @@ public class GenerarOrden extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Contenido;
-    private javax.swing.JButton agregarP;
     private javax.swing.JPanel contenido;
     private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables

@@ -4,9 +4,13 @@
  */
 package GenerarOrden;
 
+import EliminarProducto.fachacaEliminarProducto;
 import Negocio.dto.ProductoCompradoDto;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IConsultarProductoCompradoBO;
@@ -28,7 +32,7 @@ public class ValidarInfo extends javax.swing.JFrame {
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
     //PC = productosComprados
     IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
-    
+
     IGenerarOrden orden = new fachadaGenerarOrden();
 
     /**
@@ -37,12 +41,8 @@ public class ValidarInfo extends javax.swing.JFrame {
     public ValidarInfo() {
         initComponents();
 
-        productosComprados = PC.getListaProductosComprados();
-
-        tablaProductos.removeAll();
-        
-        
-        llenarT.llenarTabla(productosComprados, tablaProductos);
+        llenarTabla();
+        sacarTotal();
     }
 
     /**
@@ -57,7 +57,11 @@ public class ValidarInfo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        agregarP = new javax.swing.JButton();
+        EliminarP = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        total = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,23 +108,54 @@ public class ValidarInfo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(24, 50, 77));
         jPanel2.setPreferredSize(new java.awt.Dimension(528, 31));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Validar Informacion");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Validar Informacion");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(171, 171, 171))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        agregarP.setBackground(new java.awt.Color(24, 50, 77));
+        agregarP.setForeground(new java.awt.Color(255, 255, 255));
+        agregarP.setText("Agregar producto");
+        agregarP.setBorderPainted(false);
+        agregarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPActionPerformed(evt);
+            }
+        });
+
+        EliminarP.setBackground(new java.awt.Color(24, 50, 77));
+        EliminarP.setForeground(new java.awt.Color(255, 255, 255));
+        EliminarP.setText("Eliminar producto ");
+        EliminarP.setBorderPainted(false);
+        EliminarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarPActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Total:");
+
+        total.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        total.setForeground(new java.awt.Color(0, 0, 0));
+        total.setText(" ");
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -128,24 +163,39 @@ public class ValidarInfo extends javax.swing.JFrame {
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                        .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(194, 194, 194))))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(EliminarP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(0, 0, 0)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarP, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,7 +206,7 @@ public class ValidarInfo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();
@@ -164,16 +214,46 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-        try{
-        orden.realizarOrden(productosComprados);
-        
-        JOptionPane.showMessageDialog(null, "La orden se ha generado correctamente");
-        }catch (Exception ex){
-        JOptionPane.showMessageDialog(null, ex.getMessage());
+        try {
+            orden.realizarOrden(productosComprados);
+
+            JOptionPane.showMessageDialog(null, "La orden se ha generado correctamente");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        
-        
+
+
     }//GEN-LAST:event_botonSiguienteActionPerformed
+
+    private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
+        this.FrameOrden.Contenido.removeAll();
+
+        AgregarProducto agregar = null;
+        try {
+            agregar = new AgregarProducto(FrameOrden);
+        } catch (Exception ex) {
+            Logger.getLogger(GenerarOrden.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.FrameOrden.Contenido.add(agregar.traerContenido());
+
+        this.FrameOrden.Contenido.revalidate();
+        this.FrameOrden.Contenido.repaint();
+    }//GEN-LAST:event_agregarPActionPerformed
+
+    private void EliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarPActionPerformed
+        if (eliminarPosicion() != -1) {
+            fachacaEliminarProducto fep = new fachacaEliminarProducto();
+
+            fep.eliminarProducto(eliminarPosicion());
+            llenarTabla(); 
+            sacarTotal();
+        } else {
+            JOptionPane.showMessageDialog(null, "ninguna fila seleccionada");
+
+        }
+
+    }//GEN-LAST:event_EliminarPActionPerformed
 
     public javax.swing.JPanel traerContenido() {
         return this.contenido;
@@ -183,13 +263,42 @@ public class ValidarInfo extends javax.swing.JFrame {
         this.FrameOrden = orden;
     }
 
+    public int eliminarPosicion() {
+        int posicion = this.tablaProductos.getSelectedRow();
+        return posicion;
+    }
 
+    public void llenarTabla() {
+        productosComprados = PC.getListaProductosComprados();
+
+        if (productosComprados.isEmpty()) {
+            this.botonSiguiente.setVisible(false);
+        } else {
+            this.botonSiguiente.setVisible(true);
+        }
+
+        tablaProductos.removeAll();
+
+        llenarT.llenarTabla(productosComprados, tablaProductos);
+    }
+
+    public void sacarTotal() {
+        double totalP = 0;
+        for (ProductoCompradoDto p : productosComprados) {
+            totalP += (p.getCantidad() * p.getPrecio());
+        }
+        this.total.setText(String.valueOf(totalP));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EliminarP;
+    private javax.swing.JButton agregarP;
     private javax.swing.JButton botonSiguiente;
     private javax.swing.JPanel contenido;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaProductos;
+    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }

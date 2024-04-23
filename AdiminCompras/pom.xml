@@ -97,16 +97,9 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.mycompany</groupId>
-            <artifactId>subSistemaAgregarP</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.mycompany</groupId>
-            <artifactId>subSistemaCoinsidencias</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
+            <groupId>16</groupId>
+            <artifactId>subSistemaEliminarP</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <properties>

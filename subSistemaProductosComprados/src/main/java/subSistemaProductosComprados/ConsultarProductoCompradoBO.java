@@ -37,6 +37,10 @@ public class ConsultarProductoCompradoBO  {
         listaProductosAComprados.add(proCompDto);
         return false;
     }
+    
+    public void eliminarProducto(int index){
+        listaProductosAComprados.remove(listaProductosAComprados.get(index));
+    }
 
     public List<ProductoCompradoDto> getListaProductosComprados() {
         return listaProductosAComprados;

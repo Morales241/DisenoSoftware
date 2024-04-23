@@ -28,5 +28,10 @@ public class FachadaProductosComprados implements IConsultarProductoCompradoBO{
     public List<ProductoCompradoDto> getListaProductosComprados() {
         return ConsultaPC.getListaProductosComprados();
     }
+
+    @Override
+    public void eliminarProductos(int index) {
+        ConsultaPC.eliminarProducto(index);
+    }
     
 }

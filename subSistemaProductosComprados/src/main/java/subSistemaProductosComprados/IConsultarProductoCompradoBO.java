@@ -16,4 +16,5 @@ public interface IConsultarProductoCompradoBO {
     
     public List<ProductoCompradoDto> getListaProductosComprados();
     
+    public void eliminarProductos(int index);
 }

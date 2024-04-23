@@ -77,7 +77,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(528, 351));
 
         productoA.setBackground(new java.awt.Color(24, 50, 77));
         productoA.setPreferredSize(new java.awt.Dimension(528, 351));
@@ -227,7 +226,8 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
             ValidarInfo va  = new ValidarInfo();
 
             FrameOrden.Contenido.add(va.traerContenido());
-
+            
+            va.posicion(FrameOrden);
             FrameOrden.Contenido.revalidate();
             FrameOrden.Contenido.repaint();
         } else {
