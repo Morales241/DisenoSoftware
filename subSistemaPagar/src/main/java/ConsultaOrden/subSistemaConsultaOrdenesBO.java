@@ -13,9 +13,10 @@ import java.util.List;
  * @author tacot
  */
 public class subSistemaConsultaOrdenesBO {
-    DaoOrdenMock ordenDao = DaoOrdenMock.getInstance(); 
+    
     
     public List<proCompradoMock> consultarProductosDeUnaOrden(int index){
     return ordenDao.consultarProductosOrden(index);
     }
+    
 }

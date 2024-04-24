@@ -15,19 +15,22 @@ import java.util.List;
  * @author tacot
  */
 public interface InegocioBO {
+
     public List<ProductoDto> obtenerProductos();
-    
+
     List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
-    
-    public ProductoCompradoDto obtenerProductoProveedor(String nombre,String pro);
-    
+
+    public ProductoCompradoDto obtenerProductoProveedor(String nombre, String pro);
+
     void realizarOrden(List<ProductoCompradoDto> prdsDto);
-    
+
     boolean verificarPresupuesto(Double cantidad);
-    
-    public OrdenCompraDto consultarOrdenes();
-    
+
+    public List<OrdenCompraDto> consultarOrdenes();
+
+    public List<ProductoCompradoDto>  obetenerProductosOrden(int index);
+
     public void agregarAInventario();
-    
+
     public void eliminarDeInventario();
 }

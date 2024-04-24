@@ -14,6 +14,8 @@ import java.util.List;
 public class ordenMock {
 
     private Double total;
+    
+    private boolean estado;
 
     private Calendar fechaExpedicion;
 
@@ -51,4 +53,14 @@ public class ordenMock {
     public void setFechaExpedicion(Calendar fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    
 }
