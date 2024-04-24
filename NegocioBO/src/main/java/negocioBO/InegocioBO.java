@@ -4,6 +4,7 @@
  */
 package negocioBO;
 
+import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
@@ -23,4 +24,10 @@ public interface InegocioBO {
     void realizarOrden(List<ProductoCompradoDto> prdsDto);
     
     boolean verificarPresupuesto(Double cantidad);
+    
+    public OrdenCompraDto consultarOrdenes();
+    
+    public void agregarAInventario();
+    
+    public void eliminarDeInventario();
 }

@@ -53,7 +53,15 @@ public class Cotizacion extends javax.swing.JFrame {
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setText("C/U");
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("C/U:");
+
+        domicilio.setEditable(false);
+        domicilio.setBackground(new java.awt.Color(24, 50, 77));
+        domicilio.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField5.setBackground(new java.awt.Color(24, 50, 77));
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton2.setBackground(new java.awt.Color(24, 50, 77));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +76,12 @@ public class Cotizacion extends javax.swing.JFrame {
 
         jComboBox2.setBackground(new java.awt.Color(24, 50, 77));
 
-        jLabel11.setText("C/U");
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("C/U:");
+
+        domicilio1.setEditable(false);
+        domicilio1.setBackground(new java.awt.Color(24, 50, 77));
+        domicilio1.setForeground(new java.awt.Color(255, 255, 255));
 
         jComboBox3.setBackground(new java.awt.Color(24, 50, 77));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +91,7 @@ public class Cotizacion extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(24, 50, 77));
+        jPanel2.setPreferredSize(new java.awt.Dimension(528, 31));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,28 +101,28 @@ public class Cotizacion extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(168, 168, 168))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel13)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre del Producto:");
 
         txtProductoBuscado.setBackground(new java.awt.Color(24, 50, 77));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Selecciones proveedor");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Cantidad:");
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
@@ -141,18 +155,19 @@ public class Cotizacion extends javax.swing.JFrame {
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
                         .addComponent(txtProductoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(contenidoLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
@@ -179,13 +194,13 @@ public class Cotizacion extends javax.swing.JFrame {
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(25, 25, 25))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

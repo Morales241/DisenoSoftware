@@ -22,8 +22,12 @@ public class DaoOrdenMock {
         this.listaOrdenes = new ArrayList<>();
     }
 
-    public DaoOrdenMock getInstance() {
-        return instance = new DaoOrdenMock();
+    public static DaoOrdenMock getInstance() {
+        if (instance == null) {
+            return instance = new DaoOrdenMock();
+        }
+        
+        return instance;
 
     }
 

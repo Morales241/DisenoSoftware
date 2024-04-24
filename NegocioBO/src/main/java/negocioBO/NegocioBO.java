@@ -5,8 +5,13 @@
 package negocioBO;
 
 import Daos.OrdenCompraJpaController;
+import DaosMock.DaoOrdenMock;
+import DaosMock.DaoproComMock;
 import Entidades.OrdenCompra;
 import Entidades.ProComprado;
+import EntidadesMock.ordenMock;
+import EntidadesMock.proCompradoMock;
+import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
@@ -70,27 +75,48 @@ public class NegocioBO implements InegocioBO {
 
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto) {
-        OrdenCompraJpaController OrdenDAO = new OrdenCompraJpaController();
-        
-        List<ProComprado> productos = new ArrayList();
+//        OrdenCompraJpaController OrdenDAO = new OrdenCompraJpaController();
+//        
+//        List<ProComprado> productos = new ArrayList<>();
+//
+//        prdsDto.forEach(ProductoCompradoDto -> {
+//
+//            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
+//                    ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
+//        });
+//
+//        OrdenCompra oc = new OrdenCompra();
+//        oc.setFechaExpedicion(Calendar.getInstance());
+//        oc.setProductos(productos);
+//        double total = 0;
+//        for (ProComprado p : productos) {
+//            total += p.getCantidad() * p.getPrecio();
+//        }
+//
+//        oc.setTotal(total);
+//        
+//        OrdenDAO.create(oc);
 
-        prdsDto.forEach(ProductoCompradoDto -> {
-
-            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
+            DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
+            
+            List<proCompradoMock> productos = new ArrayList<>();
+            
+            prdsDto.forEach(ProductoCompradoDto -> {           
+            productos.add(new proCompradoMock(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
                     ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
         });
-
-        OrdenCompra oc = new OrdenCompra();
+            
+            ordenMock oc = new ordenMock();
         oc.setFechaExpedicion(Calendar.getInstance());
         oc.setProductos(productos);
         double total = 0;
-        for (ProComprado p : productos) {
+        for (proCompradoMock p : productos) {
             total += p.getCantidad() * p.getPrecio();
         }
-
+        
         oc.setTotal(total);
         
-        OrdenDAO.create(oc);
+        ordenDao.agregarOrden(oc);
     }
 
     @Override
@@ -113,5 +139,20 @@ public class NegocioBO implements InegocioBO {
             }
         }
         return null;
+    }
+
+    @Override
+    public OrdenCompraDto consultarOrdenes() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void agregarAInventario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void eliminarDeInventario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

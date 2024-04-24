@@ -20,8 +20,12 @@ public class DaoproComMock {
         this.listaProductosComprados = new ArrayList<>();
     }
     
-    public DaoproComMock getInstance(){
-        return instance = new DaoproComMock();
+    public static DaoproComMock getInstance(){
+        if (instance == null) {
+            return instance = new DaoproComMock();
+        }
+        
+        return instance;
     }
     
     public void agregarProductoALista(proCompradoMock producto){
