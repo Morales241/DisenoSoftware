@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DaoOrdenMock {
 
-    private final List<ordenMock> listaOrdenes;
+    private List<ordenMock> listaOrdenes;
 
     private static DaoOrdenMock instance;
 
@@ -46,5 +46,8 @@ public class DaoOrdenMock {
     
     public List<proCompradoMock> consultarProductosOrden(int index){
             return this.listaOrdenes.get(index).getProductos();
+    }
+    public void borrarOrden(){
+        this.listaOrdenes = new ArrayList<>();
     }
 }

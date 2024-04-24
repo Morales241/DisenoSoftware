@@ -220,7 +220,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
             fachacaEliminarProducto fep = new fachacaEliminarProducto();
 
-            for (int i = 0; i < productosComprados.size()+1; i++) {
+            for (int i = 0; i < productosComprados.size(); i++) {
                 fep.eliminarProducto(i);
             }
 
