@@ -385,7 +385,7 @@ public class Inicio extends javax.swing.JFrame {
         Pago pago = new Pago();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
-        
+        pago.posicion(this);
         this.Contenido.add(pago.traerContenido());
         this.Contenido.revalidate();
         this.Contenido.repaint();
@@ -450,7 +450,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton AdminProductos;
     private javax.swing.JButton AdminProveedores;
     private javax.swing.JButton Cerrarsesion;
-    private javax.swing.JPanel Contenido;
+    public javax.swing.JPanel Contenido;
     private javax.swing.JPanel Encabezado;
     private javax.swing.JButton Entredainventario;
     private javax.swing.JButton GenerarOrden;

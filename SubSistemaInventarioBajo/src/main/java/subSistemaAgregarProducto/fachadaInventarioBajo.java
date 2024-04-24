@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package subSistemaAgregarProducto;
 
-import Negocio.dto.ProductoCompradoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 
 /**
@@ -17,7 +13,7 @@ public class fachadaInventarioBajo implements IinventarioBajoBO{
     }
 
     @Override
-    public List<ProductoCompradoDto> obtenerProductosPorAgotarse() {
+    public List<ProductoEntregadoDto> obtenerProductosPorAgotarse() {
         return inventario.obtenerProductosPorAgotarse();
     }
     

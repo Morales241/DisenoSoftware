@@ -4,7 +4,7 @@
  */
 package subSistemaAgregarProducto;
 
-import Negocio.dto.ProductoCompradoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 
 /**
@@ -13,6 +13,6 @@ import java.util.List;
  */
 public interface IinventarioBajoBO {
 
-    List<ProductoCompradoDto> obtenerProductosPorAgotarse();
+    List<ProductoEntregadoDto> obtenerProductosPorAgotarse();
     
 }

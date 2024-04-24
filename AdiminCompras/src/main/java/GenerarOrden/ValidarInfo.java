@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import pago.Pago;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import subsistema.IGenerarOrden;
@@ -217,11 +218,25 @@ public class ValidarInfo extends javax.swing.JFrame {
         try {
             orden.realizarOrden(productosComprados);
 
+            fachacaEliminarProducto fep = new fachacaEliminarProducto();
+
+            for (int i = 0; i < productosComprados.size()+1; i++) {
+                fep.eliminarProducto(i);
+            }
+
             JOptionPane.showMessageDialog(null, "La orden se ha generado correctamente");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 
+        FrameOrden.contenido.removeAll();
+
+        Pago pago = new Pago();
+
+        FrameOrden.contenido.add(pago.traerContenido());
+       
+        FrameOrden.contenido.revalidate();
+        FrameOrden.contenido.repaint();
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
@@ -246,7 +261,7 @@ public class ValidarInfo extends javax.swing.JFrame {
             fachacaEliminarProducto fep = new fachacaEliminarProducto();
 
             fep.eliminarProducto(eliminarPosicion());
-            llenarTabla(); 
+            llenarTabla();
             sacarTotal();
         } else {
             JOptionPane.showMessageDialog(null, "ninguna fila seleccionada");

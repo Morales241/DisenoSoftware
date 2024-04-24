@@ -28,8 +28,8 @@ public class subSistemaPagoBO {
 
     public void pagarOrden(OrdenCompraDto oc) throws Exception {
         if (oc.getTotal() <= presupuesto.trarerPresupuesto()) {
-
-            negocio.agregarAInventario(oc.getProductos());
+            
+            negocio.agregarAInventario(oc);
 
         } else {
             throw new Exception("No cuentamos con el dinero suficiente");

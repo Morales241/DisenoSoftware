@@ -16,6 +16,8 @@ public class OrdenCompraDto {
     
     private Double total;
     
+    private boolean estado;
+    
     private Calendar fechaExpedicion;
 
     private List<ProductoCompradoDto> productos;
@@ -52,5 +54,20 @@ public class OrdenCompraDto {
     public void setFechaExpedicion(Calendar fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
+
+    @Override
+    public String toString() {
+        return "OrdenCompraDto{" + "fechaExpedicion=" + fechaExpedicion.getTime() + '}';
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
     
 }

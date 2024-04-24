@@ -6,6 +6,7 @@ package GenerarOrden;
 
 import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,7 +27,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    List<ProductoCompradoDto> productosAgotados = new ArrayList<>();
+    List<ProductoEntregadoDto> productosAgotados = new ArrayList<>();
 
     IinventarioBajoBO inventario = new fachadaInventarioBajo();
 
@@ -34,9 +35,8 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     IagregarProductoBO agregar = new fachadaAgregarProductos();
 
-    List<ProductoCompradoDto> productosComprados = new ArrayList<>();
+    List<ProductoCompradoDto> productos = new ArrayList<>();
 
-    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
 
     /**
      * Creates new form ProductosAAgotarse
@@ -44,11 +44,15 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     public ProductosAAgotarse() {
         initComponents();
 
-        productosComprados = PC.getListaProductosComprados();
 
         productosAgotados = inventario.obtenerProductosPorAgotarse();
-
-        llenarT.llenarTabla(productosAgotados, tablaProductos);
+        
+        productosAgotados.forEach(ProductoEntregadoDto ->{
+            this.productos.add(new ProductoCompradoDto(ProductoEntregadoDto.getNombre(), ProductoEntregadoDto.getCodigo(), 
+            ProductoEntregadoDto.getProveedor(), ProductoEntregadoDto.getCantidad(), ProductoEntregadoDto.getPrecio()));
+        });
+        
+        llenarT.llenarTabla(productos, tablaProductos);
 
     }
 

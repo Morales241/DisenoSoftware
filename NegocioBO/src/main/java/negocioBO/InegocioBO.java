@@ -31,7 +31,7 @@ public interface InegocioBO {
 
     public List<ProductoCompradoDto>  obetenerProductosOrden(int index);
 
-    public void agregarAInventario(List<ProductoCompradoDto> prdsDto);
+    public boolean agregarAInventario(OrdenCompraDto oc);
 
     public void eliminarDeInventario(int index);
     

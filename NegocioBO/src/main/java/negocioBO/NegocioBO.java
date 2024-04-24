@@ -37,9 +37,8 @@ public class NegocioBO implements InegocioBO {
     ProductoProveedorDao ProductoProveedorDao = new ProductoProveedorDao();
 
     DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
-    
+
     DaoproEntregadoMock inventario = DaoproEntregadoMock.getinstance();
-    
 
     public NegocioBO() {
     }
@@ -117,6 +116,7 @@ public class NegocioBO implements InegocioBO {
         ordenMock oc = new ordenMock();
         oc.setFechaExpedicion(Calendar.getInstance());
         oc.setProductos(productos);
+        oc.setEstado(true);
         double total = 0;
         for (proCompradoMock p : productos) {
             total += p.getCantidad() * p.getPrecio();
@@ -155,38 +155,60 @@ public class NegocioBO implements InegocioBO {
 
         ordenDao.consultarOrden().forEach(ordenMock -> {
 
-            List<ProductoCompradoDto> listaAux = new ArrayList<>();
+            if (ordenMock.isEstado() != false) {
+                List<ProductoCompradoDto> listaAux = new ArrayList<>();
 
-            ordenMock.getProductos().forEach(proCompradoMock -> {
+                ordenMock.getProductos().forEach(proCompradoMock -> {
 
-                listaAux.add(new ProductoCompradoDto(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
-                        proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
-            });
+                    listaAux.add(new ProductoCompradoDto(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
+                            proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
+                });
 
-            listaOrdenes.add(new OrdenCompraDto(ordenMock.getTotal(), ordenMock.getFechaExpedicion(), listaAux));
+                listaOrdenes.add(new OrdenCompraDto(ordenMock.getTotal(), ordenMock.getFechaExpedicion(), listaAux));
+                
+            }
+
         });
 
         return listaOrdenes;
     }
 
     @Override
-    public void agregarAInventario(List<ProductoCompradoDto> prdsDto) {
-        prdsDto.forEach(ProductoCompradoDto->{
-        inventario.agregarAInventario(new proEntregadoMock(ProductoCompradoDto.getNombre(), 
-                ProductoCompradoDto.getCodigo(), ProductoCompradoDto.getProveedor(),
-                ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
-    
+    public boolean agregarAInventario(OrdenCompraDto oc) {
+
+        List<ProductoCompradoDto> prdsDto = oc.getProductos();
+
+        List<proCompradoMock> listaAux = new ArrayList<>();
+
+        oc.getProductos().forEach(proCompradoMock -> {
+
+            listaAux.add(new proCompradoMock(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
+                    proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
         });
-        
+
+        ordenMock ordenAux = new ordenMock(oc.getTotal(), oc.getFechaExpedicion(), listaAux);
+
+        ordenDao.consultarOrden().forEach(ordenMock->{
+            if (ordenMock == ordenAux) {
+                ordenMock.setEstado(false);
+            }
+        });
+
+        prdsDto.forEach(ProductoCompradoDto -> {
+            inventario.agregarAInventario(new proEntregadoMock(ProductoCompradoDto.getNombre(),
+                    ProductoCompradoDto.getCodigo(), ProductoCompradoDto.getProveedor(),
+                    ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
+
+        });
+        return true;
     }
 
     @Override
     public void eliminarDeInventario(int index) {
-        
+
         inventario.eliminarAInventario(index);
     }
 
-    
     @Override
     public List<ProductoCompradoDto> obetenerProductosOrden(int index) {
         List<ProductoCompradoDto> listaAux = new ArrayList<>();
@@ -200,13 +222,13 @@ public class NegocioBO implements InegocioBO {
     @Override
     public List<ProductoEntregadoDto> obtenerInventarioBajo() {
         List<ProductoEntregadoDto> listaAux = new ArrayList<>();
-        inventario.consultarInventario().forEach(proEntregadoMock->{
-            if (proEntregadoMock.getCantidad()<3) {
+        inventario.consultarInventario().forEach(proEntregadoMock -> {
+            if (proEntregadoMock.getCantidad() < 3) {
                 listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getProveedor(),
-                    proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
+                        proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
             }
         });
-        
+
         return listaAux;
     }
 }
