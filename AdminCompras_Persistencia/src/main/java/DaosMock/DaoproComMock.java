@@ -13,8 +13,10 @@ import java.util.List;
  * @author jesusmr
  */
 public class DaoproComMock {
+    DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
     private static DaoproComMock instance;
     private final List<proCompradoMock> listaProductosComprados;
+    
 
     public DaoproComMock() {
         this.listaProductosComprados = new ArrayList<>();
@@ -36,7 +38,7 @@ public class DaoproComMock {
         this.listaProductosComprados.remove(listaProductosComprados.get(index));
     }
     
-    public List<proCompradoMock>  ConsultarListaProductos(){
-        return listaProductosComprados;
+    public List<proCompradoMock>  ConsultarListaProductos(int index){
+        return ordenDao.consultarProductosOrden(index);
     }
 }

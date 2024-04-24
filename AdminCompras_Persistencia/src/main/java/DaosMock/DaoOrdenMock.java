@@ -5,6 +5,7 @@
 package DaosMock;
 
 import EntidadesMock.ordenMock;
+import EntidadesMock.proCompradoMock;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,9 @@ public class DaoOrdenMock {
 
     public List<ordenMock> consultarOrden() {
         return this.listaOrdenes;
+    }
+    
+    public List<proCompradoMock> consultarProductosOrden(int index){
+            return this.listaOrdenes.get(index).getProductos();
     }
 }

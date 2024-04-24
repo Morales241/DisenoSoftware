@@ -23,19 +23,9 @@ public class Inicio extends javax.swing.JFrame {
     
     IniciarSesion iS = new IniciarSesion();
     
-    Pago pago = new Pago();
+    
 
-    Informacion info; 
-    
-    Cotizacion coti = new Cotizacion();
-    
-    AdministrarProductos pA = new AdministrarProductos();
-    
-    AdministrarProveedores aP = new AdministrarProveedores();
-    
-    EntradaInventario eI = new EntradaInventario();
-    
-    GenerarOrden gO = new GenerarOrden();
+   
     
     /**
      * Creates new form Inicio
@@ -344,6 +334,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GenerarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarOrdenActionPerformed
+        GenerarOrden gO = new GenerarOrden();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
@@ -353,6 +344,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarOrdenActionPerformed
 
     private void AdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProductosActionPerformed
+        AdministrarProductos pA = new AdministrarProductos();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
@@ -362,6 +354,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminProductosActionPerformed
 
     private void SacarcotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SacarcotizacionActionPerformed
+        Cotizacion coti = new Cotizacion();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
@@ -371,6 +364,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_SacarcotizacionActionPerformed
 
     private void AdminProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProveedoresActionPerformed
+        AdministrarProveedores aP = new AdministrarProveedores();
         this.Contenido.removeAll();
         this.Contenido.add(aP.traerContenido());
         this.Contenido.revalidate();
@@ -378,6 +372,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminProveedoresActionPerformed
 
     private void EntredainventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntredainventarioActionPerformed
+        EntradaInventario eI = new EntradaInventario();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
@@ -387,6 +382,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_EntredainventarioActionPerformed
 
     private void RealizarpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarpagoActionPerformed
+        Pago pago = new Pago();
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
@@ -401,6 +397,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarsesionActionPerformed
 
     private void InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacionActionPerformed
+        Informacion info; 
         this.Contenido.removeAll();
         
         info = new Informacion();
