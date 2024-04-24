@@ -7,13 +7,16 @@ package negocioBO;
 import Daos.OrdenCompraJpaController;
 import DaosMock.DaoOrdenMock;
 import DaosMock.DaoproComMock;
+import DaosMock.DaoproEntregadoMock;
 import Entidades.OrdenCompra;
 import Entidades.ProComprado;
 import EntidadesMock.ordenMock;
 import EntidadesMock.proCompradoMock;
+import EntidadesMock.proEntregadoMock;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
 import daos.ProductoDao;
@@ -34,6 +37,8 @@ public class NegocioBO implements InegocioBO {
     ProductoProveedorDao ProductoProveedorDao = new ProductoProveedorDao();
 
     DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
+    
+    DaoproEntregadoMock inventario = DaoproEntregadoMock.getinstance();
     
 
     public NegocioBO() {
@@ -165,15 +170,23 @@ public class NegocioBO implements InegocioBO {
     }
 
     @Override
-    public void agregarAInventario() {
+    public void agregarAInventario(List<ProductoCompradoDto> prdsDto) {
+        prdsDto.forEach(ProductoCompradoDto->{
+        inventario.agregarAInventario(new proEntregadoMock(ProductoCompradoDto.getNombre(), 
+                ProductoCompradoDto.getCodigo(), ProductoCompradoDto.getProveedor(),
+                ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
+    
+        });
         
     }
 
     @Override
-    public void eliminarDeInventario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarDeInventario(int index) {
+        
+        inventario.eliminarAInventario(index);
     }
 
+    
     @Override
     public List<ProductoCompradoDto> obetenerProductosOrden(int index) {
         List<ProductoCompradoDto> listaAux = new ArrayList<>();
@@ -181,6 +194,19 @@ public class NegocioBO implements InegocioBO {
             listaAux.add(new ProductoCompradoDto(proCompradoMocko.getNombre(), proCompradoMocko.getCodigo(), proCompradoMocko.getProveedor(),
                     proCompradoMocko.getCantidad(), proCompradoMocko.getPrecio()));
         });
+        return listaAux;
+    }
+
+    @Override
+    public List<ProductoEntregadoDto> obtenerInventarioBajo() {
+        List<ProductoEntregadoDto> listaAux = new ArrayList<>();
+        inventario.consultarInventario().forEach(proEntregadoMock->{
+            if (proEntregadoMock.getCantidad()<3) {
+                listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getProveedor(),
+                    proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
+            }
+        });
+        
         return listaAux;
     }
 }

@@ -7,6 +7,7 @@ package negocioBO;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import Negocio.dto.ProductoProveedorDto;
 import java.util.List;
 
@@ -30,7 +31,9 @@ public interface InegocioBO {
 
     public List<ProductoCompradoDto>  obetenerProductosOrden(int index);
 
-    public void agregarAInventario();
+    public void agregarAInventario(List<ProductoCompradoDto> prdsDto);
 
-    public void eliminarDeInventario();
+    public void eliminarDeInventario(int index);
+    
+    public List<ProductoEntregadoDto> obtenerInventarioBajo();
 }

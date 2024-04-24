@@ -5,12 +5,19 @@
 package ConsultaOrden;
 
 import EntidadesMock.proCompradoMock;
+import Negocio.dto.OrdenCompraDto;
+import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 
 /**
  *
  * @author tacot
  */
-public interface IconsultaProOrden {
-    public List<proCompradoMock>  consultarProductosOrden(int index);
+public interface Ipagar {
+
+    public List<ProductoEntregadoDto> inventarioBajo();
+
+    public void pagarOrden(OrdenCompraDto oc) throws Exception;
+    
+    public List<OrdenCompraDto> consultarOrdenes();
 }
