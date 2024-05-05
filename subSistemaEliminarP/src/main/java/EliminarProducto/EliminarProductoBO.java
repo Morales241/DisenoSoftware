@@ -21,4 +21,8 @@ public class EliminarProductoBO {
     public void eliminarProducto(int index){
         PC.eliminarProductos(index);
     }
+    
+    public void eliminarTodosLosProductos(){
+        PC.eliminarTodosLosProductos();
+    }
 }

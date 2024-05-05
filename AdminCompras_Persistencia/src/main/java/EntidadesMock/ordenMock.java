@@ -16,6 +16,8 @@ public class ordenMock {
     private Double total;
     
     private boolean estado;
+    
+    private String folio;
 
     private Calendar fechaExpedicion;
 
@@ -24,10 +26,19 @@ public class ordenMock {
     public ordenMock() {
     }
 
-    public ordenMock(Double total, Calendar fechaExpedicion, List<proCompradoMock> productos) {
+    public ordenMock(Double total, Calendar fechaExpedicion, List<proCompradoMock> productos,String folio) {
         this.total = total;
         this.fechaExpedicion = fechaExpedicion;
         this.productos = productos;
+        this.folio = folio;
+    }
+
+    public String getFolio() {
+        return folio;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
     }
 
     public List<proCompradoMock> getProductos() {

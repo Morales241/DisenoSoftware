@@ -27,9 +27,17 @@ public class DaoOrdenMock {
         if (instance == null) {
             return instance = new DaoOrdenMock();
         }
-        
+
         return instance;
 
+    }
+
+    public List<ordenMock> getListaOrdenes() {
+        return listaOrdenes;
+    }
+
+    public void setListaOrdenes(List<ordenMock> listaOrdenes) {
+        this.listaOrdenes = listaOrdenes;
     }
 
     public void agregarOrden(ordenMock orden) {
@@ -43,11 +51,21 @@ public class DaoOrdenMock {
     public List<ordenMock> consultarOrden() {
         return this.listaOrdenes;
     }
-    
-    public List<proCompradoMock> consultarProductosOrden(int index){
-            return this.listaOrdenes.get(index).getProductos();
+
+    public List<proCompradoMock> consultarProductosOrden(int index) {
+        return this.listaOrdenes.get(index).getProductos();
     }
-    public void borrarOrden(){
+
+    public void borrarOrden() {
         this.listaOrdenes = new ArrayList<>();
     }
+
+    public void pagado(String folio) {
+        for (ordenMock Orden : listaOrdenes) {
+            if (Orden.getFolio().equals(folio)) {
+                Orden.setEstado(true);
+            }
+        }
+    }
+
 }

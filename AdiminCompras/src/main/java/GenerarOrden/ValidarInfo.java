@@ -220,11 +220,10 @@ public class ValidarInfo extends javax.swing.JFrame {
 
             fachacaEliminarProducto fep = new fachacaEliminarProducto();
 
-            for (int i = 0; i < productosComprados.size(); i++) {
-                fep.eliminarProducto(i);
-            }
-
+            fep.eliminarTodosLosProductos();
+            
             JOptionPane.showMessageDialog(null, "La orden se ha generado correctamente");
+            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }

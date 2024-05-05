@@ -31,38 +31,38 @@ import subsistema.fachadaConsultarProveedores;
  * @author tacot
  */
 public class AgregarProducto extends javax.swing.JFrame {
-    
+
     IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
     GenerarOrden FrameOrden;
-    
+
     private int cantidad = 1;
-    
+
     private String palabra = "";
-    
+
     List<ProductoDto> Productos = new ArrayList<>();
-    
+
     IConsultarProducto consultaP = new fachadaConsultarProducto();
-    
+
     IConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
-    
+
     IagregarProductoBO agregar = new fachadaAgregarProductos();
 
     /**
      * Creates new form AgregarProducto
      */
     public AgregarProducto() {
-        
+
         initComponents();
-        
+
         this.Productos = consultaP.obtenerProductos();
-        
+
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);
         this.panelProveedor.setVisible(false);
-        
+
         this.txtProductoBuscado.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
-                
+
                 if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
                     if (palabra.length() > 0) {
                         palabra = palabra.substring(0, palabra.length() - 1);
@@ -71,31 +71,31 @@ public class AgregarProducto extends javax.swing.JFrame {
                     char c = e.getKeyChar();
                     palabra += c;
                 }
-                
+
                 ResultadosProductos.removeAllItems();
-                
+
                 Productos = coin.obtenerCoincidenciasProductos(palabra);
-                
+
                 for (ProductoDto p : Productos) {
                     ResultadosProductos.addItem(p);
                 }
-                
+
                 panelCantidad.setVisible(true);
                 panelProducto.setVisible(true);
                 panelProveedor.setVisible(true);
             }
         });
-        
+
         this.ResultadosProductos.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     ResultadosProveedores.removeAllItems();
-                    
+
                     ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
-                    
+
                     try {
                         for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
-                            ResultadosProveedores.addItem(p);                            
+                            ResultadosProveedores.addItem(p);
                         }
                     } catch (Exception ex) {
                         Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,22 +104,22 @@ public class AgregarProducto extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public AgregarProducto(GenerarOrden Frameorden) {
-        
+
         posicion(Frameorden);
-        
+
         initComponents();
-        
+
         this.Productos = consultaP.obtenerProductos();
-        
+
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);
         this.panelProveedor.setVisible(false);
-        
+
         this.txtProductoBuscado.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
-                
+
                 if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
                     if (palabra.length() > 0) {
                         palabra = palabra.substring(0, palabra.length() - 1);
@@ -128,28 +128,28 @@ public class AgregarProducto extends javax.swing.JFrame {
                     char c = e.getKeyChar();
                     palabra += c;
                 }
-                
+
                 ResultadosProductos.removeAllItems();
-                
+
                 Productos = coin.obtenerCoincidenciasProductos(palabra);
-                
+
                 for (ProductoDto p : Productos) {
                     ResultadosProductos.addItem(p);
                 }
-                
+
                 panelCantidad.setVisible(true);
                 panelProducto.setVisible(true);
                 panelProveedor.setVisible(true);
             }
         });
-        
+
         this.ResultadosProductos.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     ResultadosProveedores.removeAllItems();
-                    
+
                     ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
-                    
+
                     try {
                         for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
                             ResultadosProveedores.addItem(p);
@@ -431,36 +431,45 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         if (this.ResultadosProductos.getSelectedItem() != null || this.ResultadosProductos != null) {
+
             ProductoDto productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
+
             ProductoProveedorDto proveedorS = (ProductoProveedorDto) this.ResultadosProveedores.getSelectedItem();
-            
-            ProductoCompradoDto productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
-            
+
+            ProductoCompradoDto productoC = null;
+
+            try {
+
+                productoC = new ProductoCompradoDto(productoS.getNombre(), productoS.getCodigo(), proveedorS.getProveedor().getNombre(), this.cantidad, proveedorS.getPrecioP());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "No hay proveedor o producto seleccionado ");
+            }
+
             agregar.agregarCompraLista(productoC);
-            
+
             FrameOrden.Contenido.removeAll();
-            
+
             ValidarInfo va  = new ValidarInfo();
-            
+
             FrameOrden.Contenido.add(va.traerContenido());
             va.posicion(FrameOrden);
             FrameOrden.Contenido.revalidate();
             FrameOrden.Contenido.repaint();
-        }else{
-        JOptionPane.showMessageDialog(null, "No hay proveedor o producto seleccionado ");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay proveedor o producto seleccionado ");
 
         }
-        
+
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void masActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masActionPerformed
         if (cantidad > 0 && cantidad < 10) {
             cantidad++;
-            
+
             this.txtCantidad.setText(String.valueOf(cantidad));
         }
-        
+
 
     }//GEN-LAST:event_masActionPerformed
 
@@ -469,28 +478,28 @@ public class AgregarProducto extends javax.swing.JFrame {
             cantidad--;
             this.txtCantidad.setText(String.valueOf(cantidad));
         }
-        
+
 
     }//GEN-LAST:event_menosActionPerformed
-    
+
     public javax.swing.JPanel traerContenido() {
         return this.contenido;
     }
-    
+
     public void posicion(GenerarOrden orden) {
         this.FrameOrden = orden;
     }
-    
+
     private void ResultadosProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResultadosProductosActionPerformed
-        
+
     }//GEN-LAST:event_ResultadosProductosActionPerformed
 
     private void ResultadosProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosProductosMouseClicked
-        
+
     }//GEN-LAST:event_ResultadosProductosMouseClicked
 
     private void ResultadosProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosProveedoresMouseClicked
-        
+
     }//GEN-LAST:event_ResultadosProveedoresMouseClicked
 
 

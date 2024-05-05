@@ -12,4 +12,6 @@ import Negocio.dto.ProductoCompradoDto;
  */
 public interface IfachadaEliminarP {
     public void eliminarProducto(int index);
+    
+    public void eliminarTodosLosProductos();
 }

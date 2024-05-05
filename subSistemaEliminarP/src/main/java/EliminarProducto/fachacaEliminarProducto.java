@@ -21,4 +21,9 @@ public class fachacaEliminarProducto implements IfachadaEliminarP{
         EP.eliminarProducto(index);
     }
     
+    @Override 
+    public void eliminarTodosLosProductos(){
+        EP.eliminarTodosLosProductos();
+    }
+    
 }

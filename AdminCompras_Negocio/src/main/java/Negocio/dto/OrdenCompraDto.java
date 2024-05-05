@@ -18,16 +18,28 @@ public class OrdenCompraDto {
     
     private boolean estado;
     
+    private String folio;
+    
     private Calendar fechaExpedicion;
 
     private List<ProductoCompradoDto> productos;
     public OrdenCompraDto() {
     }
 
-    public OrdenCompraDto(Double total, Calendar fechaExpedicion, List<ProductoCompradoDto> productos) {
+    public OrdenCompraDto(Double total, boolean estado, String folio, Calendar fechaExpedicion, List<ProductoCompradoDto> productos) {
         this.total = total;
+        this.estado = estado;
+        this.folio = folio;
         this.fechaExpedicion = fechaExpedicion;
         this.productos = productos;
+    }
+
+    public String getFolio() {
+        return folio;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
     }
 
 

@@ -6,6 +6,8 @@ package subSistemaProductosComprados;
 
 import Negocio.dto.ProductoCompradoDto;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,8 +22,12 @@ public class FachadaProductosComprados implements IConsultarProductoCompradoBO{
     
     @Override
     public boolean agregarCompraLista(ProductoCompradoDto proCompDto) {
-        return ConsultaPC.agregarCompraLista(proCompDto);
-        
+        try {
+            return ConsultaPC.agregarCompraLista(proCompDto);
+        } catch (Exception ex) {
+            Logger.getLogger(FachadaProductosComprados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
@@ -32,6 +38,11 @@ public class FachadaProductosComprados implements IConsultarProductoCompradoBO{
     @Override
     public void eliminarProductos(int index) {
         ConsultaPC.eliminarProducto(index);
+    }
+
+    @Override
+    public void eliminarTodosLosProductos() {
+        ConsultaPC.eliminarTodosLosProductos();
     }
     
 }

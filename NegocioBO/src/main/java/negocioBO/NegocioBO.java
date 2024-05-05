@@ -4,12 +4,8 @@
  */
 package negocioBO;
 
-import Daos.OrdenCompraJpaController;
 import DaosMock.DaoOrdenMock;
-import DaosMock.DaoproComMock;
 import DaosMock.DaoproEntregadoMock;
-import Entidades.OrdenCompra;
-import Entidades.ProComprado;
 import EntidadesMock.ordenMock;
 import EntidadesMock.proCompradoMock;
 import EntidadesMock.proEntregadoMock;
@@ -27,6 +23,7 @@ import entidades.ProductoProveedor;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -116,7 +113,8 @@ public class NegocioBO implements InegocioBO {
         ordenMock oc = new ordenMock();
         oc.setFechaExpedicion(Calendar.getInstance());
         oc.setProductos(productos);
-        oc.setEstado(true);
+        oc.setEstado(false);
+        oc.setFolio(generarFolio());
         double total = 0;
         for (proCompradoMock p : productos) {
             total += p.getCantidad() * p.getPrecio();
@@ -155,7 +153,7 @@ public class NegocioBO implements InegocioBO {
 
         ordenDao.consultarOrden().forEach(ordenMock -> {
 
-            if (ordenMock.isEstado() != false) {
+            if (ordenMock.isEstado() != true) {
                 List<ProductoCompradoDto> listaAux = new ArrayList<>();
 
                 ordenMock.getProductos().forEach(proCompradoMock -> {
@@ -164,8 +162,8 @@ public class NegocioBO implements InegocioBO {
                             proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
                 });
 
-                listaOrdenes.add(new OrdenCompraDto(ordenMock.getTotal(), ordenMock.getFechaExpedicion(), listaAux));
-                
+                listaOrdenes.add(new OrdenCompraDto(ordenMock.getTotal(),false, ordenMock.getFolio(), ordenMock.getFechaExpedicion(), listaAux));
+
             }
 
         });
@@ -186,20 +184,16 @@ public class NegocioBO implements InegocioBO {
                     proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
         });
 
-        ordenMock ordenAux = new ordenMock(oc.getTotal(), oc.getFechaExpedicion(), listaAux);
-
-        ordenDao.consultarOrden().forEach(ordenMock->{
-            if (ordenMock == ordenAux) {
-                ordenMock.setEstado(false);
-            }
-        });
+        ordenMock ordenAux = new ordenMock(oc.getTotal(), oc.getFechaExpedicion(), listaAux, generarFolio());
+        
+        ordenDao.pagado(ordenAux.getFolio());
 
         prdsDto.forEach(ProductoCompradoDto -> {
             inventario.agregarAInventario(new proEntregadoMock(ProductoCompradoDto.getNombre(),
                     ProductoCompradoDto.getCodigo(), ProductoCompradoDto.getProveedor(),
                     ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
-
         });
+        
         return true;
     }
 
@@ -231,4 +225,11 @@ public class NegocioBO implements InegocioBO {
 
         return listaAux;
     }
+
+    public static String generarFolio() {
+        Random rand = new Random();
+        int num = rand.nextInt(9000000) + 1000000;
+        return String.valueOf(num);
+    }
+
 }

@@ -9,7 +9,7 @@ public class ConsultarProductoCompradoBO  {
 
     NegocioBO negocio = new NegocioBO();
     private static ConsultarProductoCompradoBO instance;
-    private final List<ProductoCompradoDto> listaProductosAComprados;
+    private List<ProductoCompradoDto> listaProductosAComprados;
 
     public ConsultarProductoCompradoBO() {
         listaProductosAComprados = new ArrayList<>();
@@ -22,7 +22,10 @@ public class ConsultarProductoCompradoBO  {
         return instance;
     }
 
-    public boolean agregarCompraLista(ProductoCompradoDto proCompDto) {
+    public boolean agregarCompraLista(ProductoCompradoDto proCompDto)throws Exception {
+        if (proCompDto == null) {
+            throw new Exception("No se selecciono Producto");
+        }
         if (proCompDto.getCodigo()==null) {
             proCompDto = negocio.obtenerProductoProveedor(proCompDto.getNombre(), proCompDto.getProveedor());
             proCompDto.setCantidad(1);
@@ -37,9 +40,14 @@ public class ConsultarProductoCompradoBO  {
         listaProductosAComprados.add(proCompDto);
         return false;
     }
+
     
     public void eliminarProducto(int index){
         listaProductosAComprados.remove(listaProductosAComprados.get(index));
+    }
+    
+    public void eliminarTodosLosProductos(){
+        listaProductosAComprados = new ArrayList<>();
     }
 
     public List<ProductoCompradoDto> getListaProductosComprados() {

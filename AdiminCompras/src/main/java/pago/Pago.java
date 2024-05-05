@@ -28,7 +28,7 @@ public class Pago extends javax.swing.JFrame {
 
     Inicio inicio;
     ILlenarTabla llenarT = new FachadaLLenarTabla();
-    List<OrdenCompraDto> ordenes = new ArrayList<>();
+    List<OrdenCompraDto> ordenes = null;
     OrdenCompraDto orden = null;
     Ipagar pago = new FachadaPagar();
 
@@ -37,21 +37,24 @@ public class Pago extends javax.swing.JFrame {
      */
     public Pago() {
         initComponents();
+        this.ordenes = new ArrayList<>();
         this.ordenes = pago.consultarOrdenes();
 
         for (OrdenCompraDto o : ordenes) {
-            ResultadosOrdenes.addItem(o);
+            if (o.isEstado() == false) {
+                ResultadosOrdenes.addItem(o);
+            }
         }
-        if (ResultadosOrdenes != null) {
+        if (ResultadosOrdenes.getItemCount() > 0) {
+            
             ResultadosOrdenes.setSelectedIndex(0);
 
-        orden = (OrdenCompraDto) ResultadosOrdenes.getSelectedItem();
+            orden = (OrdenCompraDto) ResultadosOrdenes.getSelectedItem();
 
-        llenarTabla(orden);
+            llenarTabla(orden);
 
-        sacarTotal(orden);
+            sacarTotal(orden);
         }
-        
 
         this.ResultadosOrdenes.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
