@@ -354,7 +354,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminProductosActionPerformed
 
     private void SacarcotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SacarcotizacionActionPerformed
-        Cotizacion coti = new Cotizacion();
+        Cotizacion coti = new Cotizacion(this);
         this.Contenido.removeAll();
         this.Menu.setSize(60, 574);        
         
