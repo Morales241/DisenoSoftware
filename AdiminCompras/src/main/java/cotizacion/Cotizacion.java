@@ -34,9 +34,9 @@ import subsistema.fachadaConsultarProveedores;
  */
 public class Cotizacion extends javax.swing.JFrame {
 
-    IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
+    private IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
 
-    Inicio inicio;
+    private Inicio inicio;
 
     private int cantidad = 1;
 
@@ -44,15 +44,15 @@ public class Cotizacion extends javax.swing.JFrame {
 
     private String palabra = "";
 
-    List<ProductoDto> Productos = new ArrayList<>();
+    private List<ProductoDto> Productos = new ArrayList<>();
 
-    IConsultarProducto consultaP = new fachadaConsultarProducto();
+    private IConsultarProducto consultaP = new fachadaConsultarProducto();
 
-    IConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
+    private IConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
 
-    IagregarProductoBO agregar = new fachadaAgregarProductos();
+    private IagregarProductoBO agregar = new fachadaAgregarProductos();
 
-    ProductoDto productoS;
+    private ProductoDto productoS;
 
     /**
      * Creates new form Cotizacion
