@@ -17,13 +17,20 @@ import javax.persistence.Id;
  */
 public class Presupuesto {
 
+    private static Presupuesto instancia; 
+
     private Double fondoMonetario;
 
-    public Presupuesto() {
-
+    private Presupuesto() {
         this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
     }
 
+    public static Presupuesto getInstance() {
+        if (instancia == null) {
+            instancia = new Presupuesto();
+        }
+        return instancia;
+    }
     public Double getFondoMonetario() {
         return fondoMonetario;
     }

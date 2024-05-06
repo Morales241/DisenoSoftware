@@ -17,12 +17,12 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class subSistemaPagoBO {
+public class ControladorPagar {
 
-    NegocioBO negocio = new NegocioBO();
-    fachadaPresupuesto presupuesto = new fachadaPresupuesto();
+    protected NegocioBO negocio = new NegocioBO();
+    protected fachadaPresupuesto presupuesto = new fachadaPresupuesto();
 
-    public List<ProductoEntregadoDto> inventarioBajo() {
+    private List<ProductoEntregadoDto> inventarioBajo() {
         return negocio.obtenerInventarioBajo();
     }
 

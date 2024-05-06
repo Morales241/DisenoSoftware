@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import negocioBO.NegocioBO;
 
-public class ConsultarProductoCompradoBO  {
+public class ControladorProductosComprados  {
 
-    NegocioBO negocio = new NegocioBO();
-    private static ConsultarProductoCompradoBO instance;
-    private List<ProductoCompradoDto> listaProductosAComprados;
+    protected NegocioBO negocio = new NegocioBO();
+    protected static ControladorProductosComprados instance;
+    protected List<ProductoCompradoDto> listaProductosAComprados;
 
-    public ConsultarProductoCompradoBO() {
+    private ControladorProductosComprados() {
         listaProductosAComprados = new ArrayList<>();
     }
 
-    public static ConsultarProductoCompradoBO getInstance() {
+    public static ControladorProductosComprados getInstance() {
         if (instance == null) {
-            instance = new ConsultarProductoCompradoBO();
+            instance = new ControladorProductosComprados();
         }
         return instance;
     }

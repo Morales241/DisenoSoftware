@@ -9,8 +9,19 @@ package entidad;
  * @author tacot
  */
 public class fachadaPresupuesto implements Ipresupuesto{
-    Presupuesto presupuesto = new Presupuesto();
-    public fachadaPresupuesto() {
+    private static fachadaPresupuesto instancia; 
+
+    private Presupuesto presupuesto; 
+
+    private fachadaPresupuesto() { 
+        this.presupuesto = presupuesto.getInstance();
+    }
+
+    public static fachadaPresupuesto getInstance() {
+        if (instancia == null) {
+            instancia = new fachadaPresupuesto();
+        }
+        return instancia;
     }
 
     @Override

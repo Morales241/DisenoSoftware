@@ -13,9 +13,9 @@ import java.util.logging.Logger;
  *
  * @author tacot
  */
-public class FachadaProductosComprados implements IConsultarProductoCompradoBO{
+public class FachadaProductosComprados implements IFachadaProductoComprado{
 
-    ConsultarProductoCompradoBO ConsultaPC = ConsultarProductoCompradoBO.getInstance();
+    ControladorProductosComprados ConsultaPC = ControladorProductosComprados.getInstance();
 
     public FachadaProductosComprados() {
     }

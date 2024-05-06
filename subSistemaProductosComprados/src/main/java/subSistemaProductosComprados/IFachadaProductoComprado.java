@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IConsultarProductoCompradoBO {
+public interface IFachadaProductoComprado {
     public boolean agregarCompraLista(ProductoCompradoDto proCompDto);
     
     public List<ProductoCompradoDto> getListaProductosComprados();

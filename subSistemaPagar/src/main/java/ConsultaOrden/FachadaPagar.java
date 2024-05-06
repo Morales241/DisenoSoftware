@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class FachadaPagar implements Ipagar {
 
-    subSistemaPagoBO subSistema = new subSistemaPagoBO();
+    ControladorPagar subSistema = new ControladorPagar();
 
     @Override
     public List<ProductoEntregadoDto> inventarioBajo() {
