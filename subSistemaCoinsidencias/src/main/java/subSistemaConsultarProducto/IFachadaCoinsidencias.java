@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IConsultarCoinsidenciasProductos {
+public interface IFachadaCoinsidencias {
     
     public List<ProductoDto> obtenerCoincidenciasProductos(String palabra);
 }

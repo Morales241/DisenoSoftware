@@ -9,11 +9,11 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarCoinsidenciasProductos {
+public class ControladorCoinsidencias {
 
-    NegocioBO conP = new NegocioBO();
+    protected NegocioBO conP = new NegocioBO();
 
-    public consultarCoinsidenciasProductos() {
+    public ControladorCoinsidencias() {
     }
 
         public List<ProductoDto> obtenerCoincidenciasProductos(String palabra) {

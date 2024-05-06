@@ -22,7 +22,7 @@ public class ControladorPagar {
     protected NegocioBO negocio = new NegocioBO();
     protected fachadaPresupuesto presupuesto = new fachadaPresupuesto();
 
-    private List<ProductoEntregadoDto> inventarioBajo() {
+    List<ProductoEntregadoDto> inventarioBajo() {
         return negocio.obtenerInventarioBajo();
     }
 

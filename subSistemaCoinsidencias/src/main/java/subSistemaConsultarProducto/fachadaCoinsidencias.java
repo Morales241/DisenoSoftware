@@ -11,9 +11,9 @@ import java.util.List;
  *
  * @author tacot
  */
-public class fachadaCoinsidencias implements IConsultarCoinsidenciasProductos{
+public class fachadaCoinsidencias implements IFachadaCoinsidencias{
     
-    consultarCoinsidenciasProductos coin = new consultarCoinsidenciasProductos();
+    ControladorCoinsidencias coin = new ControladorCoinsidencias();
     public fachadaCoinsidencias() {
     }
 
