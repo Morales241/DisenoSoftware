@@ -13,11 +13,11 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class generarOrdenBO  {
+public class ControladorGenerarOrdenBO  {
 
     NegocioBO negocio = new NegocioBO();
 
-    public generarOrdenBO() {
+    public ControladorGenerarOrdenBO() {
     }
 
     public void realizarOrden(List<ProductoCompradoDto> prdsDto) throws Exception {

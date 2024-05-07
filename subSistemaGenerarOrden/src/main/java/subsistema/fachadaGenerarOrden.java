@@ -11,8 +11,8 @@ import java.util.List;
  *
  * @author tacot
  */
-public class fachadaGenerarOrden implements IGenerarOrden{
-    generarOrdenBO GenerarOrden = new generarOrdenBO();
+public class fachadaGenerarOrden implements IFachadaGenerarOrden{
+    ControladorGenerarOrdenBO GenerarOrden = new ControladorGenerarOrdenBO();
     public fachadaGenerarOrden() {
     }
 

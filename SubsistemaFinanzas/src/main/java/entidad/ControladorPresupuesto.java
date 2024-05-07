@@ -15,19 +15,19 @@ import javax.persistence.Id;
  *
  * @author marlon
  */
-public class Presupuesto {
+public class ControladorPresupuesto {
 
-    private static Presupuesto instancia; 
+    private static ControladorPresupuesto instancia; 
 
     private Double fondoMonetario;
 
-    private Presupuesto() {
+    private ControladorPresupuesto() {
         this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
     }
 
-    public static Presupuesto getInstance() {
+    public static ControladorPresupuesto getInstance() {
         if (instancia == null) {
-            instancia = new Presupuesto();
+            instancia = new ControladorPresupuesto();
         }
         return instancia;
     }
