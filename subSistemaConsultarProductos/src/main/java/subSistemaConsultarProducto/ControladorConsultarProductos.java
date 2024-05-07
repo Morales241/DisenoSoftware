@@ -11,11 +11,11 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarProductos {
+public class ControladorConsultarProductos {
 
-    NegocioBO negocio = new NegocioBO();
+    protected NegocioBO negocio = new NegocioBO();
 
-    public consultarProductos() {
+    public ControladorConsultarProductos() {
     }
 
     

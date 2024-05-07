@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IConsultarProducto {
+public interface IFachadaConsultarProducto {
     
     List<ProductoDto> obtenerProductos();
     

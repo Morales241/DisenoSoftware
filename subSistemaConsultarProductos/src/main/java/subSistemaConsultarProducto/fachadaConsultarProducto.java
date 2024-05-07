@@ -11,8 +11,8 @@ import java.util.List;
  *
  * @author tacot
  */
-public class fachadaConsultarProducto implements IConsultarProducto {
-    consultarProductos consulta = new consultarProductos();
+public class fachadaConsultarProducto implements IFachadaConsultarProducto {
+    ControladorConsultarProductos consulta = new ControladorConsultarProductos();
     public fachadaConsultarProducto() {
     }
 
