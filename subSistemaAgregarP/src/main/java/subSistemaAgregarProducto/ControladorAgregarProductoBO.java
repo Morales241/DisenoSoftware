@@ -17,7 +17,7 @@ public class ControladorAgregarProductoBO  {
     public ControladorAgregarProductoBO() {
     }
     
-    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
+    protected IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
     
 
     public void agregarCompraLista(ProductoCompradoDto proCompDto) {
