@@ -10,8 +10,8 @@ import Negocio.dto.ProductoCompradoDto;
  *
  * @author tacot
  */
-public class fachadaAgregarProductos implements IagregarProductoBO{
-    agregarProductoBO agregar = new agregarProductoBO();
+public class fachadaAgregarProductos implements IFachadaAgregarProductoBO{
+    ControladorAgregarProductoBO agregar = new ControladorAgregarProductoBO();
     public fachadaAgregarProductos() {
     }
 

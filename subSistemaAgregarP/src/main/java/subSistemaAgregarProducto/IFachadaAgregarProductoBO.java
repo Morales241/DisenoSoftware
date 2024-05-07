@@ -10,7 +10,7 @@ import Negocio.dto.ProductoCompradoDto;
  *
  * @author tacot
  */
-public interface IagregarProductoBO {
+public interface IFachadaAgregarProductoBO {
     public void agregarCompraLista(ProductoCompradoDto proCompDto);
     
 //    public List<ProductoCompradoDto> getListaProductosComprados();

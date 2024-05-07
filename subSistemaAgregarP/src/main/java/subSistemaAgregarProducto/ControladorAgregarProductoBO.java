@@ -12,9 +12,9 @@ import subSistemaProductosComprados.FachadaProductosComprados;
  *
  * @author tacot
  */
-public class agregarProductoBO  {
+public class ControladorAgregarProductoBO  {
 
-    public agregarProductoBO() {
+    public ControladorAgregarProductoBO() {
     }
     
     IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
