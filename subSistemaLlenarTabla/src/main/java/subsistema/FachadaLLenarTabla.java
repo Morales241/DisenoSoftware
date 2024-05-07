@@ -12,12 +12,12 @@ import javax.swing.JTable;
  *
  * @author tacot
  */
-public class FachadaLLenarTabla implements ILlenarTabla{
+public class FachadaLLenarTabla implements IFachadaLlenarTabla{
 
     public FachadaLLenarTabla() {
     }
 
-    LlenarTabla llenado = new LlenarTabla();
+    ControladorLlenarTabla llenado = new ControladorLlenarTabla();
     @Override
     public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
         llenado.llenarTabla(lista, tabla);

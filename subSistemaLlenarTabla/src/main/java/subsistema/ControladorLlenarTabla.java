@@ -14,9 +14,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Marlon
  */
-public class LlenarTabla  {
+public class ControladorLlenarTabla  {
 
-    public LlenarTabla() {
+    public ControladorLlenarTabla() {
     }
 
     

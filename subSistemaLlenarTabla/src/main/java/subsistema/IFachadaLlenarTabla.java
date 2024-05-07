@@ -13,7 +13,7 @@ import javax.swing.JTable;
  *
  * @author Marlon
  */
-public interface ILlenarTabla {
+public interface IFachadaLlenarTabla {
     
     public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla);
     
