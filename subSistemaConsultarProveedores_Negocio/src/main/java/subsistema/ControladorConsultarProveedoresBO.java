@@ -19,10 +19,10 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class consultarProveedoresBO {
-    NegocioBO negocio = new NegocioBO();
+public class ControladorConsultarProveedoresBO {
+    protected NegocioBO negocio = new NegocioBO();
     
-    public consultarProveedoresBO() {
+    public ControladorConsultarProveedoresBO() {
     }
 
     

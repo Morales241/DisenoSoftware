@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IConsultarProveedores {
+public interface IFachadaConsultarProveedores {
     List<ProductoProveedorDto> obtenerProveedores(Long codigoProducto);
     
 }
