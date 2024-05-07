@@ -8,8 +8,8 @@ package subSistemaInicioSesion;
  *
  * @author tacot
  */
-public class fachadaInicioSesion implements IInicioSesion{
-    inicioSesion inicioS = new inicioSesion();
+public class fachadaInicioSesion implements IFachadaInicioSesion{
+    ControladorInicioSesion inicioS = new ControladorInicioSesion();
     public fachadaInicioSesion() {
     }
 

@@ -9,6 +9,6 @@ package subSistemaInicioSesion;
  *
  * @author 
  */
-public interface IInicioSesion {
+public interface IFachadaInicioSesion {
     boolean inicioSesion(String usuario, String contraseña);
 }

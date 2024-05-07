@@ -10,9 +10,9 @@ package subSistemaInicioSesion;
  *
  * @author 
  */
-public class inicioSesion {
+public class ControladorInicioSesion {
 
-    public inicioSesion() {
+    public ControladorInicioSesion() {
     }
     
     public boolean inicioSesion(String usuario, String contraseña){
