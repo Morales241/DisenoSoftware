@@ -15,7 +15,7 @@ import negocioBO.NegocioBO;
  */
 public class ControladorGenerarOrdenBO  {
 
-    NegocioBO negocio = new NegocioBO();
+    protected NegocioBO negocio = new NegocioBO();
 
     public ControladorGenerarOrdenBO() {
     }
