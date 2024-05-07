@@ -10,7 +10,7 @@ import Negocio.dto.ProductoCompradoDto;
  *
  * @author tacot
  */
-public interface IfachadaEliminarP {
+public interface IFachadaEliminarP {
     public void eliminarProducto(int index);
     
     public void eliminarTodosLosProductos();

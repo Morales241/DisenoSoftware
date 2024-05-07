@@ -10,8 +10,8 @@ import Negocio.dto.ProductoCompradoDto;
  *
  * @author tacot
  */
-public class fachacaEliminarProducto implements IfachadaEliminarP{
-    EliminarProductoBO EP = new EliminarProductoBO();
+public class fachacaEliminarProducto implements IFachadaEliminarP{
+    ControladorEliminarProductoBO EP = new ControladorEliminarProductoBO();
 
     public fachacaEliminarProducto() {
     }

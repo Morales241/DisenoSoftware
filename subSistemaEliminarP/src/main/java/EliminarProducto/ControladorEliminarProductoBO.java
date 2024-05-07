@@ -11,11 +11,11 @@ import subSistemaProductosComprados.IConsultarProductoCompradoBO;
  *
  * @author tacot
  */
-public class EliminarProductoBO {
+public class ControladorEliminarProductoBO {
 
-    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
+    protected IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
     
-    public EliminarProductoBO() {
+    public ControladorEliminarProductoBO() {
     }
     
     public void eliminarProducto(int index){
