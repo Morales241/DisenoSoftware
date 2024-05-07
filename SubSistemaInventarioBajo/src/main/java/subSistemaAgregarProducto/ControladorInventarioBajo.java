@@ -23,7 +23,7 @@ public class InventarioBajo {
     public InventarioBajo() {
     }
 
-    NegocioBO inventario = new NegocioBO();
+    protected NegocioBO inventario = new NegocioBO();
 
     public List<ProductoEntregadoDto> obtenerProductosPorAgotarse() {
 //        ProCompradoJpaController pcjc = new ProCompradoJpaController();
