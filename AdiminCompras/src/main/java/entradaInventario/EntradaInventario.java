@@ -37,7 +37,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
 
         contenido = new javax.swing.JPanel();
         volver = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        panelEntradas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaEntradas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -61,7 +61,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(24, 50, 77));
+        panelEntradas.setBackground(new java.awt.Color(24, 50, 77));
 
         tablaEntradas.setBackground(new java.awt.Color(214, 217, 223));
         tablaEntradas.setModel(new javax.swing.table.DefaultTableModel(
@@ -83,20 +83,21 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                 return canEdit [columnIndex];
             }
         });
+        tablaEntradas.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(tablaEntradas);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelEntradasLayout = new javax.swing.GroupLayout(panelEntradas);
+        panelEntradas.setLayout(panelEntradasLayout);
+        panelEntradasLayout.setHorizontalGroup(
+            panelEntradasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEntradasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelEntradasLayout.setVerticalGroup(
+            panelEntradasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEntradasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                 .addContainerGap())
@@ -188,7 +189,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                                     .addComponent(jButton1)
                                     .addGap(62, 62, 62)
                                     .addComponent(jButton2))
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(panelEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 126, Short.MAX_VALUE))
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addContainerGap()
@@ -209,14 +210,14 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                     .addComponent(jLabel3)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(botonReportar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,9 +263,9 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelEntradas;
     private javax.swing.JTable tablaEntradas;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
