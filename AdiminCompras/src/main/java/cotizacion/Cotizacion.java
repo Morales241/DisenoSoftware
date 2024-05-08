@@ -59,11 +59,13 @@ public class Cotizacion extends javax.swing.JFrame {
      */
     public Cotizacion(Inicio ini) {
         this.inicio = ini;
+        
         initComponents();
 
         this.Productos = consultaP.obtenerProductos();
 
         this.panelPR.setVisible(false);
+        
         this.PanelPro.setVisible(false);
 
         this.txtProductoBuscado.addKeyListener(new KeyAdapter() {
@@ -452,7 +454,7 @@ public class Cotizacion extends javax.swing.JFrame {
                         .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
                 .addGap(42, 42, 42)
-                .addGroup(PanelProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PanelProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)

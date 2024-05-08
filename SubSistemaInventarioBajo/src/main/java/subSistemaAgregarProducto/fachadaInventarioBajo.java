@@ -7,8 +7,8 @@ import java.util.List;
  *
  * @author tacot
  */
-public class fachadaInventarioBajo implements IinventarioBajoBO{
-    InventarioBajo inventario = new InventarioBajo();
+public class fachadaInventarioBajo implements IFachadaInventarioBajo{
+    ControladorInventarioBajo inventario = new ControladorInventarioBajo();
     public fachadaInventarioBajo() {
     }
 
