@@ -39,7 +39,7 @@ public class tablaProductos extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Producto", "Cantidad", "Fecha Entrega"
+                "Producto", "Cantidad Esperada", "Cantidad Recibida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
