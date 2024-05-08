@@ -4,7 +4,6 @@
  */
 package Negocio.dto;
 
-import javax.persistence.Column;
 
 /**
  *

@@ -128,7 +128,7 @@ public class NegocioBO implements InegocioBO {
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        Presupuesto pp = new Presupuesto();
+        Presupuesto pp =  Presupuesto.getInstance();
 
         return cantidad <= pp.getFondoMonetario();
     }
@@ -243,7 +243,7 @@ public class NegocioBO implements InegocioBO {
         listaAux.forEach(OrdenCompraDto -> {
             
             if (OrdenCompraDto.getFechaExpedicion().getTime().after(desde) &&
-                   OrdenCompraDto.getFechaExpedicion().getTime().after(hasta)  ) {
+                   OrdenCompraDto.getFechaExpedicion().getTime().before(hasta)  ) {
                 ordenesFiltradas.add(OrdenCompraDto);
             }
         });

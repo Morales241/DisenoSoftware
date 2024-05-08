@@ -4,11 +4,16 @@
  */
 package subSistemaEntradaInventario;
 
+import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import negocioBO.InegocioBO;
+import negocioBO.NegocioBO;
  
 
 
@@ -19,11 +24,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class controladorEntradaInventario {
     
+    protected InegocioBO negocio;
+    
     public controladorEntradaInventario(){
-        
+        this.negocio = new NegocioBO();
     }
     
-    public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla){
+    public void llenarTablaProductos(List<ProductoCompradoDto> lista, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{ "Nombre", "Cantidad Esperada", "Cantidad Recibida"});
         
@@ -45,6 +52,48 @@ public class controladorEntradaInventario {
         
     }
     
+    public void llenarTablaOrdenes(JTable tabla){
+        
+        List<OrdenCompraDto> listaAux = new ArrayList<>();
+        
+        listaAux = negocio.consultarOrdenes();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new String[]{ "Folio", "Fecha Entrega"});
+        
+        if (listaAux.isEmpty()) {
+            System.out.println("No se encontraron productos");
+        } else {
+            for (OrdenCompraDto p : listaAux){
+                
+                model.addRow(new Object[]{p.getFolio(), p.getFechaExpedicion()});
+            }
+        }
+        
+    }
+    
+    public void llenarTablaFiltrada(JTable tabla, Date desde, Date hasta){
+        
+        List<OrdenCompraDto> listaAux = new ArrayList<>();
+        
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new String[]{ "Folio", "Fecha Entrega"});
+        
+        if (listaAux.isEmpty()) {
+            System.out.println("No se encontraron productos");
+        } else {
+            for (OrdenCompraDto p : listaAux){
+                
+                model.addRow(new Object[]{p.getFolio(), p.getFechaExpedicion()});
+            }
+        }
+        
+        
+        
+    }
+            
+            
     public Integer cantidadRecibida(){
         
         Integer cant = new Random().nextInt(50)+1;
