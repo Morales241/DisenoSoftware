@@ -41,7 +41,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaEntradas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        aceptar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         botonReportar = new javax.swing.JButton();
@@ -113,13 +113,13 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(24, 50, 77));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Aceptar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        aceptar.setBackground(new java.awt.Color(24, 50, 77));
+        aceptar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        aceptar.setForeground(new java.awt.Color(255, 255, 255));
+        aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                aceptarActionPerformed(evt);
             }
         });
 
@@ -169,27 +169,25 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
+                .addGap(85, 85, 85)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(botonReportar)
+                    .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contenidoLayout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addComponent(jButton1)
+                            .addGap(62, 62, 62)
+                            .addComponent(aceptar))
+                        .addComponent(panelEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contenidoLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel2)
                         .addGap(34, 34, 34)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botonReportar)
-                            .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(contenidoLayout.createSequentialGroup()
-                                    .addGap(59, 59, 59)
-                                    .addComponent(jButton1)
-                                    .addGap(62, 62, 62)
-                                    .addComponent(jButton2))
-                                .addComponent(panelEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 126, Short.MAX_VALUE))
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addContainerGap()
@@ -214,7 +212,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(botonReportar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -243,9 +241,12 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_aceptarActionPerformed
 
     private void botonReportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReportarActionPerformed
         // TODO add your handling code here:
@@ -254,10 +255,10 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aceptar;
     private javax.swing.JButton botonReportar;
     private javax.swing.JPanel contenido;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
