@@ -11,6 +11,7 @@ import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoEntregadoDto;
 import entidad.fachadaPresupuesto;
 import java.util.List;
+import negocioBO.InegocioBO;
 import negocioBO.NegocioBO;
 
 /**
@@ -19,8 +20,8 @@ import negocioBO.NegocioBO;
  */
 public class ControladorPagar {
 
-    protected NegocioBO negocio = new NegocioBO();
-    protected fachadaPresupuesto presupuesto = new fachadaPresupuesto();
+    protected InegocioBO negocio = new NegocioBO();
+    protected fachadaPresupuesto presupuesto = fachadaPresupuesto.getInstance();
 
     List<ProductoEntregadoDto> inventarioBajo() {
         return negocio.obtenerInventarioBajo();

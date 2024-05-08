@@ -76,6 +76,7 @@ public class controladorEntradaInventario {
         
         List<OrdenCompraDto> listaAux = new ArrayList<>();
         
+        listaAux = negocio.consultarOrdenesPeriodo(hasta, hasta);
         
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{ "Folio", "Fecha Entrega"});

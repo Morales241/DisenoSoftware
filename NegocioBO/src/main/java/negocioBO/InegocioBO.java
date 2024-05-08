@@ -9,6 +9,7 @@ import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoEntregadoDto;
 import Negocio.dto.ProductoProveedorDto;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,4 +37,5 @@ public interface InegocioBO {
     public void eliminarDeInventario(int index);
     
     public List<ProductoEntregadoDto> obtenerInventarioBajo();
+    public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta);
 }

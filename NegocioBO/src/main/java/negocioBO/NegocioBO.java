@@ -234,6 +234,7 @@ public class NegocioBO implements InegocioBO {
     }
 
     
+    @Override
     public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta){
         
         List<OrdenCompraDto> listaAux = consultarOrdenes();
