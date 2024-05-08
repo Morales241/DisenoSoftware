@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author tacot
  */
-public interface IinventarioBajoBO {
+public interface IFachadaInventarioBajo {
 
     List<ProductoEntregadoDto> obtenerProductosPorAgotarse();
     

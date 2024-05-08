@@ -18,9 +18,9 @@ import negocioBO.NegocioBO;
  *
  * @author tacot
  */
-public class InventarioBajo {
+public class ControladorInventarioBajo {
 
-    public InventarioBajo() {
+    public ControladorInventarioBajo() {
     }
 
     protected NegocioBO inventario = new NegocioBO();
