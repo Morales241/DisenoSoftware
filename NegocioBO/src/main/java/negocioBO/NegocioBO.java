@@ -22,6 +22,7 @@ import entidades.Producto;
 import entidades.ProductoProveedor;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -232,4 +233,24 @@ public class NegocioBO implements InegocioBO {
         return String.valueOf(num);
     }
 
+    
+    public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta){
+        
+        List<OrdenCompraDto> listaAux = consultarOrdenes();
+        
+        List<OrdenCompraDto> ordenesFiltradas = new ArrayList<>();
+        
+        listaAux.forEach(OrdenCompraDto -> {
+            
+            if (OrdenCompraDto.getFechaExpedicion().getTime().after(desde) &&
+                   OrdenCompraDto.getFechaExpedicion().getTime().after(hasta)  ) {
+                ordenesFiltradas.add(OrdenCompraDto);
+            }
+        });
+        
+        return ordenesFiltradas;
+    }
+    
+    
+    
 }
