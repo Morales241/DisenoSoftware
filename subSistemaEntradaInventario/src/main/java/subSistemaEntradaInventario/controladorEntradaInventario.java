@@ -52,11 +52,15 @@ public class controladorEntradaInventario {
         
     }
     
-    public void llenarTablaOrdenes(JTable tabla){
+    public void llenarTablaOrdenes(JTable tabla) throws Exception{
         
         List<OrdenCompraDto> listaAux = new ArrayList<>();
         
         listaAux = negocio.consultarOrdenes();
+        
+        if (listaAux.isEmpty()) {
+            throw new Exception("No se encontraron órdenes");
+        }
         
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{ "Folio", "Fecha Entrega"});
@@ -91,6 +95,12 @@ public class controladorEntradaInventario {
         }
         
         
+        
+    }
+    
+    public OrdenCompraDto ordenPorFolio(String folio){
+        
+        return negocio.buscarOrdenFolio(folio);
         
     }
             

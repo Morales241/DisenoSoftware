@@ -38,4 +38,6 @@ public interface InegocioBO {
     
     public List<ProductoEntregadoDto> obtenerInventarioBajo();
     public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta);
+    
+    public OrdenCompraDto buscarOrdenFolio(String folio);
 }

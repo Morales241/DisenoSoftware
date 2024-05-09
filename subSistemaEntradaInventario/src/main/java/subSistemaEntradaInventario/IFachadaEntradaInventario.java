@@ -4,14 +4,24 @@
  */
 package subSistemaEntradaInventario;
 
+import Negocio.dto.OrdenCompraDto;
+import Negocio.dto.ProductoCompradoDto;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JTable;
+
 /**
  *
  * @author 
  */
 public interface IFachadaEntradaInventario {
-    
-    //Lista de entradas para inventariar
 
-    void agregarEntrada();
+    public void llenarTablaProductos(List<ProductoCompradoDto> lista, JTable tabla);
+    
+    public void llenarTablaOrdenes(JTable tabla);
+    
+    public void llenarTablaFiltrada(JTable tabla, Date desde, Date hasta);
+   
+    public OrdenCompraDto ordenPorFolio(String folio);
     
 }

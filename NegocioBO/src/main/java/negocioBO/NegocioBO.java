@@ -252,6 +252,16 @@ public class NegocioBO implements InegocioBO {
         return ordenesFiltradas;
     }
     
-    
+    public OrdenCompraDto buscarOrdenFolio(String folio){
+        
+        List<OrdenCompraDto> listaAux = consultarOrdenes();
+        
+        for (OrdenCompraDto o: listaAux) {
+            if (o.getFolio().equals(folio)) {
+                return o;
+            }
+        }
+        return null;
+    }
     
 }
