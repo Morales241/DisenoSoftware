@@ -7,7 +7,7 @@ package entradaInventario;
 import ConsultaOrden.FachadaPagar;
 import ConsultaOrden.Ipagar;
 import Negocio.dto.OrdenCompraDto;
-import Negocio.dto.ProductoCompradoDto;
+import Negocio.dto.ProductoCompradoDto; 
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -230,12 +230,13 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             
           
         }else{
-            JOptionPane.showConfirmDialog(null, "Periodo no seleccionado");
+            JOptionPane.showMessageDialog(null, "Periodo no seleccionado");
             fachada.llenarTablaOrdenes(tablaEntradas);
             
         }
         
         this.botonReportar.setVisible(true);
+        this.aceptar.setVisible(true);
             
 
     }//GEN-LAST:event_verOrdenesActionPerformed
@@ -253,6 +254,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             fachada.llenarTablaProductos(orden.getProductos(), tablaEntradas);
             
             this.botonReportar.setVisible(false);
+            this.aceptar.setVisible(false);
             
         }else {
             JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
@@ -267,10 +269,10 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                 
         if (filaSeleccionada >= 0) {
             
-            JOptionPane.showConfirmDialog(null, "La orden con el folio: " + folio + "ha sido reportada exitosamente");
+            JOptionPane.showMessageDialog(null, "La orden con el folio: " + folio + "ha sido reportada exitosamente");
             
         }else {
-            JOptionPane.showConfirmDialog(null, "Ninguna fila seleccionada");
+            JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
    
     }//GEN-LAST:event_botonReportarActionPerformed
