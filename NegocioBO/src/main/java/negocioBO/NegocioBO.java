@@ -259,6 +259,7 @@ public class NegocioBO implements InegocioBO {
         for (OrdenCompraDto o: listaAux) {
             if (o.getFolio().equals(folio)) {
                 return o;
+                
             }
         }
         return null;

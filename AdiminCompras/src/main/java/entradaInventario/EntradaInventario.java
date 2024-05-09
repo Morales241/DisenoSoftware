@@ -4,16 +4,22 @@
  */
 package entradaInventario;
 
+import ConsultaOrden.FachadaPagar;
+import ConsultaOrden.Ipagar;
 import Negocio.dto.OrdenCompraDto;
+import Negocio.dto.ProductoCompradoDto;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import subSistemaEntradaInventario.IFachadaEntradaInventario;
 import subSistemaEntradaInventario.fachadaEntradaInventario;
+import subsistema.FachadaLLenarTabla;
+import subsistema.ILlenarTabla;
 
 /**
  *
@@ -24,15 +30,15 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
     int radius = 500;
     IFachadaEntradaInventario fachada = new fachadaEntradaInventario();
     protected String folio = "";
-
     /**
      * Creates new form EntradaInventario
      */
     public EntradaInventario() {
         initComponents();
-
+        
+        
         try{
-        fachada.llenarTablaOrdenes(tablaEntradas);
+        fachada.llenarTablaOrdenes(this.tablaEntradas);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -244,10 +250,12 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             
             OrdenCompraDto orden = fachada.ordenPorFolio(folio);
             
+            fachada.llenarTablaProductos(orden.getProductos(), tablaEntradas);
+            
             this.botonReportar.setVisible(false);
             
         }else {
-            JOptionPane.showConfirmDialog(null, "Ninguna fila seleccionada");
+            JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
 
     }//GEN-LAST:event_aceptarActionPerformed
