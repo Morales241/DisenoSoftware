@@ -46,9 +46,9 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         jLabel1 = new javax.swing.JLabel();
         botonReportar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        desde = new com.github.lgooddatepicker.components.TimePicker();
-        hasta = new com.github.lgooddatepicker.components.TimePicker();
+        desde = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel4 = new javax.swing.JLabel();
+        hasta = new com.github.lgooddatepicker.components.DatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,24 +156,16 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             }
         });
 
-        jLabel2.setText("Desde:");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Selecciona la fecha de inicio");
 
-        jLabel3.setText("Hasta:");
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Selecciona la fecha de fin");
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(desde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,14 +177,26 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                                 .addGap(59, 59, 59)
                                 .addComponent(jButton1)
                                 .addGap(62, 62, 62)
-                                .addComponent(aceptar))))
+                                .addComponent(aceptar))
+                            .addGroup(contenidoLayout.createSequentialGroup()
+                                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(desde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(contenidoLayout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel2)))
+                                .addGap(34, 34, 34)
+                                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(contenidoLayout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabel4))))))
                     .addGroup(contenidoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(volver))
                     .addGroup(contenidoLayout.createSequentialGroup()
                         .addGap(230, 230, 230)
                         .addComponent(botonReportar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,13 +204,15 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(27, 27, 27)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(13, 13, 13)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(desde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(panelEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,12 +263,12 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
     private javax.swing.JButton aceptar;
     private javax.swing.JButton botonReportar;
     private javax.swing.JPanel contenido;
-    private com.github.lgooddatepicker.components.TimePicker desde;
-    private com.github.lgooddatepicker.components.TimePicker hasta;
+    private com.github.lgooddatepicker.components.DatePicker desde;
+    private com.github.lgooddatepicker.components.DatePicker hasta;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelEntradas;
