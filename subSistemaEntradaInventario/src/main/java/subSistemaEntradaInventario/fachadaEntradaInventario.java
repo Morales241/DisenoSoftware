@@ -33,10 +33,11 @@ public class fachadaEntradaInventario implements IFachadaEntradaInventario{
 
         try {
             controlador.llenarTablaOrdenes(tabla);
+//            System.out.println("Pasó por fachada subsistemaEntradaInventario por el método llenarTablaOrdenes");
         } catch (Exception ex) {
-            Logger.getLogger(fachadaEntradaInventario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(fachadaEntradaInventario.class.getName()).log(Level.SEVERE, "No se encontraron Ordenes");
         }
-        System.out.println("Pasó por fachada subsistemaEntradaInventario por el método llenarTablaOrdenes");
+        
     }
 
     @Override
