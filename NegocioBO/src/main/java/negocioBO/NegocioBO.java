@@ -174,7 +174,7 @@ public class NegocioBO implements InegocioBO {
         });
 
         ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Pagado");
-
+        
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
@@ -225,7 +225,7 @@ public class NegocioBO implements InegocioBO {
     @Override
     public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta) {
 
-        List<OrdenCompraDto> listaAux = consultarOrdenes();
+        List<OrdenCompraDto> listaAux = consultarOrdenesPagadas();
 
         List<OrdenCompraDto> ordenesFiltradas = new ArrayList<>();
 
@@ -243,7 +243,7 @@ public class NegocioBO implements InegocioBO {
     @Override
     public OrdenCompraDto buscarOrdenFolio(String folio) {
 
-        List<OrdenCompraDto> listaAux = consultarOrdenes();
+        List<OrdenCompraDto> listaAux = consultarOrdenesPagadas();
 
         for (OrdenCompraDto o : listaAux) {
             if (o.getFolio().equals(folio)) {
@@ -255,6 +255,7 @@ public class NegocioBO implements InegocioBO {
 
     @Override
     public List<OrdenCompraDto> consultarOrdenesPagadas() {
+        
         List<OrdenCompraDto> listaOrdenes = new ArrayList<>();
 
         try {

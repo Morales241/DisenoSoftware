@@ -52,6 +52,7 @@ public class controladorEntradaInventario {
     public void llenarTablaOrdenes(JTable tabla) throws Exception {
 
         DefaultTableModel model = new DefaultTableModel();
+        
         model.setColumnIdentifiers(new String[]{"Folio", "Fecha Entrega"});
 
         List<OrdenCompraDto> listaAux = negocio.consultarOrdenesPagadas();
@@ -77,7 +78,7 @@ public class controladorEntradaInventario {
         model.setColumnIdentifiers(new String[]{"Folio", "Fecha Entrega"});
 
         if (listaAux.isEmpty()) {
-            System.out.println("No se encontraron productos");
+            System.out.println("No se encontraron órdenes");
         } else {
             for (OrdenCompraDto p : listaAux) {
 

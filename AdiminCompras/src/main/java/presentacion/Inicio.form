@@ -261,7 +261,6 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -292,35 +291,30 @@
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="AdminProveedores" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel5" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="Sacarcotizacion" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel8" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="Entredainventario" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel7" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="Realizarpago" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel10" max="32767" attributes="0"/>
-                                  <Component id="Informacion" min="-2" pref="32" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jLabel11" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="AdminProveedores" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel5" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="Sacarcotizacion" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="Entredainventario" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel7" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="Realizarpago" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel10" max="32767" attributes="0"/>
+                          <Component id="Informacion" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Cerrarsesion" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -482,16 +476,6 @@
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/boton-de-informacion.png"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/cerrar-sesion.png"/>
                 </Property>
               </Properties>
             </Component>

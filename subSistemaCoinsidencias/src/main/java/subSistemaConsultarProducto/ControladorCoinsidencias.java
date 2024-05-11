@@ -20,7 +20,7 @@ public class ControladorCoinsidencias {
 
             List<ProductoDto> listaProductos = new ArrayList<>();
             for (ProductoDto pdto : conP.obtenerProductos()) {
-                if (pdto.getNombre().contains(palabra)) {
+                if (pdto.getNombre().toLowerCase().contains(palabra.toLowerCase())) {
                     listaProductos.add(pdto);
                 }
             }

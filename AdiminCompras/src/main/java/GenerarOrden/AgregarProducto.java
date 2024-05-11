@@ -18,9 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.fachadaAgregarProductos;
-import subSistemaConsultarProducto.IConsultarCoinsidenciasProductos;
 import subSistemaConsultarProducto.IConsultarProducto;
-import subSistemaConsultarProducto.consultarCoinsidenciasProductos;
+import subSistemaConsultarProducto.IFachadaCoinsidencias;
 import subSistemaConsultarProducto.fachadaConsultarProducto;
 import subSistemaConsultarProducto.fachadaCoinsidencias;
 import subsistema.IConsultarProveedores;
@@ -32,7 +31,8 @@ import subsistema.fachadaConsultarProveedores;
  */
 public class AgregarProducto extends javax.swing.JFrame {
 
-    IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
+    IFachadaCoinsidencias coin = new fachadaCoinsidencias();
+    
     GenerarOrden FrameOrden;
 
     private int cantidad = 1;
@@ -59,6 +59,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         this.panelCantidad.setVisible(false);
         this.panelProducto.setVisible(false);
         this.panelProveedor.setVisible(false);
+        this.botonSiguiente.setVisible(false);
 
         this.txtProductoBuscado.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
@@ -80,9 +81,22 @@ public class AgregarProducto extends javax.swing.JFrame {
                     ResultadosProductos.addItem(p);
                 }
 
-                panelCantidad.setVisible(true);
-                panelProducto.setVisible(true);
-                panelProveedor.setVisible(true);
+                if (palabra.equals("")) {
+                    panelCantidad.setVisible(false);
+                    panelProducto.setVisible(false);
+                    panelProveedor.setVisible(false);
+                } else {
+                    if (ResultadosProductos.getItemCount() == 0) {
+                        panelCantidad.setVisible(false);
+                        panelProducto.setVisible(false);
+                        panelProveedor.setVisible(false);
+
+                    } else {
+                        panelCantidad.setVisible(true);
+                        panelProducto.setVisible(true);
+                        panelProveedor.setVisible(true);
+                    }
+                }
             }
         });
 
@@ -137,9 +151,22 @@ public class AgregarProducto extends javax.swing.JFrame {
                     ResultadosProductos.addItem(p);
                 }
 
-                panelCantidad.setVisible(true);
-                panelProducto.setVisible(true);
-                panelProveedor.setVisible(true);
+                if (palabra.equals("")) {
+                    panelCantidad.setVisible(false);
+                    panelProducto.setVisible(false);
+                    panelProveedor.setVisible(false);
+                } else {
+                    if (ResultadosProductos.getItemCount() == 0) {
+                        panelCantidad.setVisible(false);
+                        panelProducto.setVisible(false);
+                        panelProveedor.setVisible(false);
+
+                    } else {
+                        panelCantidad.setVisible(true);
+                        panelProducto.setVisible(true);
+                        panelProveedor.setVisible(true);
+                    }
+                }
             }
         });
 

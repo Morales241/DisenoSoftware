@@ -83,10 +83,10 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         productoA.setBackground(new java.awt.Color(24, 50, 77));
-        productoA.setPreferredSize(new java.awt.Dimension(528, 351));
+        productoA.setPreferredSize(new java.awt.Dimension(528, 410));
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
-        contenido.setPreferredSize(new java.awt.Dimension(528, 351));
+        contenido.setPreferredSize(new java.awt.Dimension(528, 410));
 
         Agregar.setBackground(new java.awt.Color(24, 50, 77));
         Agregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -167,27 +167,30 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(regresar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(61, 483, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                        .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(regresar))
+                .addComponent(regresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Agregar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout productoALayout = new javax.swing.GroupLayout(productoA);
@@ -198,7 +201,9 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         );
         productoALayout.setVerticalGroup(
             productoALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+            .addGroup(productoALayout.createSequentialGroup()
+                .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,7 +214,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(productoA, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(productoA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

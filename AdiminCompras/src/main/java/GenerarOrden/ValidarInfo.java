@@ -65,7 +65,7 @@ public class ValidarInfo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
-        contenido.setPreferredSize(new java.awt.Dimension(528, 351));
+        contenido.setPreferredSize(new java.awt.Dimension(528, 410));
 
         botonSiguiente.setBackground(new java.awt.Color(24, 50, 77));
         botonSiguiente.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -144,14 +144,13 @@ public class ValidarInfo extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(contenidoLayout.createSequentialGroup()
-                            .addComponent(EliminarP)
-                            .addGap(18, 18, 18)
-                            .addComponent(botonSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(18, 18, 18)
-                            .addComponent(agregarP))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
+                        .addComponent(EliminarP)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(agregarP))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
@@ -163,7 +162,7 @@ public class ValidarInfo extends javax.swing.JFrame {
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(total)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EliminarP, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonSiguiente)
@@ -179,7 +178,7 @@ public class ValidarInfo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

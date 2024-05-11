@@ -21,8 +21,8 @@ import javax.swing.JOptionPane;
 import presentacion.Inicio;
 import subSistemaAgregarProducto.IagregarProductoBO;
 import subSistemaAgregarProducto.fachadaAgregarProductos;
-import subSistemaConsultarProducto.IConsultarCoinsidenciasProductos;
 import subSistemaConsultarProducto.IConsultarProducto;
+import subSistemaConsultarProducto.IFachadaCoinsidencias;
 import subSistemaConsultarProducto.fachadaCoinsidencias;
 import subSistemaConsultarProducto.fachadaConsultarProducto;
 import subsistema.IConsultarProveedores;
@@ -34,7 +34,7 @@ import subsistema.fachadaConsultarProveedores;
  */
 public class Cotizacion extends javax.swing.JFrame {
 
-    private IConsultarCoinsidenciasProductos coin = new fachadaCoinsidencias();
+    private IFachadaCoinsidencias coin = new fachadaCoinsidencias();
 
     private Inicio inicio;
 
