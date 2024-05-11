@@ -226,6 +226,8 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             Date fecha1 = Date.from(this.desde.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             Date fecha2 = Date.from(this.hasta.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
 
+            System.out.println(fecha1);
+            System.out.println(fecha2);
             fachada.llenarTablaFiltrada(tablaEntradas, fecha1, fecha2);
             
           
@@ -245,6 +247,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         // TODO add your handling code here:
         
         int filaSeleccionada = this.tablaEntradas.getSelectedRow();
+        
                 
         if (filaSeleccionada >= 0) {
             this.folio = (String) this.tablaEntradas.getValueAt(filaSeleccionada, 0);
@@ -253,7 +256,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             
             fachada.llenarTablaProductos(orden.getProductos(), tablaEntradas);
             
-            this.botonReportar.setVisible(false);
+            this.botonReportar.setVisible(true);
             this.aceptar.setVisible(false);
             
         }else {
