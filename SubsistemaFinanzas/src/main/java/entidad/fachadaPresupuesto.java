@@ -8,10 +8,10 @@ package entidad;
  *
  * @author tacot
  */
-public class fachadaPresupuesto implements Ipresupuesto{
+public class fachadaPresupuesto implements IFachadaPresupuesto{
     private static fachadaPresupuesto instancia; 
 
-    private Presupuesto presupuesto; 
+    private fachadaPresupuesto presupuesto; 
 
     private fachadaPresupuesto() { 
         this.presupuesto = presupuesto.getInstance();
@@ -26,7 +26,7 @@ public class fachadaPresupuesto implements Ipresupuesto{
 
     @Override
     public double trarerPresupuesto() {
-        return presupuesto.getFondoMonetario();
+        return presupuesto.trarerPresupuesto();
     }
     
 }
