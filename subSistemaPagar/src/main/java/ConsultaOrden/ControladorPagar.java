@@ -30,7 +30,7 @@ public class ControladorPagar {
     public void pagarOrden(OrdenCompraDto oc) throws Exception {
         if (oc.getTotal() <= presupuesto.trarerPresupuesto()) {
             
-            negocio.agregarAInventario(oc);
+            negocio.Pagar(oc);
 
         } else {
             throw new Exception("No cuentamos con el dinero suficiente");

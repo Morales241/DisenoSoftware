@@ -4,6 +4,7 @@
  */
 package negocioBO;
 
+import Entidades.ordenCompra;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
@@ -30,13 +31,14 @@ public interface InegocioBO {
 
     public List<OrdenCompraDto> consultarOrdenes();
 
-    public List<ProductoCompradoDto>  obetenerProductosOrden(int index);
+    public List<ProductoCompradoDto>  obtenerProductosOrden(ordenCompra oc) throws Exception;
 
-    public boolean agregarAInventario(OrdenCompraDto oc);
+    public boolean Pagar(OrdenCompraDto oc);
 
-    public void eliminarDeInventario(int index);
+    public void eliminarDeInventario(int in);
     
     public List<ProductoEntregadoDto> obtenerInventarioBajo();
+    
     public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta);
     
     public OrdenCompraDto buscarOrdenFolio(String folio);

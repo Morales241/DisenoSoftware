@@ -4,8 +4,12 @@
  */
 package negocioBO;
 
+import Daos.DaoOrdenCompra;
+import Daos.DaoproComprado;
 import DaosMock.DaoOrdenMock;
 import DaosMock.DaoproEntregadoMock;
+import Entidades.ordenCompra;
+import Entidades.proComprado;
 import EntidadesMock.ordenMock;
 import EntidadesMock.proCompradoMock;
 import EntidadesMock.proEntregadoMock;
@@ -25,6 +29,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -34,9 +41,11 @@ public class NegocioBO implements InegocioBO {
 
     ProductoProveedorDao ProductoProveedorDao = new ProductoProveedorDao();
 
-    DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
+    DaoOrdenCompra ordenDao = new DaoOrdenCompra();
 
-    DaoproEntregadoMock inventario = DaoproEntregadoMock.getinstance();
+    proComprado inventario = new proComprado();
+    
+    DaoproComprado daoProductos = new DaoproComprado();
 
     public NegocioBO() {
     }
@@ -80,55 +89,36 @@ public class NegocioBO implements InegocioBO {
 
     @Override
     public void realizarOrden(List<ProductoCompradoDto> prdsDto) {
-//        OrdenCompraJpaController OrdenDAO = new OrdenCompraJpaController();
-//        
-//        List<ProComprado> productos = new ArrayList<>();
-//
-//        prdsDto.forEach(ProductoCompradoDto -> {
-//
-//            productos.add(new ProComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
-//                    ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
-//        });
-//
-//        OrdenCompra oc = new OrdenCompra();
-//        oc.setFechaExpedicion(Calendar.getInstance());
-//        oc.setProductos(productos);
-//        double total = 0;
-//        for (ProComprado p : productos) {
-//            total += p.getCantidad() * p.getPrecio();
-//        }
-//
-//        oc.setTotal(total);
-//        
-//        OrdenDAO.create(oc);
 
-        DaoOrdenMock ordenDao = DaoOrdenMock.getInstance();
-
-        List<proCompradoMock> productos = new ArrayList<>();
+        List<proComprado> productos = new ArrayList<>();
 
         prdsDto.forEach(ProductoCompradoDto -> {
-            productos.add(new proCompradoMock(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
+            productos.add(new proComprado(ProductoCompradoDto.getNombre(), ProductoCompradoDto.getCodigo(),
                     ProductoCompradoDto.getProveedor(), ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
         });
 
-        ordenMock oc = new ordenMock();
+        ordenCompra oc = new ordenCompra();
         oc.setFechaExpedicion(Calendar.getInstance());
         oc.setProductos(productos);
-        oc.setEstado(false);
+        oc.setEstado("NoPagado");
         oc.setFolio(generarFolio());
         double total = 0;
-        for (proCompradoMock p : productos) {
+        for (proComprado p : productos) {
             total += p.getCantidad() * p.getPrecio();
         }
 
         oc.setTotal(total);
 
-        ordenDao.agregarOrden(oc);
+        try {
+            ordenDao.guardar(oc);
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        Presupuesto pp =  Presupuesto.getInstance();
+        Presupuesto pp = Presupuesto.getInstance();
 
         return cantidad <= pp.getFondoMonetario();
     }
@@ -152,62 +142,63 @@ public class NegocioBO implements InegocioBO {
     public List<OrdenCompraDto> consultarOrdenes() {
         List<OrdenCompraDto> listaOrdenes = new ArrayList<>();
 
-        ordenDao.consultarOrden().forEach(ordenMock -> {
+        try {
+            ordenDao.consultar().forEach(ordenCompra -> {
 
-            if (ordenMock.isEstado() != true) {
-                List<ProductoCompradoDto> listaAux = new ArrayList<>();
+                if (ordenCompra.getEstado().equals("Pagado")) {
+                    List<ProductoCompradoDto> listaAux = new ArrayList<>();
 
-                ordenMock.getProductos().forEach(proCompradoMock -> {
+                    ordenCompra.getProductos().forEach(proCompradoMock -> {
 
-                    listaAux.add(new ProductoCompradoDto(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
-                            proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
-                });
+                        listaAux.add(new ProductoCompradoDto(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
+                                proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
+                    });
 
-                listaOrdenes.add(new OrdenCompraDto(ordenMock.getTotal(),false, ordenMock.getFolio(), ordenMock.getFechaExpedicion(), listaAux));
+                    listaOrdenes.add(new OrdenCompraDto(ordenCompra.getTotal(), false, ordenCompra.getFolio(), ordenCompra.getFechaExpedicion(), listaAux));
 
-            }
+                }
 
-        });
+            });
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return listaOrdenes;
     }
 
     @Override
-    public boolean agregarAInventario(OrdenCompraDto oc) {
+    public boolean Pagar(OrdenCompraDto oc) {
 
         List<ProductoCompradoDto> prdsDto = oc.getProductos();
 
-        List<proCompradoMock> listaAux = new ArrayList<>();
+        List<proComprado> listaAux = new ArrayList<>();
 
-        oc.getProductos().forEach(proCompradoMock -> {
+        prdsDto.forEach(proCompradoDto -> {
 
-            listaAux.add(new proCompradoMock(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
-                    proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
+            listaAux.add(new proComprado(proCompradoDto.getNombre(), proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
         });
 
-        ordenMock ordenAux = new ordenMock(oc.getTotal(), oc.getFechaExpedicion(), listaAux, generarFolio());
-        
-        ordenDao.pagado(ordenAux.getFolio());
+        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), generarFolio(), listaAux, "Pagado");
 
-        prdsDto.forEach(ProductoCompradoDto -> {
-            inventario.agregarAInventario(new proEntregadoMock(ProductoCompradoDto.getNombre(),
-                    ProductoCompradoDto.getCodigo(), ProductoCompradoDto.getProveedor(),
-                    ProductoCompradoDto.getCantidad(), ProductoCompradoDto.getPrecio()));
-        });
-        
+        try {
+            ordenDao.guardar(ordenAux);
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+        }
+
         return true;
     }
 
     @Override
     public void eliminarDeInventario(int index) {
 
-        inventario.eliminarAInventario(index);
+//        inventario.eliminarAInventario(index);
     }
 
     @Override
-    public List<ProductoCompradoDto> obetenerProductosOrden(int index) {
+    public List<ProductoCompradoDto> obtenerProductosOrden(ordenCompra oc) throws Exception {
         List<ProductoCompradoDto> listaAux = new ArrayList<>();
-        ordenDao.consultarProductosOrden(index).forEach(proCompradoMocko -> {
+        ordenDao.buscarPorID(oc).getProductos().forEach(proCompradoMocko -> {
             listaAux.add(new ProductoCompradoDto(proCompradoMocko.getNombre(), proCompradoMocko.getCodigo(), proCompradoMocko.getProveedor(),
                     proCompradoMocko.getCantidad(), proCompradoMocko.getPrecio()));
         });
@@ -217,12 +208,16 @@ public class NegocioBO implements InegocioBO {
     @Override
     public List<ProductoEntregadoDto> obtenerInventarioBajo() {
         List<ProductoEntregadoDto> listaAux = new ArrayList<>();
-        inventario.consultarInventario().forEach(proEntregadoMock -> {
-            if (proEntregadoMock.getCantidad() < 3) {
-                listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getProveedor(),
-                        proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
-            }
-        });
+        try {
+            daoProductos.consultar().forEach(proEntregadoMock -> {
+                if (proEntregadoMock.getCantidad() < 3) {
+                    listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getProveedor(),
+                            proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
+                }
+            });
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return listaAux;
     }
@@ -233,36 +228,35 @@ public class NegocioBO implements InegocioBO {
         return String.valueOf(num);
     }
 
-    
     @Override
-    public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta){
-        
+    public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta) {
+
         List<OrdenCompraDto> listaAux = consultarOrdenes();
-        
+
         List<OrdenCompraDto> ordenesFiltradas = new ArrayList<>();
-        
+
         listaAux.forEach(OrdenCompraDto -> {
-            
-            if (OrdenCompraDto.getFechaExpedicion().getTime().after(desde) &&
-                   OrdenCompraDto.getFechaExpedicion().getTime().before(hasta)  ) {
+
+            if (OrdenCompraDto.getFechaExpedicion().getTime().after(desde)
+                    && OrdenCompraDto.getFechaExpedicion().getTime().before(hasta)) {
                 ordenesFiltradas.add(OrdenCompraDto);
             }
         });
-        
+
         return ordenesFiltradas;
     }
-    
-    public OrdenCompraDto buscarOrdenFolio(String folio){
-        
+
+    @Override
+    public OrdenCompraDto buscarOrdenFolio(String folio) {
+
         List<OrdenCompraDto> listaAux = consultarOrdenes();
-        
-        for (OrdenCompraDto o: listaAux) {
+
+        for (OrdenCompraDto o : listaAux) {
             if (o.getFolio().equals(folio)) {
                 return o;
-                
             }
         }
         return null;
     }
-    
+
 }

@@ -17,18 +17,22 @@ public class ordenCompra {
     private ObjectId id;
     private Double total;
     private Calendar fechaExpedicion;
+    private String Folio;
     private List<proComprado> productos;
     private String estado;
 
     public ordenCompra() {
     }
 
-    public ordenCompra(Double total, Calendar fechaExpedicion, List<proComprado> productos, String estado) {
+    public ordenCompra(Double total, Calendar fechaExpedicion, String Folio, List<proComprado> productos, String estado) {
         this.total = total;
         this.fechaExpedicion = fechaExpedicion;
+        this.Folio = Folio;
         this.productos = productos;
         this.estado = estado;
     }
+
+    
 
     public ObjectId getId() {
         return id;
@@ -69,6 +73,14 @@ public class ordenCompra {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getFolio() {
+        return Folio;
+    }
+
+    public void setFolio(String Folio) {
+        this.Folio = Folio;
     }
     
     
