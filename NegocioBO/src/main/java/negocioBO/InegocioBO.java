@@ -42,4 +42,6 @@ public interface InegocioBO {
     public List<OrdenCompraDto> consultarOrdenesPeriodo(Date desde, Date hasta);
     
     public OrdenCompraDto buscarOrdenFolio(String folio);
+    
+    public List<OrdenCompraDto> consultarOrdenesPagadas();
 }

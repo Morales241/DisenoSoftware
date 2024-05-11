@@ -20,13 +20,14 @@ public class OrdenCompraDto {
     
     private String folio;
     
-    private Calendar fechaExpedicion;
+    private Date fechaExpedicion;
 
     private List<ProductoCompradoDto> productos;
+    
     public OrdenCompraDto() {
     }
 
-    public OrdenCompraDto(Double total, boolean estado, String folio, Calendar fechaExpedicion, List<ProductoCompradoDto> productos) {
+    public OrdenCompraDto(Double total, boolean estado, String folio, Date fechaExpedicion, List<ProductoCompradoDto> productos) {
         this.total = total;
         this.estado = estado;
         this.folio = folio;
@@ -59,11 +60,11 @@ public class OrdenCompraDto {
         this.total = total;
     }
 
-    public Calendar getFechaExpedicion() {
+    public Date getFechaExpedicion() {
         return fechaExpedicion;
     }
 
-    public void setFechaExpedicion(Calendar fechaExpedicion) {
+    public void setFechaExpedicion(Date fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
 

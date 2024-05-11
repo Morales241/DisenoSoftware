@@ -46,7 +46,7 @@ public class DaoOrdenCompra {
 
     public void actualizar(ordenCompra ordenCompra) throws Exception {
         try {
-            Document filtro = new Document("_id", ordenCompra.getId());
+            Document filtro = new Document("folio", ordenCompra.getFolio());
             Document actualizacion = new Document();
             actualizacion.put("$set", new Document("total", ordenCompra.getTotal())
                     .append("fechaExpedicion", ordenCompra.getFechaExpedicion())

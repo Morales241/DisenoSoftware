@@ -84,8 +84,6 @@ public class Pago extends javax.swing.JFrame {
 
         contenido = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         ResultadosOrdenes = new javax.swing.JComboBox<>();
         consulta = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -102,27 +100,6 @@ public class Pago extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Seleccione Orden:");
-
-        jPanel2.setBackground(new java.awt.Color(24, 50, 77));
-        jPanel2.setPreferredSize(new java.awt.Dimension(348, 31));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pagar Orden");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(285, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(283, 283, 283))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-        );
 
         ResultadosOrdenes.setBackground(new java.awt.Color(24, 50, 77));
         ResultadosOrdenes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,7 +197,6 @@ public class Pago extends javax.swing.JFrame {
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
                 .addComponent(jLabel8)
@@ -235,8 +211,7 @@ public class Pago extends javax.swing.JFrame {
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(78, 78, 78)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(ResultadosOrdenes))
@@ -364,9 +339,7 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton botonPagar;
     private javax.swing.JPanel consulta;
     private javax.swing.JPanel contenido;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaProductos;
     private javax.swing.JLabel total;

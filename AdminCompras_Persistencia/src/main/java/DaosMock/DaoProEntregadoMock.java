@@ -8,6 +8,6 @@ package DaosMock;
  *
  * @author jesusmr
  */
-public class DaoProEntregadoMock {
+public class DaoproEntregadoMock {
     
 }

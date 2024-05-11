@@ -33,7 +33,7 @@ public class ControladorPagar {
             negocio.Pagar(oc);
 
         } else {
-            throw new Exception("No cuentamos con el dinero suficiente");
+            throw new Exception("No contamos con el dinero suficiente");
         }
     }
 

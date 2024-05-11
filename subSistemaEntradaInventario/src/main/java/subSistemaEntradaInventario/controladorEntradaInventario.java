@@ -54,7 +54,7 @@ public class controladorEntradaInventario {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Folio", "Fecha Entrega"});
 
-        List<OrdenCompraDto> listaAux = negocio.consultarOrdenes();
+        List<OrdenCompraDto> listaAux = negocio.consultarOrdenesPagadas();
 
         if (listaAux.isEmpty()) {
             throw new Exception("No se encontraron órdenes");

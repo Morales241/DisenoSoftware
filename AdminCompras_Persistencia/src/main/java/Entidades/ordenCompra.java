@@ -5,6 +5,7 @@
 package Entidades;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -16,7 +17,7 @@ public class ordenCompra {
 
     private ObjectId id;
     private Double total;
-    private Calendar fechaExpedicion;
+    private Date fechaExpedicion;
     private String Folio;
     private List<proComprado> productos;
     private String estado;
@@ -24,7 +25,7 @@ public class ordenCompra {
     public ordenCompra() {
     }
 
-    public ordenCompra(Double total, Calendar fechaExpedicion, String Folio, List<proComprado> productos, String estado) {
+    public ordenCompra(Double total, Date fechaExpedicion, String Folio, List<proComprado> productos, String estado) {
         this.total = total;
         this.fechaExpedicion = fechaExpedicion;
         this.Folio = Folio;
@@ -51,11 +52,11 @@ public class ordenCompra {
         this.total = total;
     }
 
-    public Calendar getFechaExpedicion() {
+    public Date getFechaExpedicion() {
         return fechaExpedicion;
     }
 
-    public void setFechaExpedicion(Calendar fechaExpedicion) {
+    public void setFechaExpedicion(Date fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
     }
 

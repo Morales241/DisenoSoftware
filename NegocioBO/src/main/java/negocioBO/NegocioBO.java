@@ -6,13 +6,8 @@ package negocioBO;
 
 import Daos.DaoOrdenCompra;
 import Daos.DaoproComprado;
-import DaosMock.DaoOrdenMock;
-import DaosMock.DaoproEntregadoMock;
 import Entidades.ordenCompra;
 import Entidades.proComprado;
-import EntidadesMock.ordenMock;
-import EntidadesMock.proCompradoMock;
-import EntidadesMock.proEntregadoMock;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
@@ -25,13 +20,11 @@ import entidad.Presupuesto;
 import entidades.Producto;
 import entidades.ProductoProveedor;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bson.types.ObjectId;
 
 /**
  *
@@ -98,7 +91,7 @@ public class NegocioBO implements InegocioBO {
         });
 
         ordenCompra oc = new ordenCompra();
-        oc.setFechaExpedicion(Calendar.getInstance());
+        oc.setFechaExpedicion(new Date());
         oc.setProductos(productos);
         oc.setEstado("NoPagado");
         oc.setFolio(generarFolio());
@@ -145,7 +138,7 @@ public class NegocioBO implements InegocioBO {
         try {
             ordenDao.consultar().forEach(ordenCompra -> {
 
-                if (ordenCompra.getEstado().equals("Pagado")) {
+                if (ordenCompra.getEstado().equals("NoPagado")) {
                     List<ProductoCompradoDto> listaAux = new ArrayList<>();
 
                     ordenCompra.getProductos().forEach(proCompradoMock -> {
@@ -175,17 +168,18 @@ public class NegocioBO implements InegocioBO {
 
         prdsDto.forEach(proCompradoDto -> {
 
-            listaAux.add(new proComprado(proCompradoDto.getNombre(), proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
+            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+                    proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
         });
 
-        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), generarFolio(), listaAux, "Pagado");
+        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Pagado");
 
         try {
-            ordenDao.guardar(ordenAux);
+            ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
             Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
         }
-
         return true;
     }
 
@@ -237,8 +231,8 @@ public class NegocioBO implements InegocioBO {
 
         listaAux.forEach(OrdenCompraDto -> {
 
-            if (OrdenCompraDto.getFechaExpedicion().getTime().after(desde)
-                    && OrdenCompraDto.getFechaExpedicion().getTime().before(hasta)) {
+            if (OrdenCompraDto.getFechaExpedicion().after(desde)
+                    && OrdenCompraDto.getFechaExpedicion().before(hasta)) {
                 ordenesFiltradas.add(OrdenCompraDto);
             }
         });
@@ -259,4 +253,31 @@ public class NegocioBO implements InegocioBO {
         return null;
     }
 
+    @Override
+    public List<OrdenCompraDto> consultarOrdenesPagadas() {
+        List<OrdenCompraDto> listaOrdenes = new ArrayList<>();
+
+        try {
+            ordenDao.consultar().forEach(ordenCompra -> {
+
+                if (ordenCompra.getEstado().equals("Pagado")) {
+                    List<ProductoCompradoDto> listaAux = new ArrayList<>();
+
+                    ordenCompra.getProductos().forEach(proCompradoMock -> {
+
+                        listaAux.add(new ProductoCompradoDto(proCompradoMock.getNombre(), proCompradoMock.getCodigo(), proCompradoMock.getProveedor(),
+                                proCompradoMock.getCantidad(), proCompradoMock.getPrecio()));
+                    });
+
+                    listaOrdenes.add(new OrdenCompraDto(ordenCompra.getTotal(), false, ordenCompra.getFolio(), ordenCompra.getFechaExpedicion(), listaAux));
+
+                }
+
+            });
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaOrdenes;
+    }
 }
