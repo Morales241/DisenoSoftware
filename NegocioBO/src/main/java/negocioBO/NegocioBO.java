@@ -16,7 +16,8 @@ import Negocio.dto.ProductoProveedorDto;
 import Negocio.dto.ProveedorDto;
 import daos.ProductoDao;
 import daos.ProductoProveedorDao;
-import entidad.Presupuesto;
+import entidad.IFachadaPresupuesto;
+import entidad.fachadaPresupuesto;
 import entidades.Producto;
 import entidades.ProductoProveedor;
 import java.util.ArrayList;
@@ -111,9 +112,9 @@ public class NegocioBO implements InegocioBO {
 
     @Override
     public boolean verificarPresupuesto(Double cantidad) {
-        Presupuesto pp = Presupuesto.getInstance();
+        IFachadaPresupuesto pp = fachadaPresupuesto.getInstance();
 
-        return cantidad <= pp.getFondoMonetario();
+        return cantidad <= pp.trarerPresupuesto();
     }
 
     @Override

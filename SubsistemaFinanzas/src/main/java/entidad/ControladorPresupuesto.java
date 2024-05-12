@@ -4,12 +4,6 @@
  */
 package entidad;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
@@ -22,7 +16,7 @@ public class ControladorPresupuesto {
     private Double fondoMonetario;
 
     private ControladorPresupuesto() {
-        this.fondoMonetario = Math.random() * (5000 - 1000) + 1000;
+        this.fondoMonetario = Math.round((Math.random() * (5000 - 1000) + 1000) * 100.0) / 100.0;
     }
 
     public static ControladorPresupuesto getInstance() {

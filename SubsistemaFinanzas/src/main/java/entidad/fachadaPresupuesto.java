@@ -11,10 +11,10 @@ package entidad;
 public class fachadaPresupuesto implements IFachadaPresupuesto{
     private static fachadaPresupuesto instancia; 
 
-    private fachadaPresupuesto presupuesto; 
+    private ControladorPresupuesto presupuesto; 
 
     private fachadaPresupuesto() { 
-        this.presupuesto = presupuesto.getInstance();
+        presupuesto = ControladorPresupuesto.getInstance();
     }
 
     public static fachadaPresupuesto getInstance() {
@@ -26,7 +26,7 @@ public class fachadaPresupuesto implements IFachadaPresupuesto{
 
     @Override
     public double trarerPresupuesto() {
-        return presupuesto.trarerPresupuesto();
+        return presupuesto.getFondoMonetario();
     }
     
 }
