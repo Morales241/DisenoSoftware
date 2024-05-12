@@ -50,9 +50,7 @@ public class DaoproComprado {
             Document actualizacion = new Document();
             actualizacion.put("$set", new Document("nombre", proComprado.getNombre())
                     .append("codigo", proComprado.getCodigo())
-                    .append("proveedor", proComprado.getProveedor())
-                    .append("cantidad", proComprado.getCantidad())
-                    .append("precio", proComprado.getPrecio()));
+                    .append("cantidad", proComprado.getCantidad()));
             coleccionproductos.updateOne(filtro, actualizacion);
         } catch (MongoException ex) {
             throw new Exception("Error en Dao proComprado - Método actualizar");

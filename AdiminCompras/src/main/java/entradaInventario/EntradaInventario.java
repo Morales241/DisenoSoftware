@@ -305,6 +305,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
 
             fachada.Inventariar(orden);
 
+            JOptionPane.showMessageDialog(null, "La orden con el folio: "+ folio+ " fue inventairada con exito");
         } else {
             JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
