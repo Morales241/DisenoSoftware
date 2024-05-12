@@ -23,8 +23,6 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         this.Contenido.removeAll();
 
-        
-        
         this.Contenido.add(va.traerContenido());
         va.posicion(this);
         this.Contenido.revalidate();
