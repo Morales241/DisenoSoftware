@@ -487,6 +487,15 @@ public class Inicio extends javax.swing.JFrame {
 
     private void SalidaInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaInventarioActionPerformed
         // TODO add your handling code here:
+        this.jLabel1.setText("Salida de Inventario");
+        
+        SalidaInventario sI = new SalidaInventario();
+        this.Contenido.removeAll();
+        this.Menu.setSize(60, 574);        
+        
+        this.Contenido.add(sI.traerContenido());
+        this.Contenido.revalidate();
+        this.Contenido.repaint();
     }//GEN-LAST:event_SalidaInventarioActionPerformed
 
 //    /**
