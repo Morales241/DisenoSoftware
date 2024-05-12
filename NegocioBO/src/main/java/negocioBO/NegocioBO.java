@@ -282,4 +282,53 @@ public class NegocioBO implements InegocioBO {
 
         return listaOrdenes;
     }
+
+    @Override
+    public boolean Reportar(OrdenCompraDto oc) {
+
+        List<ProductoCompradoDto> prdsDto = oc.getProductos();
+
+        List<proComprado> listaAux = new ArrayList<>();
+
+        prdsDto.forEach(proCompradoDto -> {
+
+            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+                    proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
+        });
+
+        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Reportado");
+        
+        try {
+            ordenDao.actualizar(ordenAux);
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+        }
+        return true;
+    }
+    
+    //Pendiente
+    @Override
+    public boolean Inventariar(OrdenCompraDto oc) {
+
+        List<ProductoCompradoDto> prdsDto = oc.getProductos();
+
+        List<proComprado> listaAux = new ArrayList<>();
+
+        prdsDto.forEach(proCompradoDto -> {
+
+            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+                    proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
+        });
+
+        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Inventariado");
+        
+        try {
+            ordenDao.actualizar(ordenAux);
+        } catch (Exception ex) {
+            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+        }
+        return true;
+    }
 }

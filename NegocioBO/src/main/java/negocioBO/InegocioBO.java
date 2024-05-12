@@ -44,4 +44,8 @@ public interface InegocioBO {
     public OrdenCompraDto buscarOrdenFolio(String folio);
     
     public List<OrdenCompraDto> consultarOrdenesPagadas();
+    
+    public boolean Reportar(OrdenCompraDto oc);
+    
+    public boolean Inventariar(OrdenCompraDto oc);
 }

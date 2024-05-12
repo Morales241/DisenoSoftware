@@ -24,4 +24,7 @@ public interface IFachadaEntradaInventario {
    
     public OrdenCompraDto ordenPorFolio(String folio);
     
+    public void Reportar(OrdenCompraDto oc);
+    
+    public void Inventariar(OrdenCompraDto oc);
 }

@@ -56,9 +56,11 @@ public class fachadaEntradaInventario implements IFachadaEntradaInventario{
     }
     
     
+    public void Reportar(OrdenCompraDto oc){
+        controlador.Reportar(oc);
+    }
     
-    
-    
-    
-    
+    public void Inventariar(OrdenCompraDto oc){
+        controlador.Inventariar(oc);
+    }
 }

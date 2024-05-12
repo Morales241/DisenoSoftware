@@ -6,6 +6,7 @@ package subSistemaEntradaInventario;
 
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,9 +61,11 @@ public class controladorEntradaInventario {
         if (listaAux.isEmpty()) {
             throw new Exception("No se encontraron órdenes");
         } else {
-
             for (OrdenCompraDto p : listaAux) {
-                model.addRow(new Object[]{p.getFolio(), p.getFechaExpedicion().getTime()});
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+            String fecha = formato.format(p.getFechaExpedicion());
+                
+                model.addRow(new Object[]{p.getFolio(), fecha});
             }
         }
         tabla.setModel(model);
@@ -81,8 +84,10 @@ public class controladorEntradaInventario {
             System.out.println("No se encontraron órdenes");
         } else {
             for (OrdenCompraDto p : listaAux) {
-
-                model.addRow(new Object[]{p.getFolio(), p.getFechaExpedicion().getTime()});
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+            String fecha = formato.format(p.getFechaExpedicion());
+                
+                model.addRow(new Object[]{p.getFolio(), fecha});
             }
         }
         tabla.setModel(model);
@@ -104,6 +109,14 @@ public class controladorEntradaInventario {
             resultado = new Random().nextInt(3) + 1;
         }
         return resultado;
+    }
+    
+    public void Reportar(OrdenCompraDto oc){
+        negocio.Reportar(oc);
+    }
+    
+    public void Inventariar(OrdenCompraDto oc){
+        negocio.Inventariar(oc);
     }
 
 }
