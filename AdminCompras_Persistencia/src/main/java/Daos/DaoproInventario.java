@@ -10,6 +10,7 @@ import Entidades.proInventario;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import static com.mongodb.client.model.Filters.eq;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -44,12 +45,14 @@ public class DaoproInventario {
 
     public void actualizar(proInventario proInventario) throws Exception {
         try {
-            Document filtro = new Document("codigo", proInventario.getCodigo());
-            Document actualizacion = new Document();
-            actualizacion.put("$set", new Document("nombre", proInventario.getNombre())
-                    .append("codigo", proInventario.getCodigo())
-                    .append("cantidad", proInventario.getCantidad()));
-            coleccionproductos.updateOne(filtro, actualizacion);
+            coleccionproductos.updateOne(eq("codigo", proInventario.getCodigo()), new Document("$set", new Document("cantidad", proInventario.getCantidad())));
+            System.out.println("AOSIJDFOSIJDOSF");
+//            Document filtro = new Document("codigo", proInventario.getCodigo());
+//            Document actualizacion = new Document();
+//            actualizacion.put("$set", new Document("nombre", proInventario.getNombre())
+//                    .append("codigo", proInventario.getCodigo())
+//                    .append("cantidad", proInventario.getCantidad()));
+//            coleccionproductos.updateOne(filtro, actualizacion);
         } catch (MongoException ex) {
             throw new Exception("Error en Dao proInventario - Método actualizar");
         }
