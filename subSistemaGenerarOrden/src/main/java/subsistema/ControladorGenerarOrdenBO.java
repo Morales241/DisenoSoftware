@@ -7,7 +7,9 @@ package subsistema;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
+import negocioBO.IOrdenCompraBO;
 import negocioBO.NegocioBO;
+import negocioBO.OrdenCompraBO;
 
 /**
  *
@@ -15,7 +17,7 @@ import negocioBO.NegocioBO;
  */
 public class ControladorGenerarOrdenBO  {
 
-    protected NegocioBO negocio = new NegocioBO();
+    protected IOrdenCompraBO negocio = new OrdenCompraBO();
 
     public ControladorGenerarOrdenBO() {
     }

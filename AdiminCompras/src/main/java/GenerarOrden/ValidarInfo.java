@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import pago.Pago;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IConsultarProductoCompradoBO;
-import subsistema.IGenerarOrden;
+import subsistema.IFachadaGenerarOrden;
 import subsistema.ILlenarTabla;
 import subsistema.FachadaLLenarTabla;
 import subsistema.fachadaGenerarOrden;
@@ -34,7 +34,7 @@ public class ValidarInfo extends javax.swing.JFrame {
     //PC = productosComprados
     IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
 
-    IGenerarOrden orden = new fachadaGenerarOrden();
+    IFachadaGenerarOrden orden = new fachadaGenerarOrden();
 
     /**
      * Creates new form ValidarInfo

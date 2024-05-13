@@ -250,7 +250,8 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
 
         }
 
-        this.botonReportar.setVisible(true);
+        this.botonReportar.setVisible(false);
+        this.Inventariar.setVisible(false);
         this.aceptar.setVisible(true);
 
 

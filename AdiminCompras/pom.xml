@@ -107,9 +107,9 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>subsistemaSalidaInventario</groupId>
+            <groupId>21</groupId>
             <artifactId>subsistemaSalidaInventario</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <properties>
