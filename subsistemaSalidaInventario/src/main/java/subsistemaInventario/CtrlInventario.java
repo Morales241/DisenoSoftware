@@ -5,7 +5,6 @@
 package subsistemaInventario;
 
 import Negocio.dto.ProductoEntregadoDto;
-import dtos.ProductoDTO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import negocioBO.ProductoEntregadoBO;
@@ -35,4 +34,5 @@ public class CtrlInventario {
         productoBO.ordenarProductos(listaProductos);
     }
 
+    
 }

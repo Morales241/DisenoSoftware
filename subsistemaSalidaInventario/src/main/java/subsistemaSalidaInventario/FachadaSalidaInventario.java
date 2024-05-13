@@ -5,7 +5,6 @@
 package subsistemaSalidaInventario;
 
 import Negocio.dto.ProductoEntregadoDto;
-import dtos.ProductoDTO;
 
 /**
  *

@@ -5,7 +5,6 @@
 package subsistemaSalidaInventario;
 
 import Negocio.dto.ProductoEntregadoDto;
-import dtos.ProductoDTO;
 import negocioBO.ProductoEntregadoBO;
 
 /**
@@ -22,6 +21,7 @@ public class CtrlSalidaInventario {
 
     public void desinventariarProducto(ProductoEntregadoDto producto) {
         productoBO.desinventariarProducto(producto);
+        
     }
     
 }

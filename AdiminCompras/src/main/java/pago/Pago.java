@@ -275,6 +275,7 @@ public class Pago extends javax.swing.JFrame {
         } else {
             this.botonPagar.setVisible(true);
         }
+        
 
         tablaProductos.removeAll();
 

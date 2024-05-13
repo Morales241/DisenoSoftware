@@ -243,6 +243,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel5.setBounds(18, 69, 190, 25);
 
         txtProductoBuscado.setBackground(new java.awt.Color(24, 50, 77));
+        txtProductoBuscado.setForeground(new java.awt.Color(255, 255, 255));
         contenido.add(txtProductoBuscado);
         txtProductoBuscado.setBounds(219, 72, 290, 25);
 

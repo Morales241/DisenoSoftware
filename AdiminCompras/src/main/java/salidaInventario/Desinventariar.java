@@ -5,7 +5,6 @@
 package salidaInventario;
 
 import Negocio.dto.ProductoEntregadoDto;
-import dtos.ProductoDTO;
 import javax.swing.JPanel;
 import subsistemaSalidaInventario.FachadaSalidaInventario;
 import subsistemaSalidaInventario.IFachadaSalidaInventario;
