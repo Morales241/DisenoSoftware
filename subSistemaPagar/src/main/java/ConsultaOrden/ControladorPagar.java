@@ -4,15 +4,15 @@
  */
 package ConsultaOrden;
 
-import DaosMock.DaoOrdenMock;
-import EntidadesMock.ordenMock;
-import EntidadesMock.proCompradoMock;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoEntregadoDto;
 import entidad.fachadaPresupuesto;
 import java.util.List;
+import negocioBO.IOrdenCompraBO;
+import negocioBO.IProductoEntregadoBO;
 import negocioBO.InegocioBO;
-import negocioBO.NegocioBO;
+import negocioBO.OrdenCompraBO;
+import negocioBO.ProductoEntregadoBO;
 
 /**
  *
@@ -20,7 +20,10 @@ import negocioBO.NegocioBO;
  */
 public class ControladorPagar {
 
-    protected InegocioBO negocio = new NegocioBO();
+    protected IProductoEntregadoBO negocio = new ProductoEntregadoBO();
+    
+    protected IOrdenCompraBO negocioPagar = new OrdenCompraBO();
+    
     protected fachadaPresupuesto presupuesto = fachadaPresupuesto.getInstance();
 
     List<ProductoEntregadoDto> inventarioBajo() {
@@ -30,7 +33,7 @@ public class ControladorPagar {
     public void pagarOrden(OrdenCompraDto oc) throws Exception {
         if (oc.getTotal() <= presupuesto.trarerPresupuesto()) {
             
-            negocio.Pagar(oc);
+            negocioPagar.Pagar(oc);
 
         } else {
             throw new Exception("No contamos con el dinero suficiente");
@@ -38,7 +41,7 @@ public class ControladorPagar {
     }
 
     public List<OrdenCompraDto> consultarOrdenes() {
-        return negocio.consultarOrdenes();
+        return negocioPagar.consultarOrdenes();
     }
 
 }

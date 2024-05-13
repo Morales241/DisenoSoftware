@@ -8,7 +8,6 @@ import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
 import negocioBO.IOrdenCompraBO;
-import negocioBO.NegocioBO;
 import negocioBO.OrdenCompraBO;
 
 /**

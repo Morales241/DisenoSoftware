@@ -3,11 +3,16 @@ package subSistemaProductosComprados;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
-import negocioBO.NegocioBO;
+import negocioBO.IProductoCompradoBO;
+import negocioBO.IProductoProveedorBO;
+import negocioBO.ProductoCompradoBO;
+import negocioBO.ProductoProveedorBO;
 
 public class ControladorProductosComprados  {
 
-    protected NegocioBO negocio = new NegocioBO();
+    protected IProductoCompradoBO negocio = new ProductoCompradoBO();
+    
+    protected IProductoProveedorBO negocioProveedor = new ProductoProveedorBO();
     protected static ControladorProductosComprados instance;
     protected List<ProductoCompradoDto> listaProductosAComprados;
 
@@ -27,7 +32,7 @@ public class ControladorProductosComprados  {
             throw new Exception("No se selecciono Producto");
         }
         if (proCompDto.getCodigo()==null) {
-            proCompDto = negocio.obtenerProductoProveedor(proCompDto.getNombre(), proCompDto.getProveedor());
+            proCompDto = negocioProveedor.obtenerProductoProveedor(proCompDto.getNombre(), proCompDto.getProveedor());
             proCompDto.setCantidad(1);
         }
         for (ProductoCompradoDto p : listaProductosAComprados) {

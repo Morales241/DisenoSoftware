@@ -5,17 +5,13 @@
 package negocioBO;
 
 import Negocio.dto.ProductoDto;
-import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 
 /**
  *
- * @author marlon
+ * @author tacot
  */
-public interface IProductoEntregadoBO {
-
-    public void eliminarDeInventario(int index);
-
-    public List<ProductoEntregadoDto> obtenerInventarioBajo();
-
+public interface IProductoBO {
+    
+    public List<ProductoDto> obtenerProductos();
 }

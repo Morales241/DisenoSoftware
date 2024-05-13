@@ -5,7 +5,7 @@
 package EliminarProducto;
 
 import subSistemaProductosComprados.FachadaProductosComprados;
-import subSistemaProductosComprados.IConsultarProductoCompradoBO;
+import subSistemaProductosComprados.IFachadaProductoComprado;
 
 /**
  *
@@ -13,7 +13,7 @@ import subSistemaProductosComprados.IConsultarProductoCompradoBO;
  */
 public class ControladorEliminarProductoBO {
 
-    protected IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
+    protected IFachadaProductoComprado PC = new FachadaProductosComprados();
     
     public ControladorEliminarProductoBO() {
     }

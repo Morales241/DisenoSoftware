@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import negocioBO.IOrdenCompraBO;
 
 /**
  *
@@ -63,7 +64,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
         try {
             ordenDao.guardar(oc);
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,7 +90,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
 
             });
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return listaOrdenes;
@@ -113,7 +114,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
         }
         return true;
     }
@@ -169,7 +170,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
 
             });
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return listaOrdenes;
@@ -193,7 +194,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
         }
         return true;
     }
@@ -216,7 +217,7 @@ public class OrdenCompraBO implements IOrdenCompraBO {
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
-            Logger.getLogger(NegocioBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex.getMessage());
         }
         return true;
     }

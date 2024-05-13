@@ -1,11 +1,9 @@
 package subSistemaConsultarProducto;
 
 import Negocio.dto.ProductoDto;
-import daos.ProductoDao;
-import entidades.Producto;
-import java.util.ArrayList;
 import java.util.List;
-import negocioBO.NegocioBO;
+import negocioBO.IProductoBO;
+import negocioBO.ProductoBO;
 
 /**
  *
@@ -13,11 +11,10 @@ import negocioBO.NegocioBO;
  */
 public class ControladorConsultarProductos {
 
-    protected NegocioBO negocio = new NegocioBO();
+    protected IProductoBO negocio = new ProductoBO();
 
     public ControladorConsultarProductos() {
     }
-
     
     public List<ProductoDto> obtenerProductos() {
         return negocio.obtenerProductos();

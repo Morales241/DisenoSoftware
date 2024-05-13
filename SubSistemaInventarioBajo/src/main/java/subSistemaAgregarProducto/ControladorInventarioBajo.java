@@ -6,7 +6,8 @@ package subSistemaAgregarProducto;
 
 import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
-import negocioBO.NegocioBO;
+import negocioBO.IProductoEntregadoBO;
+import negocioBO.ProductoEntregadoBO;
 
 /**
  *
@@ -17,7 +18,7 @@ public class ControladorInventarioBajo {
     public ControladorInventarioBajo() {
     }
 
-    protected NegocioBO inventario = new NegocioBO();
+    protected IProductoEntregadoBO inventario = new ProductoEntregadoBO();
 
     public List<ProductoEntregadoDto> obtenerProductosPorAgotarse() {
 //        ProCompradoJpaController pcjc = new ProCompradoJpaController();

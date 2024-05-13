@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import negocioBO.InegocioBO;
-import negocioBO.NegocioBO;
+import negocioBO.IOrdenCompraBO;
+import negocioBO.OrdenCompraBO;
 
 /**
  *
@@ -22,10 +22,10 @@ import negocioBO.NegocioBO;
  */
 public class controladorEntradaInventario {
 
-    protected InegocioBO negocio;
+    protected IOrdenCompraBO negocio;
 
     public controladorEntradaInventario() {
-        this.negocio = new NegocioBO();
+        this.negocio = new OrdenCompraBO();
     }
 
     public void llenarTablaProductos(List<ProductoCompradoDto> lista, JTable tabla) {

@@ -4,9 +4,9 @@
  */
 package subSistemaAgregarProducto;
 
-import subSistemaProductosComprados.IConsultarProductoCompradoBO;
 import Negocio.dto.ProductoCompradoDto;
 import subSistemaProductosComprados.FachadaProductosComprados;
+import subSistemaProductosComprados.IFachadaProductoComprado;
 
 /**
  *
@@ -17,7 +17,7 @@ public class ControladorAgregarProductoBO  {
     public ControladorAgregarProductoBO() {
     }
     
-    protected IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
+    protected IFachadaProductoComprado PC = new FachadaProductosComprados();
     
 
     public void agregarCompraLista(ProductoCompradoDto proCompDto) {

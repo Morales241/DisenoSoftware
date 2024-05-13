@@ -4,28 +4,21 @@
  */
 package subsistema;
 
-import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
-import Negocio.dto.ProveedorDto;
-import daos.ProductoProveedorDao;
-import java.util.ArrayList;
 import java.util.List;
-import entidades.Proveedor;
-import daos.ProveedorDao;
-import entidades.ProductoProveedor;
-import negocioBO.NegocioBO;
+import negocioBO.IProductoProveedorBO;
+import negocioBO.ProductoProveedorBO;
 
 /**
  *
  * @author tacot
  */
 public class ControladorConsultarProveedoresBO {
-    protected NegocioBO negocio = new NegocioBO();
+    protected IProductoProveedorBO negocio = new ProductoProveedorBO();
     
     public ControladorConsultarProveedoresBO() {
     }
 
-    
     public List<ProductoProveedorDto> obtenerProveedores(Long idProducto) {
         return negocio.obtenerProveedores(idProducto);
     }

@@ -3,7 +3,8 @@ package subSistemaConsultarProducto;
 import Negocio.dto.ProductoDto;
 import java.util.ArrayList;
 import java.util.List;
-import negocioBO.NegocioBO;
+import negocioBO.IProductoBO;
+import negocioBO.ProductoBO;
 
 /**
  *
@@ -11,7 +12,7 @@ import negocioBO.NegocioBO;
  */
 public class ControladorCoinsidencias {
 
-    protected NegocioBO conP = new NegocioBO();
+    protected IProductoBO conP = new ProductoBO();
 
     public ControladorCoinsidencias() {
     }
@@ -25,14 +26,6 @@ public class ControladorCoinsidencias {
                 }
             }
             return listaProductos;
-
-//        List<ProductoDto> listaProductos = new ArrayList<>();
-//        for (ProductoDto pdto : this.obtenerProductos()) {
-//            if (pdto.getNombre().contains(palabra)) {
-//                listaProductos.add(pdto);
-//            }
-//        }
-//        return listaProductos;
         }
 
 
