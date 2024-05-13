@@ -5,13 +5,9 @@
 package subsistemaInventario;
 
 import dtos.ProductoDTO;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import objetosNegocio.ProductoBO;
-import persistenciaMock.daos.ProductoDAO;
-import persistenciaMock.entidades.Producto;
 
 /**
  *

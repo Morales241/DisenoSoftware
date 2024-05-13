@@ -4,7 +4,6 @@
  */
 package GenerarOrden;
 
-import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoEntregadoDto;
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import subSistemaAgregarProducto.IFachadaAgregarProductoBO;
 import subSistemaAgregarProducto.IFachadaInventarioBajo;
-import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaAgregarProducto.fachadaInventarioBajo;
 import subSistemaAgregarProducto.fachadaAgregarProductos;
 import subsistema.FachadaLLenarTabla;
@@ -49,7 +47,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
                     ProductoEntregadoDto.getCantidad()));
         });
 
-        llenarT.llenarTabla(productos, tablaProductos);
+        llenarT.llenarTablaInventario(productos, tablaProductos);
         
 
     }

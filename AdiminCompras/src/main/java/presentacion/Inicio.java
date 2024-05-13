@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package presentacion;
 
 import AdministrarProductos.IniciarSesion;
@@ -37,6 +33,8 @@ public class Inicio extends javax.swing.JFrame {
         
         this.AdminProductos.setVisible(false);
         this.AdminProveedores.setVisible(false);
+        this.jLabel4.setVisible(false);
+        this.jLabel6.setVisible(false);
         this.setLocationRelativeTo(this);
         this.GenerarOrden.setSelected(true);
         
@@ -373,8 +371,7 @@ public class Inicio extends javax.swing.JFrame {
         this.jLabel1.setText("Generar Orden");
         
         GenerarOrden gO = new GenerarOrden();
-        this.Contenido.removeAll();
-        this.Menu.setSize(60, 574);        
+        this.Contenido.removeAll();      
         
         this.Contenido.add(gO.traerContenido());
         this.Contenido.revalidate();
@@ -386,8 +383,7 @@ public class Inicio extends javax.swing.JFrame {
         this.jLabel1.setText("Administrar Productos");
         
         AdministrarProductos pA = new AdministrarProductos();
-        this.Contenido.removeAll();
-        this.Menu.setSize(60, 574);        
+        this.Contenido.removeAll();   
         
         this.Contenido.add(pA.traerContenido());
         this.Contenido.revalidate();
@@ -399,8 +395,7 @@ public class Inicio extends javax.swing.JFrame {
         this.jLabel1.setText("Cotizaciones");
         
         Cotizacion coti = new Cotizacion(this);
-        this.Contenido.removeAll();
-        this.Menu.setSize(60, 574);        
+        this.Contenido.removeAll();  
         
         this.Contenido.add(coti.traerContenido());
         this.Contenido.revalidate();
@@ -422,9 +417,8 @@ public class Inicio extends javax.swing.JFrame {
         
         this.jLabel1.setText("Entrada de inventario");
         
-        EntradaInventario eI = new EntradaInventario();
-        this.Contenido.removeAll();
-        this.Menu.setSize(60, 574);        
+        EntradaInventario eI = new EntradaInventario(this);
+        this.Contenido.removeAll();   
         
         this.Contenido.add(eI.traerContenido());
         this.Contenido.revalidate();
@@ -436,8 +430,7 @@ public class Inicio extends javax.swing.JFrame {
         this.jLabel1.setText("Realizar pago");
         
         Pago pago = new Pago();
-        this.Contenido.removeAll();
-        this.Menu.setSize(60, 574);        
+        this.Contenido.removeAll();     
         pago.posicion(this);
         this.Contenido.add(pago.traerContenido());
         this.Contenido.revalidate();
@@ -525,7 +518,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton GenerarOrden;
     private javax.swing.JButton Informacion;
     private javax.swing.JPanel Menu;
-    private javax.swing.JLabel Presupuesto;
+    public javax.swing.JLabel Presupuesto;
     private javax.swing.JButton Realizarpago;
     private javax.swing.JButton Sacarcotizacion;
     private javax.swing.JButton SalidaInventario;

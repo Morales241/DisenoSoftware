@@ -7,7 +7,6 @@ package pago;
 
 import ConsultaOrden.FachadaPagar;
 import ConsultaOrden.Ipagar;
-import GenerarOrden.GenerarOrden;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import informacion.Informacion;
@@ -18,7 +17,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
 import subsistema.FachadaLLenarTabla;
-import subsistema.ILlenarTabla;
+import subsistema.IFachadaLlenarTabla;
 
 /**
  *
@@ -27,7 +26,7 @@ import subsistema.ILlenarTabla;
 public class Pago extends javax.swing.JFrame {
 
     Inicio inicio;
-    ILlenarTabla llenarT = new FachadaLLenarTabla();
+    IFachadaLlenarTabla llenarT = new FachadaLLenarTabla();
     List<OrdenCompraDto> ordenes = null;
     OrdenCompraDto orden = null;
     Ipagar pago = new FachadaPagar();
@@ -46,7 +45,7 @@ public class Pago extends javax.swing.JFrame {
             }
         }
         if (ResultadosOrdenes.getItemCount() > 0) {
-            
+
             ResultadosOrdenes.setSelectedIndex(0);
 
             orden = (OrdenCompraDto) ResultadosOrdenes.getSelectedItem();
@@ -251,23 +250,13 @@ public class Pago extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        if (inicio == null) {
-            contenido.removeAll();
-
-            Pago pago2 = new Pago();
-
-            contenido.add(pago2.traerContenido());
-
-            contenido.revalidate();
-            contenido.repaint();
-        } else {
-
-            Informacion info = new Informacion();
-            inicio.Contenido.removeAll();
-            inicio.Contenido.add(info.traerContenido());
-            inicio.Contenido.revalidate();
-            inicio.Contenido.repaint();
-        }
+        Double presupuesto = obtenerTotal(orden);
+//        inicio.Presupuesto.setText(String.valueOf(presupuesto));
+        Informacion info = new Informacion();
+        inicio.Contenido.removeAll();
+        inicio.Contenido.add(info.traerContenido());
+        inicio.Contenido.revalidate();
+        inicio.Contenido.repaint();
 
     }//GEN-LAST:event_botonPagarActionPerformed
 

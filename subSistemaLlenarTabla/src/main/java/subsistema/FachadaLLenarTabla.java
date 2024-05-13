@@ -4,6 +4,7 @@
  */
 package subsistema;
 
+import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 import javax.swing.JTable;
@@ -12,15 +13,21 @@ import javax.swing.JTable;
  *
  * @author tacot
  */
-public class FachadaLLenarTabla implements IFachadaLlenarTabla{
+public class FachadaLLenarTabla implements IFachadaLlenarTabla {
 
     public FachadaLLenarTabla() {
     }
 
     ControladorLlenarTabla llenado = new ControladorLlenarTabla();
+
     @Override
-    public void llenarTabla(List<ProductoEntregadoDto> lista, JTable tabla) {
+    public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla) {
         llenado.llenarTabla(lista, tabla);
     }
-    
+
+    @Override
+    public void llenarTablaInventario(List<ProductoEntregadoDto> lista, JTable tabla) {
+        llenado.llenarTablaInventario(lista, tabla);
+    }
+
 }

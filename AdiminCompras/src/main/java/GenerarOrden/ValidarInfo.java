@@ -6,7 +6,6 @@ package GenerarOrden;
 
 import EliminarProducto.fachacaEliminarProducto;
 import Negocio.dto.ProductoCompradoDto;
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,8 +15,8 @@ import pago.Pago;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IFachadaProductoComprado;
 import subsistema.IFachadaGenerarOrden;
-import subsistema.ILlenarTabla;
 import subsistema.FachadaLLenarTabla;
+import subsistema.IFachadaLlenarTabla;
 import subsistema.fachadaGenerarOrden;
 
 /**
@@ -28,7 +27,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
-    ILlenarTabla llenarT = new FachadaLLenarTabla();
+    IFachadaLlenarTabla llenarT = new FachadaLLenarTabla();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
     //PC = productosComprados

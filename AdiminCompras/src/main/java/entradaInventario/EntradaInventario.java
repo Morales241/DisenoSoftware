@@ -4,22 +4,17 @@
  */
 package entradaInventario;
 
-import ConsultaOrden.FachadaPagar;
-import ConsultaOrden.Ipagar;
 import Negocio.dto.OrdenCompraDto;
-import Negocio.dto.ProductoCompradoDto;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
+import presentacion.Inicio;
 import subSistemaEntradaInventario.IFachadaEntradaInventario;
 import subSistemaEntradaInventario.fachadaEntradaInventario;
-import subsistema.FachadaLLenarTabla;
-import subsistema.ILlenarTabla;
 
 /**
  *
@@ -27,15 +22,19 @@ import subsistema.ILlenarTabla;
  */
 public class EntradaInventario extends javax.swing.JFrame implements Border {
 
+    Inicio ini;
     int radius = 500;
     IFachadaEntradaInventario fachada = new fachadaEntradaInventario();
     protected String folio = "";
 
     /**
      * Creates new form EntradaInventario
+     * @param inicio
      */
-    public EntradaInventario() {
+    public EntradaInventario(Inicio inicio) {
         initComponents();
+        
+        this.ini=inicio;
 
         this.botonReportar.setVisible(false);
         this.Inventariar.setVisible(false);
@@ -311,8 +310,15 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
             JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
 
+        EntradaInventario eI = new EntradaInventario(ini);
+        this.ini.Contenido.removeAll();
+        
+        this.ini.Contenido.add(eI.traerContenido());
+        this.ini.Contenido.revalidate();
+        this.ini.Contenido.repaint();
     }//GEN-LAST:event_InventariarActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Inventariar;
