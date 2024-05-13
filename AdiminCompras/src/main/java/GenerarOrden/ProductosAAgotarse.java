@@ -9,6 +9,7 @@ import Negocio.dto.ProductoEntregadoDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import presentacion.Inicio;
 import subSistemaAgregarProducto.IFachadaAgregarProductoBO;
 import subSistemaAgregarProducto.IFachadaInventarioBajo;
 import subSistemaAgregarProducto.fachadaInventarioBajo;
@@ -33,13 +34,15 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     IFachadaAgregarProductoBO agregar = new fachadaAgregarProductos();
 
     List<ProductoEntregadoDto> productos = new ArrayList<>();
+    
+    Inicio ini;
 
     /**
      * Creates new form ProductosAAgotarse
      */
-    public ProductosAAgotarse() {
+    public ProductosAAgotarse(Inicio ini) {
         initComponents();
-
+        this.ini=ini;
         productosAgotados = inventario.obtenerProductosPorAgotarse();
 
         productosAgotados.forEach(ProductoEntregadoDto -> {
@@ -231,7 +234,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
             FrameOrden.Contenido.removeAll();
 
-            ValidarInfo va  = new ValidarInfo();
+            ValidarInfo va  = new ValidarInfo(ini);
 
             FrameOrden.Contenido.add(va.traerContenido());
 
@@ -248,7 +251,7 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         FrameOrden.Contenido.removeAll();
 
-        ValidarInfo va  = new ValidarInfo();
+        ValidarInfo va  = new ValidarInfo(ini);
 
         FrameOrden.Contenido.add(va.traerContenido());
 

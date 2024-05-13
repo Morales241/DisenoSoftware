@@ -476,7 +476,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
             FrameOrden.Contenido.removeAll();
 
-            ValidarInfo va  = new ValidarInfo();
+            ValidarInfo va  = new ValidarInfo(FrameOrden.ini);
 
             FrameOrden.Contenido.add(va.traerContenido());
             va.posicion(FrameOrden);

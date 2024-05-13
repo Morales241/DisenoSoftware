@@ -7,22 +7,26 @@ package GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import java.util.ArrayList;
 import java.util.List;
+import presentacion.Inicio;
 
 /**
  *
  * @author tacot
  */
 public class GenerarOrden extends javax.swing.JFrame {
-    ValidarInfo va  = new ValidarInfo();
+    
+    Inicio ini;
+    ValidarInfo va;
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
+
     /**
      * Creates new form GenerarOrden
      */
-    public GenerarOrden() {
+    public GenerarOrden(Inicio ini) {
         initComponents();
-
+        va = new ValidarInfo(ini);
         this.Contenido.removeAll();
-
+        this.ini=ini;
         this.Contenido.add(va.traerContenido());
         va.posicion(this);
         this.Contenido.revalidate();
@@ -114,7 +118,7 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         this.Contenido.removeAll();
 
-        ProductosAAgotarse pA = new ProductosAAgotarse();
+        ProductosAAgotarse pA = new ProductosAAgotarse(ini);
         this.Contenido.add(pA.traerContenido());
         pA.posicion(this);
         this.Contenido.revalidate();
@@ -124,14 +128,14 @@ public class GenerarOrden extends javax.swing.JFrame {
     public void validar() {
         this.Contenido.removeAll();
 
-        ValidarInfo va  = new ValidarInfo();
+        ValidarInfo va  = new ValidarInfo(ini);
 
         this.Contenido.add(va.traerContenido());
 
         this.Contenido.revalidate();
         this.Contenido.repaint();
     }
-    
+
     /**
      * @param args the command line arguments //
      */

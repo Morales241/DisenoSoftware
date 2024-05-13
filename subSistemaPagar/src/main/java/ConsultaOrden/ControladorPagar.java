@@ -35,6 +35,8 @@ public class ControladorPagar {
             
             negocioPagar.Pagar(oc);
 
+            presupuesto.darPresupuesto(presupuesto.trarerPresupuesto()-oc.getTotal());
+            
         } else {
             throw new Exception("No contamos con el dinero suficiente");
         }

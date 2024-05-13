@@ -29,12 +29,13 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
 
     /**
      * Creates new form EntradaInventario
+     *
      * @param inicio
      */
     public EntradaInventario(Inicio inicio) {
         initComponents();
-        
-        this.ini=inicio;
+
+        this.ini = inicio;
 
         this.botonReportar.setVisible(false);
         this.Inventariar.setVisible(false);
@@ -146,10 +147,10 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         });
         jPanel1.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 8, 105, 35));
 
+        Inventariar.setText("Inventariar");
         Inventariar.setBackground(new java.awt.Color(24, 50, 77));
         Inventariar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Inventariar.setForeground(new java.awt.Color(255, 255, 255));
-        Inventariar.setText("Inventariar");
         Inventariar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InventariarActionPerformed(evt);
@@ -234,7 +235,7 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
     private void verOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verOrdenesActionPerformed
         // TODO add your handling code here:
 
-        if (this.desde.getDate() != null || this.hasta.getDate() != null) {
+        if (this.desde.getDate() != null && this.hasta.getDate() != null) {
 
             Date fecha1 = Date.from(this.desde.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             Date fecha2 = Date.from(this.hasta.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -284,12 +285,18 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         int filaSeleccionada = this.tablaEntradas.getSelectedRow();
 
         if (filaSeleccionada >= 0) {
-            
+
             OrdenCompraDto orden = fachada.ordenPorFolio(folio);
 
             fachada.Reportar(orden);
+            JOptionPane.showMessageDialog(null, "La orden con el folio: " + folio + " fue Reportada con exito");
 
+            EntradaInventario eI = new EntradaInventario(ini);
+            this.ini.Contenido.removeAll();
 
+            this.ini.Contenido.add(eI.traerContenido());
+            this.ini.Contenido.revalidate();
+            this.ini.Contenido.repaint();
         } else {
             JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
@@ -300,25 +307,47 @@ public class EntradaInventario extends javax.swing.JFrame implements Border {
         int filaSeleccionada = this.tablaEntradas.getSelectedRow();
 
         if (filaSeleccionada >= 0) {
-            
             OrdenCompraDto orden = fachada.ordenPorFolio(folio);
+            boolean llave = false;
+            try {
 
-            fachada.Inventariar(orden);
+                for (int i = 0; i < orden.getProductos().size(); i++) {
+                    int n1 = (int) this.tablaEntradas.getValueAt(i, 2);
 
-            JOptionPane.showMessageDialog(null, "La orden con el folio: "+ folio+ " fue inventairada con exito");
+                    int n2 = (int) this.tablaEntradas.getValueAt(i, 1);
+
+                    if (n1 == n2) {
+                        llave = true;
+                    } else {
+                        llave = false;
+                    }
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+
+            }
+            if (llave) {
+
+                fachada.Inventariar(orden);
+
+                JOptionPane.showMessageDialog(null, "La orden con el folio: " + folio + " fue inventairada con exito");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "La orden seleccionada tiene una cantidad erronea de priducto recibido, se recomienda reportar");
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
 
         EntradaInventario eI = new EntradaInventario(ini);
         this.ini.Contenido.removeAll();
-        
+
         this.ini.Contenido.add(eI.traerContenido());
         this.ini.Contenido.revalidate();
         this.ini.Contenido.repaint();
     }//GEN-LAST:event_InventariarActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Inventariar;

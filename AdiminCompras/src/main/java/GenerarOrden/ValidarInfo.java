@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pago.Pago;
+import presentacion.Inicio;
 import subSistemaProductosComprados.FachadaProductosComprados;
 import subSistemaProductosComprados.IFachadaProductoComprado;
 import subsistema.IFachadaGenerarOrden;
@@ -27,6 +28,8 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     GenerarOrden FrameOrden;
 
+    Inicio ini;
+    
     IFachadaLlenarTabla llenarT = new FachadaLLenarTabla();
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
@@ -38,9 +41,9 @@ public class ValidarInfo extends javax.swing.JFrame {
     /**
      * Creates new form ValidarInfo
      */
-    public ValidarInfo() {
+    public ValidarInfo(Inicio ini) {
         initComponents();
-
+        this.ini=ini;
         llenarTabla();
         sacarTotal();
     }
@@ -200,12 +203,13 @@ public class ValidarInfo extends javax.swing.JFrame {
 
         FrameOrden.contenido.removeAll();
 
-        Pago pago = new Pago();
+        Pago pago = new Pago(ini);
 
         FrameOrden.contenido.add(pago.traerContenido());
        
         FrameOrden.contenido.revalidate();
         FrameOrden.contenido.repaint();
+        ini.jLabel1.setText("Realizar pago");
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 

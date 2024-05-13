@@ -28,5 +28,10 @@ public class fachadaPresupuesto implements IFachadaPresupuesto{
     public double trarerPresupuesto() {
         return presupuesto.getFondoMonetario();
     }
+
+    @Override
+    public void darPresupuesto(double pre) {
+        presupuesto.setFondoMonetario(pre);
+    }
     
 }

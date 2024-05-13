@@ -371,7 +371,7 @@ public class Inicio extends javax.swing.JFrame {
         
         this.jLabel1.setText("Generar Orden");
         
-        GenerarOrden gO = new GenerarOrden();
+        GenerarOrden gO = new GenerarOrden(this);
         this.Contenido.removeAll();      
         
         this.Contenido.add(gO.traerContenido());
@@ -430,7 +430,7 @@ public class Inicio extends javax.swing.JFrame {
         
         this.jLabel1.setText("Realizar pago");
         
-        Pago pago = new Pago();
+        Pago pago = new Pago(this);
         this.Contenido.removeAll();     
         pago.posicion(this);
         this.Contenido.add(pago.traerContenido());
@@ -523,7 +523,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton Realizarpago;
     private javax.swing.JButton Sacarcotizacion;
     private javax.swing.JButton SalidaInventario;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

@@ -538,11 +538,14 @@ public class Cotizacion extends javax.swing.JFrame {
 
             this.inicio.Contenido.removeAll();
 
-            GenerarOrden gO = new GenerarOrden();
+            GenerarOrden gO = new GenerarOrden(inicio);
 
             this.inicio.Contenido.add(gO.traerContenido());
             this.inicio.Contenido.revalidate();
             this.inicio.Contenido.repaint();
+            
+            this.inicio.jLabel1.setText("Generar Orden");
+            
         } else {
             JOptionPane.showMessageDialog(null, "No hay proveedor o producto seleccionado ");
 

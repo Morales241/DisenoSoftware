@@ -9,6 +9,7 @@ import ConsultaOrden.FachadaPagar;
 import ConsultaOrden.Ipagar;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
+import entidad.fachadaPresupuesto;
 import informacion.Informacion;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -30,15 +31,17 @@ public class Pago extends javax.swing.JFrame {
     List<OrdenCompraDto> ordenes = null;
     OrdenCompraDto orden = null;
     Ipagar pago = new FachadaPagar();
+    fachadaPresupuesto presupuesto = fachadaPresupuesto.getInstance();
 
     /**
      * Creates new form Pago
      */
-    public Pago() {
+    public Pago(Inicio ini) {
         initComponents();
         this.ordenes = new ArrayList<>();
         this.ordenes = pago.consultarOrdenes();
 
+        this.inicio = ini;
         for (OrdenCompraDto o : ordenes) {
             if (o.isEstado() == false) {
                 ResultadosOrdenes.addItem(o);
@@ -247,17 +250,22 @@ public class Pago extends javax.swing.JFrame {
             pago.pagarOrden(orden);
 
             JOptionPane.showMessageDialog(null, "El pago se realizo de manera efectiva");
+            
+            Informacion info = new Informacion();
+            inicio.Contenido.removeAll();
+            inicio.Contenido.add(info.traerContenido());
+            inicio.Contenido.revalidate();
+            inicio.Contenido.repaint();
+            inicio.Presupuesto.setText(String.valueOf(presupuesto.trarerPresupuesto()));
+            inicio.jLabel1.setText("Información");
+            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 //        Double presupuesto = obtenerTotal(orden);
 //        inicio.Presupuesto.setText(String.valueOf(presupuesto));
-        Informacion info = new Informacion();
-        inicio.Contenido.removeAll();
-        inicio.Contenido.add(info.traerContenido());
-        inicio.Contenido.revalidate();
-        inicio.Contenido.repaint();
-
+        
+        
     }//GEN-LAST:event_botonPagarActionPerformed
 
     public void llenarTabla(OrdenCompraDto orden) {
