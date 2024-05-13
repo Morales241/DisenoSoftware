@@ -250,7 +250,7 @@ public class Pago extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        Double presupuesto = obtenerTotal(orden);
+//        Double presupuesto = obtenerTotal(orden);
 //        inicio.Presupuesto.setText(String.valueOf(presupuesto));
         Informacion info = new Informacion();
         inicio.Contenido.removeAll();

@@ -10,6 +10,7 @@ import entidad.fachadaPresupuesto;
 import entidad.IFachadaPresupuesto;
 import entradaInventario.EntradaInventario;
 import pago.Pago;
+import salidaInventario.SalidaInventario;
 
 /**
  *

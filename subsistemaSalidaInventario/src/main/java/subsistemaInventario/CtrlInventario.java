@@ -4,10 +4,12 @@
  */
 package subsistemaInventario;
 
+import Negocio.dto.ProductoEntregadoDto;
 import dtos.ProductoDTO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import objetosNegocio.ProductoBO;
+import negocioBO.ProductoEntregadoBO;
+
 
 /**
  *
@@ -15,21 +17,21 @@ import objetosNegocio.ProductoBO;
  */
 public class CtrlInventario {
 
-    private ProductoBO productoBO;
+    private ProductoEntregadoBO productoBO;
 
     public CtrlInventario() {
-        productoBO = new ProductoBO();
+        productoBO = new ProductoEntregadoBO();
     }
 
     public DefaultTableModel obtenerProductosBuscados(String cadena) {
         return productoBO.obtenerProductosBuscados(cadena);
     }
 
-    public ProductoDTO obtenerProductoPorCodigo(String codigo) {
+    public ProductoEntregadoDto obtenerProductoPorCodigo(String codigo) {
         return productoBO.obtenerProductoPorCodigo(codigo);
     }
 
-    private void ordenarProductos(List<ProductoDTO> listaProductos) {
+    private void ordenarProductos(List<ProductoEntregadoDto> listaProductos) {
         productoBO.ordenarProductos(listaProductos);
     }
 

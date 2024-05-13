@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion;
+package salidaInventario;
 
+import Negocio.dto.ProductoEntregadoDto;
 import dtos.ProductoDTO;
 import javax.swing.JPanel;
 import subsistemaSalidaInventario.FachadaSalidaInventario;
@@ -15,7 +16,7 @@ import subsistemaSalidaInventario.IFachadaSalidaInventario;
  */
 public class Desinventariar extends javax.swing.JFrame {
 
-    private ProductoDTO producto;
+    private ProductoEntregadoDto producto;
     private IFachadaSalidaInventario fachadaSalidaInventario;
     private int cantidadMaxima;
     private SalidaInventario salidaInventario;
@@ -23,7 +24,7 @@ public class Desinventariar extends javax.swing.JFrame {
     /**
      * Creates new form Desinventariar
      */
-    public Desinventariar(ProductoDTO producto, SalidaInventario salidaInventario) {
+    public Desinventariar(ProductoEntregadoDto producto, SalidaInventario salidaInventario) {
         initComponents();
         this.producto = producto;
         this.cantidadMaxima = producto.getCantidad();

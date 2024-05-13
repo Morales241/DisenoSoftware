@@ -4,7 +4,7 @@
  */
 package subsistemaInventario;
 
-import dtos.ProductoDTO;
+import Negocio.dto.ProductoEntregadoDto;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,7 +25,7 @@ public class FachadaInventario implements IFachadaInventario {
     }
 
     @Override
-    public ProductoDTO obtenerProductoPorCodigo(String codigo) {
+    public ProductoEntregadoDto obtenerProductoPorCodigo(String codigo) {
         return ctrlInventario.obtenerProductoPorCodigo(codigo);
     }
     

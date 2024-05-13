@@ -4,6 +4,7 @@
  */
 package subsistemaSalidaInventario;
 
+import Negocio.dto.ProductoEntregadoDto;
 import dtos.ProductoDTO;
 
 /**
@@ -19,7 +20,7 @@ public class FachadaSalidaInventario implements IFachadaSalidaInventario {
     }
 
     @Override
-    public void desinventariarProducto(ProductoDTO producto) {
+    public void desinventariarProducto(ProductoEntregadoDto producto) {
         ctrlSalidaInventario.desinventariarProducto(producto);
     }
     

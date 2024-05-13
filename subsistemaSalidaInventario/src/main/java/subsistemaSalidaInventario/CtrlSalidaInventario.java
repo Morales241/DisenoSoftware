@@ -4,8 +4,9 @@
  */
 package subsistemaSalidaInventario;
 
+import Negocio.dto.ProductoEntregadoDto;
 import dtos.ProductoDTO;
-import objetosNegocio.ProductoBO;
+import negocioBO.ProductoEntregadoBO;
 
 /**
  *
@@ -13,18 +14,14 @@ import objetosNegocio.ProductoBO;
  */
 public class CtrlSalidaInventario {
     
-    private ProductoBO productoBO;
+    private ProductoEntregadoBO productoBO;
 
     public CtrlSalidaInventario() {
-        productoBO = new ProductoBO();
+        productoBO = new ProductoEntregadoBO();
     }
 
-    public void desinventariarProducto(ProductoDTO producto) {
+    public void desinventariarProducto(ProductoEntregadoDto producto) {
         productoBO.desinventariarProducto(producto);
-    }
-    
-    private Long obtenerIdProducto(String codigo) {
-        return productoBO.obtenerIdProducto(codigo);
     }
     
 }

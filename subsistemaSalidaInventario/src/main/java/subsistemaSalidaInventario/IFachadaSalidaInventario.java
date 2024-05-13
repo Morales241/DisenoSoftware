@@ -4,7 +4,7 @@
  */
 package subsistemaSalidaInventario;
 
-import dtos.ProductoDTO;
+import Negocio.dto.ProductoEntregadoDto;
 
 /**
  *
@@ -12,6 +12,6 @@ import dtos.ProductoDTO;
  */
 public interface IFachadaSalidaInventario {
     
-    public void desinventariarProducto(ProductoDTO producto);
+    public void desinventariarProducto(ProductoEntregadoDto producto);
     
 }

@@ -4,7 +4,7 @@
  */
 package subsistemaInventario;
 
-import dtos.ProductoDTO;
+import Negocio.dto.ProductoEntregadoDto;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,6 +15,6 @@ public interface IFachadaInventario {
     
     public DefaultTableModel buscarProductos(String cadena);
     
-    public ProductoDTO obtenerProductoPorCodigo(String codigo);
+    public ProductoEntregadoDto obtenerProductoPorCodigo(String codigo);
     
 }
