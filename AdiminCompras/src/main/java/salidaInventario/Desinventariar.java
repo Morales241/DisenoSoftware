@@ -19,7 +19,7 @@ public class Desinventariar extends javax.swing.JFrame {
     private IFachadaSalidaInventario fachadaSalidaInventario;
     private int cantidadMaxima;
     private SalidaInventario salidaInventario;
-    
+
     /**
      * Creates new form Desinventariar
      */
@@ -28,27 +28,25 @@ public class Desinventariar extends javax.swing.JFrame {
         this.producto = producto;
         this.cantidadMaxima = producto.getCantidad();
         this.fachadaSalidaInventario = new FachadaSalidaInventario();
-        this.tfCantidad.setText(String.valueOf(producto.getCantidad()));
+        this.tfCantidad.setText(String.valueOf(0));
         this.lblProducto.setText("Producto: " + producto.getNombre());
         this.salidaInventario = salidaInventario;
     }
-    
+
     public void volver() {
-            this.salidaInventario.traerContenido().removeAll();
-            SalidaInventario nuevoSalidaInventario = new SalidaInventario();
-            
-            this.salidaInventario.traerContenido().add(nuevoSalidaInventario.traerContenido());
-            
-            
-            
-            this.salidaInventario.traerContenido().revalidate();
-            this.salidaInventario.traerContenido().repaint();
-        
+        this.salidaInventario.traerContenido().removeAll();
+        SalidaInventario nuevoSalidaInventario = new SalidaInventario();
+
+        this.salidaInventario.traerContenido().add(nuevoSalidaInventario.traerContenido());
+
+        this.salidaInventario.traerContenido().revalidate();
+        this.salidaInventario.traerContenido().repaint();
+
 //        SalidaInventario salidaInventario = new SalidaInventario();
 //        salidaInventario.setVisible(true);
 //        this.dispose();
     }
-    
+
     public JPanel traerContenido() {
         return this.panelContenido;
     }
@@ -208,9 +206,9 @@ public class Desinventariar extends javax.swing.JFrame {
         Integer num = Integer.valueOf(tfCantidad.getText());
         if (num > 0) {
             num--;
+            tfCantidad.setText(String.valueOf(num));
+            producto.setCantidad(producto.getCantidad() + 1);
         }
-        tfCantidad.setText(String.valueOf(num));
-        producto.setCantidad(num);
     }//GEN-LAST:event_btnMenosActionPerformed
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
@@ -218,9 +216,9 @@ public class Desinventariar extends javax.swing.JFrame {
         Integer num = Integer.valueOf(tfCantidad.getText());
         if (num < cantidadMaxima) {
             num++;
+            tfCantidad.setText(String.valueOf(num));
+            producto.setCantidad(producto.getCantidad() - 1);
         }
-        tfCantidad.setText(String.valueOf(num));
-        producto.setCantidad(num);
     }//GEN-LAST:event_btnMasActionPerformed
 
 //    /**
