@@ -19,13 +19,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
-import subSistemaAgregarProducto.IagregarProductoBO;
+import subSistemaAgregarProducto.IFachadaAgregarProductoBO;
 import subSistemaAgregarProducto.fachadaAgregarProductos;
-import subSistemaConsultarProducto.IConsultarProducto;
 import subSistemaConsultarProducto.IFachadaCoinsidencias;
+import subSistemaConsultarProducto.IFachadaConsultarProducto;
 import subSistemaConsultarProducto.fachadaCoinsidencias;
 import subSistemaConsultarProducto.fachadaConsultarProducto;
-import subsistema.IConsultarProveedores;
+import subsistema.IFachadaConsultarProveedores;
 import subsistema.fachadaConsultarProveedores;
 
 /**
@@ -46,11 +46,11 @@ public class Cotizacion extends javax.swing.JFrame {
 
     private List<ProductoDto> Productos = new ArrayList<>();
 
-    private IConsultarProducto consultaP = new fachadaConsultarProducto();
+    private IFachadaConsultarProducto consultaP = new fachadaConsultarProducto();
 
-    private IConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
+    private IFachadaConsultarProveedores proveedoresConsulta = new fachadaConsultarProveedores();
 
-    private IagregarProductoBO agregar = new fachadaAgregarProductos();
+    private IFachadaAgregarProductoBO agregar = new fachadaAgregarProductos();
 
     private ProductoDto productoS;
 

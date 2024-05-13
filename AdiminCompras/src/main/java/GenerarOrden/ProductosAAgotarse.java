@@ -10,14 +10,13 @@ import Negocio.dto.ProductoEntregadoDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import subSistemaAgregarProducto.IFachadaAgregarProductoBO;
+import subSistemaAgregarProducto.IFachadaInventarioBajo;
 import subSistemaProductosComprados.FachadaProductosComprados;
-import subSistemaProductosComprados.IConsultarProductoCompradoBO;
-import subSistemaAgregarProducto.IagregarProductoBO;
-import subSistemaAgregarProducto.IinventarioBajoBO;
 import subSistemaAgregarProducto.fachadaInventarioBajo;
 import subSistemaAgregarProducto.fachadaAgregarProductos;
-import subsistema.ILlenarTabla;
 import subsistema.FachadaLLenarTabla;
+import subsistema.IFachadaLlenarTabla;
 
 /**
  *
@@ -29,13 +28,13 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     List<ProductoEntregadoDto> productosAgotados = new ArrayList<>();
 
-    IinventarioBajoBO inventario = new fachadaInventarioBajo();
+    IFachadaInventarioBajo inventario = new fachadaInventarioBajo();
 
-    ILlenarTabla llenarT = new FachadaLLenarTabla();
+    IFachadaLlenarTabla llenarT = new FachadaLLenarTabla();
 
-    IagregarProductoBO agregar = new fachadaAgregarProductos();
+    IFachadaAgregarProductoBO agregar = new fachadaAgregarProductos();
 
-    List<ProductoCompradoDto> productos = new ArrayList<>();
+    List<ProductoEntregadoDto> productos = new ArrayList<>();
 
     /**
      * Creates new form ProductosAAgotarse
@@ -46,11 +45,12 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         productosAgotados = inventario.obtenerProductosPorAgotarse();
 
         productosAgotados.forEach(ProductoEntregadoDto -> {
-            this.productos.add(new ProductoCompradoDto(ProductoEntregadoDto.getNombre(), ProductoEntregadoDto.getCodigo(),
-                    ProductoEntregadoDto.getProveedor(), ProductoEntregadoDto.getCantidad(), ProductoEntregadoDto.getPrecio()));
+            this.productos.add(new ProductoEntregadoDto(ProductoEntregadoDto.getNombre(), ProductoEntregadoDto.getCodigo(),
+                    ProductoEntregadoDto.getCantidad()));
         });
 
         llenarT.llenarTabla(productos, tablaProductos);
+        
 
     }
 

@@ -5,8 +5,10 @@
 package negocioBO;
 
 import Daos.DaoOrdenCompra;
+import Daos.DaoproInventario;
 import Entidades.ordenCompra;
 import Entidades.proComprado;
+import Entidades.proInventario;
 import Negocio.dto.OrdenCompraDto;
 import Negocio.dto.ProductoCompradoDto;
 import entidad.IFachadaPresupuesto;
@@ -24,9 +26,11 @@ import negocioBO.IOrdenCompraBO;
  * @author marlon
  */
 public class OrdenCompraBO implements IOrdenCompraBO {
-    
+
     DaoOrdenCompra ordenDao = new DaoOrdenCompra();
-    
+
+    DaoproInventario productoDao = new DaoproInventario();
+
     public static String generarFolio() {
         Random rand = new Random();
         int num = rand.nextInt(9000000) + 1000000;
@@ -104,13 +108,13 @@ public class OrdenCompraBO implements IOrdenCompraBO {
 
         prdsDto.forEach(proCompradoDto -> {
 
-            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
-                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+            listaAux.add(new proComprado(proCompradoDto.getNombre(),
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(),
                     proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
         });
 
         ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Pagado");
-        
+
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
@@ -184,13 +188,13 @@ public class OrdenCompraBO implements IOrdenCompraBO {
 
         prdsDto.forEach(proCompradoDto -> {
 
-            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
-                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+            listaAux.add(new proComprado(proCompradoDto.getNombre(),
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(),
                     proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
         });
 
         ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Reportado");
-        
+
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
@@ -205,15 +209,48 @@ public class OrdenCompraBO implements IOrdenCompraBO {
 
         List<proComprado> listaAux = new ArrayList<>();
 
+        List<proInventario> prdcs = null;
+        try {
+            prdcs = productoDao.consultar();
+        } catch (Exception ex) {
+            Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         prdsDto.forEach(proCompradoDto -> {
 
-            listaAux.add(new proComprado(proCompradoDto.getNombre(), 
-                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(), 
+            listaAux.add(new proComprado(proCompradoDto.getNombre(),
+                    proCompradoDto.getCodigo(), proCompradoDto.getProveedor(),
                     proCompradoDto.getCantidad(), proCompradoDto.getPrecio()));
         });
 
-        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), listaAux, "Inventariado");
-        
+        ordenCompra ordenAux = new ordenCompra(oc.getTotal(), oc.getFechaExpedicion(), oc.getFolio(), 
+                listaAux, "Inventariado");
+
+        for (proComprado p : listaAux) {
+            boolean encontrado = false;
+            for (proInventario pr : prdcs) {
+                if (p.getCodigo().equals(pr.getCodigo())) {
+                    proInventario pI = new proInventario(p.getNombre(), p.getCodigo(), p.getCantidad() + pr.getCantidad());
+                    try {
+                        productoDao.actualizar(pI);
+                        encontrado = true;
+                    } catch (Exception ex) {
+                        Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break; 
+                }
+            }
+            if (!encontrado) {
+               
+                try {
+                    proInventario pI = new proInventario(p.getNombre(), p.getCodigo(), p.getCantidad());
+                    productoDao.guardar(pI);
+                } catch (Exception ex) {
+                    Logger.getLogger(OrdenCompraBO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
         try {
             ordenDao.actualizar(ordenAux);
         } catch (Exception ex) {
@@ -221,5 +258,5 @@ public class OrdenCompraBO implements IOrdenCompraBO {
         }
         return true;
     }
-    
+
 }

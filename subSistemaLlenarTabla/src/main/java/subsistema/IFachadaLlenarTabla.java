@@ -5,7 +5,7 @@
  */
 package subsistema;
 
-import Negocio.dto.ProductoCompradoDto;
+import Negocio.dto.ProductoEntregadoDto;
 import java.util.List;
 import javax.swing.JTable;
 
@@ -15,6 +15,6 @@ import javax.swing.JTable;
  */
 public interface IFachadaLlenarTabla {
     
-    public void llenarTabla(List<ProductoCompradoDto> lista, JTable tabla);
+    public void llenarTabla(List<ProductoEntregadoDto> lista, JTable tabla);
     
 }

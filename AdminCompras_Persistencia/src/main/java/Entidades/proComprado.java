@@ -8,27 +8,45 @@ import org.bson.types.ObjectId;
  */
 public class proComprado {
 
-    private ObjectId id;
+    
     private String nombre;
+
     private String codigo;
+    
+    private String proveedor;
+
     private Integer cantidad;
+    
+    private Double precio;
 
     public proComprado() {
     }
 
-    public proComprado(String nombre, String codigo, Integer cantidad) {
+    public proComprado(String nombre, String codigo, String proveedor, Integer cantidad, Double precio) {
         this.nombre = nombre;
         this.codigo = codigo;
+        this.proveedor = proveedor;
         this.cantidad = cantidad;
+        this.precio = precio;
     }
 
-    public ObjectId getId() {
-        return id;
+    public String getProveedor() {
+        return proveedor;
     }
 
-    public void setId(ObjectId id) {
-        this.id = id;
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    
 
     public String getNombre() {
         return nombre;

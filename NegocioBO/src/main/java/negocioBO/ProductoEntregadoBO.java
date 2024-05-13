@@ -4,7 +4,7 @@
  */
 package negocioBO;
 
-import Daos.DaoproComprado;
+import Daos.DaoproInventario;
 import Negocio.dto.ProductoEntregadoDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class ProductoEntregadoBO implements IProductoEntregadoBO {
     
-    DaoproComprado daoProductos = new DaoproComprado();
+    DaoproInventario daoProductos = new DaoproInventario();
 
     @Override
     public void eliminarDeInventario(int index) {
@@ -30,10 +30,10 @@ public class ProductoEntregadoBO implements IProductoEntregadoBO {
         try {
             daoProductos.consultar().forEach(proEntregadoMock -> {
                 if (proEntregadoMock.getCantidad() < 3) {
-                    listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getProveedor(),
-                            proEntregadoMock.getCantidad(), proEntregadoMock.getPrecio()));
+                    listaAux.add(new ProductoEntregadoDto(proEntregadoMock.getNombre(), proEntregadoMock.getCodigo(), proEntregadoMock.getCantidad()));
                 }
             });
+            
         } catch (Exception ex) {
             Logger.getLogger(ProductoEntregadoBO.class.getName()).log(Level.SEVERE, null, ex);
         }

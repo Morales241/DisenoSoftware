@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pago.Pago;
 import subSistemaProductosComprados.FachadaProductosComprados;
-import subSistemaProductosComprados.IConsultarProductoCompradoBO;
+import subSistemaProductosComprados.IFachadaProductoComprado;
 import subsistema.IFachadaGenerarOrden;
 import subsistema.ILlenarTabla;
 import subsistema.FachadaLLenarTabla;
@@ -32,7 +32,7 @@ public class ValidarInfo extends javax.swing.JFrame {
 
     List<ProductoCompradoDto> productosComprados = new ArrayList<>();
     //PC = productosComprados
-    IConsultarProductoCompradoBO PC = new FachadaProductosComprados();
+    IFachadaProductoComprado PC = new FachadaProductosComprados();
 
     IFachadaGenerarOrden orden = new fachadaGenerarOrden();
 

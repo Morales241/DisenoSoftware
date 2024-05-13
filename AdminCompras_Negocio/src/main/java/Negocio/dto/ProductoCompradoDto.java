@@ -23,7 +23,6 @@ public class ProductoCompradoDto {
     
     private Double precio;
 
-    private OrdenCompraDto orden;
     
     public ProductoCompradoDto( String nombre, String codigo, String proveedor, Integer cantidad, Double precio) {
 
@@ -87,14 +86,6 @@ public class ProductoCompradoDto {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
-    }
-
-    public OrdenCompraDto getOrden() {
-        return orden;
-    }
-
-    public void setOrden(OrdenCompraDto orden) {
-        this.orden = orden;
     }
 
     
