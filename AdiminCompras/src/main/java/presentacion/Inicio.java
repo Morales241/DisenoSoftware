@@ -84,6 +84,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Contenido.setBackground(new java.awt.Color(255, 255, 255));
         Contenido.setPreferredSize(new java.awt.Dimension(675, 500));
