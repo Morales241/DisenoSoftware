@@ -10,4 +10,5 @@ package DaosMock;
  */
 public class DaoproEntregadoMock {
     
+    
 }

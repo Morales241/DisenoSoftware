@@ -31,18 +31,17 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     IFachadaLlenarTabla llenarT = new FachadaLLenarTabla();
 
-    IFachadaAgregarProductoBO agregar = new fachadaAgregarProductos();
-
     List<ProductoEntregadoDto> productos = new ArrayList<>();
-    
+
     Inicio ini;
+    AgregarProducto agregar;
 
     /**
      * Creates new form ProductosAAgotarse
      */
     public ProductosAAgotarse(Inicio ini) {
         initComponents();
-        this.ini=ini;
+        this.ini = ini;
         productosAgotados = inventario.obtenerProductosPorAgotarse();
 
         productosAgotados.forEach(ProductoEntregadoDto -> {
@@ -51,7 +50,6 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
         });
 
         llenarT.llenarTablaInventario(productos, tablaProductos);
-        
 
     }
 
@@ -224,21 +222,16 @@ public class ProductosAAgotarse extends javax.swing.JFrame {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if (tablaProductos.getSelectedRow() != -1) {
+            agregar = new AgregarProducto();
             ProductoCompradoDto pr = new ProductoCompradoDto();
             pr.setNombre((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 0));
 
-            pr.setProveedor((String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 2));
-
-//            String cantidad = (String) tablaProductos.getModel().getValueAt(tablaProductos.getSelectedRow(), 4);
-            agregar.agregarCompraLista(pr);
-
+            agregar.agregarDeInventario(pr.getNombre());
             FrameOrden.Contenido.removeAll();
 
-            ValidarInfo va  = new ValidarInfo(ini);
+            FrameOrden.Contenido.add(agregar.traerContenido());
 
-            FrameOrden.Contenido.add(va.traerContenido());
-
-            va.posicion(FrameOrden);
+            agregar.posicion(FrameOrden);
             FrameOrden.Contenido.revalidate();
             FrameOrden.Contenido.repaint();
         } else {
