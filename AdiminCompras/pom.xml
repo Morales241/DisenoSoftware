@@ -116,6 +116,11 @@
             <artifactId>subsistemaInventario</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>23</groupId>
+            <artifactId>subSistemaCotizaciones</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

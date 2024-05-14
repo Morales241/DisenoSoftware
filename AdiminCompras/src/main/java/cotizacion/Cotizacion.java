@@ -9,6 +9,8 @@ import GenerarOrden.GenerarOrden;
 import Negocio.dto.ProductoCompradoDto;
 import Negocio.dto.ProductoDto;
 import Negocio.dto.ProductoProveedorDto;
+import cotizaciones.FachadaCotizaciones;
+import cotizaciones.IFachadaCotizaciones;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
@@ -34,6 +36,7 @@ import subsistema.fachadaConsultarProveedores;
  */
 public class Cotizacion extends javax.swing.JFrame {
 
+    private IFachadaCotizaciones cotizaciones = new FachadaCotizaciones();
     private IFachadaCoinsidencias coin = new fachadaCoinsidencias();
 
     private Inicio inicio;
@@ -572,23 +575,9 @@ public class Cotizacion extends javax.swing.JFrame {
 
     private void MejorProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MejorProveedorActionPerformed
         productoS = (ProductoDto) ResultadosProductos.getSelectedItem();
-        List<ProductoProveedorDto> proveedores = new ArrayList<>();
-
-        try {
-            for (ProductoProveedorDto p : proveedoresConsulta.obtenerProveedores(productoS.getId())) {
-                proveedores.add(p);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        ProductoProveedorDto mejorPro = proveedores.get(0);
-        for (int i = 1; i < proveedores.size(); i++) {
-            if (proveedores.get(i).getPrecioP() < mejorPro.getPrecioP()) {
-                mejorPro = proveedores.get(i);
-            }
-        }
-
+        
+        ProductoProveedorDto mejorPro = cotizaciones.mejorProveedor(productoS.getId());
+        
         ResultadosProveedores.removeAllItems();
 
         ResultadosProveedores.addItem(mejorPro);
