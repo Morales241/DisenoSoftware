@@ -6,6 +6,7 @@ package AdministrarProductos;
  */
 
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
 import subSistemaInicioSesion.IInicioSesion;
@@ -26,6 +27,10 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
+        
+        ImageIcon icono = new ImageIcon(IniciarSesion.class.getResource("/icono.jpg"));
+        
+        this.setIconImage(icono.getImage());
     }
 
     /**

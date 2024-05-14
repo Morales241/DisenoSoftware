@@ -111,6 +111,11 @@
             <artifactId>subsistemaSalidaInventario</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>subsistemaInventario</groupId>
+            <artifactId>subsistemaInventario</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

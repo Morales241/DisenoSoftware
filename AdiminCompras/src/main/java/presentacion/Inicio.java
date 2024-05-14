@@ -9,6 +9,7 @@ import cotizacion.Cotizacion;
 import entidad.fachadaPresupuesto;
 import entidad.IFachadaPresupuesto;
 import entradaInventario.EntradaInventario;
+import javax.swing.ImageIcon;
 import pago.Pago;
 import salidaInventario.SalidaInventario;
 
@@ -32,6 +33,10 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         
+        ImageIcon icono = new ImageIcon(IniciarSesion.class.getResource("/icono.jpg"));
+        
+        this.setIconImage(icono.getImage());
+        
         this.AdminProductos.setVisible(false);
         this.AdminProveedores.setVisible(false);
         this.jLabel4.setVisible(false);
@@ -42,6 +47,7 @@ public class Inicio extends javax.swing.JFrame {
         
         this.Presupuesto.setText(String.valueOf(presupuesto.trarerPresupuesto()));
 
+        
     }
 
     /**

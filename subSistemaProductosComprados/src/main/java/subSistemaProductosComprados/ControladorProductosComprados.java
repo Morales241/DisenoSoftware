@@ -13,7 +13,9 @@ public class ControladorProductosComprados  {
     protected IProductoCompradoBO negocio = new ProductoCompradoBO();
     
     protected IProductoProveedorBO negocioProveedor = new ProductoProveedorBO();
+    
     protected static ControladorProductosComprados instance;
+    
     protected List<ProductoCompradoDto> listaProductosAComprados;
 
     private ControladorProductosComprados() {
