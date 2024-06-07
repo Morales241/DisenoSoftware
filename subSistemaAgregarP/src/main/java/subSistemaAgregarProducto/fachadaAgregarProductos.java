@@ -12,6 +12,7 @@ import Negocio.dto.ProductoCompradoDto;
  */
 public class fachadaAgregarProductos implements IFachadaAgregarProductoBO{
     ControladorAgregarProductoBO agregar = new ControladorAgregarProductoBO();
+    
     public fachadaAgregarProductos() {
     }
 
