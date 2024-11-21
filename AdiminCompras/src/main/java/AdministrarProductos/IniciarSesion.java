@@ -9,9 +9,9 @@ package AdministrarProductos;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import presentacion.Inicio;
-import subSistemaInicioSesion.IInicioSesion;
+import subSistemaInicioSesion.IFachadaInicioSesion;
 import subSistemaInicioSesion.fachadaInicioSesion;
-import subSistemaInicioSesion.inicioSesion;
+import subSistemaInicioSesion.fachadaInicioSesion;
 
 /**
  *
@@ -19,7 +19,7 @@ import subSistemaInicioSesion.inicioSesion;
  */
 public class IniciarSesion extends javax.swing.JFrame {
 
-    IInicioSesion sesion = new fachadaInicioSesion();
+    IFachadaInicioSesion sesion = new fachadaInicioSesion();
     Inicio ini;
 
     /**

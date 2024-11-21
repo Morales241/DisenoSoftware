@@ -5,28 +5,6 @@
     <artifactId>subSistemaPagar</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <dependencies>
-        <dependency>
-            <groupId>1</groupId>
-            <artifactId>AdminCompras_Negocio</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>5</groupId>
-            <artifactId>NegocioBO</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>2</groupId>
-            <artifactId>AdminCompras_Persistencia</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>4</groupId>
-            <artifactId>SubsistemaFinanzas</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>13</maven.compiler.source>
@@ -34,4 +12,11 @@
         <exec.mainClass>com.mycompany.subsistemaconsultaordenes.SubSistemaConsultaOrdenes</exec.mainClass>
     </properties>
     <name>subSistemaPagar</name>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>NegocioBO</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -59,16 +59,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>1</groupId>
-            <artifactId>AdminCompras_Negocio</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>2</groupId>
-            <artifactId>AdminCompras_Persistencia</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.36</version>
@@ -88,9 +78,9 @@
             <version>1.2.17</version>
         </dependency>
         <dependency>
-            <groupId>5</groupId>
+            <groupId>com.mycompany</groupId>
             <artifactId>NegocioBO</artifactId>
-            <version>1.0.0</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <properties>

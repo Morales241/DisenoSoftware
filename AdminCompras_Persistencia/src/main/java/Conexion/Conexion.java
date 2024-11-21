@@ -19,7 +19,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 public class Conexion {
     private static MongoClient mongoClient = null;
     //Si se conectaron por Atlas su URL es la que les proporciona la página
-    private static final String URI = "mongodb+srv://jesusmorales245335:4BSfiVv1EemgPvYn@basededatosavanzadas.xri66fk.mongodb.net/retryWrites=true&w=majority&appName=BaseDeDatosAvanzadas";
+    private static final String URI = "mongodb+srv://jesusmorales245335:c2wmVkjwdPvKOx8u@basededatosavanzadas.xri66fk.mongodb.net/?retryWrites=true&w=majority&appName=BaseDeDatosAvanzadas";
     private static final String DATABASE_NAME = "AdminCompras";
 
     private  Conexion() {
