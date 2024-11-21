@@ -55,7 +55,6 @@ public class GenerarOrden extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(24, 50, 77));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notificacion.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
