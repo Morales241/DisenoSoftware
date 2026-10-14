@@ -74,7 +74,3 @@ git clone https://github.com/Morales241/DisenoSoftware.git
 ```
 
 Abrir en NetBeans o IntelliJ como proyectos Maven, configurar la conexion en `persistence.xml` y ejecutar el modulo principal.
-
-## Estado
-
-Codigo de curso, funcional en su momento. En limpieza: fuera binarios y salidas de compilacion, con `.gitignore` Maven real. Documentacion de analisis en `Escenarios/`, `STORYBOARDS/` y `Diagramas de secuencia/`.
