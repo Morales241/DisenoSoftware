@@ -1,24 +1,38 @@
-/AdiminCompras/target/
-/AdminComprasPersistencia/target/
-/Persistencia/target/
-/com.mycompany_Persistencia_jar_1.0-SNAPSHOT/target/
-/AdminCompras_Persistencia/target/
-/AdminCompras_Negocio/target/
-/AdminCompras_PersistenciaMock/target/
-/subSistemaGenerarOrden/target/
-/subSistemaLlenarTabla/target/
-/subSistemaProductosComprados/target/
-/SubSistemaInventarioBajo/target/
-/subSistemaInicioSesion/target/
-/SubsistemaFinanzas/target/
-/subSistemaConsultarProveedores_Negocio/target/
-/subSistemaConsultarProductos/target/
-/subSistemaCoinsidencias/target/
-/subSistemaAgregarP/target/
-/NegocioBO/target/
-/subSistemaEliminarP/target/
-/subSistemaPagar/target/
-/subSistemaEntradaInventario/target/
-/subsistemaSalidaInventario/target/
-/subSistemaCotisaciones/target/
-/subSistemaCotizaciones/target/
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Binarios generados (se reconstruyen con mvn package)
+*.exe
+*.jar
+*.war
+*.ear
+*.zip
+*.rar
+
+# Modelo StarUML (fuente pesada, va en docs si se necesita)
+*.mdj
+
+# IntelliJ / NetBeans
+.idea/
+*.iml
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local
+local.properties
